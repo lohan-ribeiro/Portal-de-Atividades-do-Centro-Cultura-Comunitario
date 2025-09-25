@@ -1,0 +1,26 @@
+{
+  "name": "projeto-integrador-ii",
+  "version": "1.0.0",
+  "description": "site para divulgaçao das atividades do CEU rosa da china",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/grupo-pi-ii/projeto-integrador-ii.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/grupo-pi-ii/projeto-integrador-ii/issues"
+  },
+  "homepage": "https://gitlab.com/grupo-pi-ii/projeto-integrador-ii#readme",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
