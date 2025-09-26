@@ -1,3 +1,5 @@
+OBS: alguns arquivos ja contem codigo, porque foram gerados com "npx", nao necessariamente precisa usar o codigo contido neles
+
 TAREFAS:
 -NODE.JS - backend
     API / Comunicação com o frontend
@@ -90,4 +92,7 @@ BIBLIOTECA:
     nodemon - Reinicia automaticamente o servidor sempre que algum arquivo do projeto é alterado. foi usado a 
     dependencia "--save-dev" indica que essa dependência não é necessária em produção, apenas durante o desenvolvimento.
 
-
+FERRAMENTAS:
+    Vite - O Vite é uma ferramenta de build e servidor de desenvolvimento rápido para React. Ele proporciona carregamento 
+    quase instantâneo, suporte nativo a módulos modernos e uma configuração simples, tornando o processo de desenvolvimento 
+    mais ágil e eficiente em comparação ao Create React App.
