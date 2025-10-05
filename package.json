@@ -17,6 +17,7 @@
   },
   "homepage": "https://gitlab.com/grupo-pi-ii/projeto-integrador-ii#readme",
   "dependencies": {
-    "dotenv": "^17.2.2"
+    "dotenv": "^17.2.2",
+    "react-router-dom": "^7.9.3"
   }
 }
