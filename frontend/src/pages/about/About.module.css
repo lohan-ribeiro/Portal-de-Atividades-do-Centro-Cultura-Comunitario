@@ -1,0 +1,35 @@
+.container{
+    font-size: 16px;
+    text-align: left;
+    padding: 10px 20px;
+    margin: 0;
+    line-height: 1.5;
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+    color: black;
+}
+
+.tille{
+    
+    font-size: 35px;
+    padding: 10px;
+    
+}
+.content{
+    padding: 10px 10px;
+    
+}
+
+.h3{
+    font-size: 25px;
+    padding-top: 20px;
+    
+}
+
+.item{
+    margin-right: 1em;
+    list-style: none; 
+    padding-top: 20px;
+    line-height: 11px;
+    padding: 10px 10px;
+}
