@@ -1,25 +1,32 @@
 .footer {
-    background-color: #333;
-    color: white;
-    font-size: 16px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 2;
+  padding-top: 1em;
+}
+
+.footer address { 
+  font-style: normal;
+  font-family: Arial, Helvetica, sans-serif; 
+  margin: 0; 
 }
 
 .container {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    padding: 10px 20px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 10px 20px;
 }
 
 .logo {
-    padding-left: 30px;
-    height: 60px;
-    width: auto;
-    object-fit: contain;
+  padding-left: 30px;
+  height: 60px;
+  width: auto;
+  object-fit: contain;
 }
 
 .leftsection{
@@ -29,39 +36,65 @@
 }
 
 .contact {
-    padding-right: 0px;
-    text-align: left;
-    line-height: 1.5;
-    list-style: none;
+  padding-right: 0px;
+  text-align: left;
+  list-style: none;
+}
+
+.email{
+  text-decoration: none;
+  color: white;
+}
+
+.email a:hover{
+  color: #00bfff;
+}
+
+.contact_icons{
+  size: 16;
+  vertical-align: middle;
+  padding-right: 0.2em;
+  gap: 8px;
+}
+
+.contact a{
+  color: white;
+  text-decoration: none;
+}
+
+.contact a:hover{
+  color: #00bfff;
 }
 
 .social {
-    padding-right: 100px;
-    text-align: right;
+  font-size: 16px;
+  padding-right: 5em;
+  text-align: right;
 }
 
-.icons {
-    display: flex;
-    gap: 10px;
-    margin-top: 5px;
+.social_icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
 }
 
-.icons a {
-    color: white;
-    font-size: 20px;
-    transition: color 0.3s;
+.social_icons a {
+  color: white;
+  font-size: 20px;
+  transition: color 0.3s;
 }
 
-.icons a:hover {
-    color: #00bfff;
+.social_icons a:hover {
+  color: #00bfff;
 }
 
 .copyright {
-    text-align: center;
-    font-size: 10px;
-    background-color: #222;
-    color: white;
-    padding: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  background-color: #222;
+  color: white;
+  padding: 0.6em;
 }
 
 @media (max-width: 768px) {

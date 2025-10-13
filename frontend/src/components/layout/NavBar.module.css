@@ -1,4 +1,5 @@
 .navbar {
+    
     display: flex;              
     justify-content: space-between; 
     padding: 1em;
@@ -8,12 +9,11 @@
 }
 
 .logo {
-    width: auto;
-    margin: 0;
-    padding: 0;
-    height: 60px;
+    display: block;
+    width: 100px;
+    height: auto;
     object-fit: contain;
-    zoom: 1.4;
+    background: transparent;
 }
 
 .list {
@@ -22,6 +22,7 @@
     align-items: center;
     padding: 0;
     margin: 0;
+    
 }
 
 .item {
@@ -45,11 +46,16 @@
 }
 
 @media (max-width: 768px){
+    .navbar{
+        padding: 0.8em;
+    }
+
     .logo{
+        width: auto;
         height: 42px;
     }
 
     .list{
-        padding-left: 2em;
+        padding-left: 0em;
     }
 }

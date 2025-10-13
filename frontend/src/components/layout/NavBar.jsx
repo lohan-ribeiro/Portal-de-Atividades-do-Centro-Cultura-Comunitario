@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom"
 import styles from "./NavBar.module.css"
-import logo from "../assets/img/logo do CEU rosa da china 2.jpg"
+import logo from "../../assets/img/logoCeuRosadaChina.jpg"
 
 function NavBar(){
 
     return(
-        <nav className= {styles.navbar}>
-            <NavLink>
+        <nav aria-label="Navegação principal" className= {styles.navbar}>
+            <NavLink to="/">
                 <img src={logo} alt="logo do CEU Rosa da China" className={styles.logo} />
             </NavLink>
             
