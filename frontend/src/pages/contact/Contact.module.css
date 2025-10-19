@@ -3,10 +3,14 @@
     align-items: flex-start;
     justify-content: center;
     gap: 2em;
-    font-size: 16px;
     padding: 4em;
-    color: black;
 }
+
+h1, h2{
+    cursor: default;
+}
+
+/* área dos meios de contato */
 
 .container_contact{
     max-width: 500px;
@@ -17,15 +21,25 @@
     margin-left: 4em;
 }
 
+.container_contact h1{
+    font-size: 35px;
+    padding: 0.8em 0em;
+}
+
+
+/* config do email */
+
 .email{
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .email:hover{
-    color: #00bfff;
+    color: #59c5ea;
     text-decoration: underline;
 }
+
+/* config da localizaçao */
 
 .location{
     text-decoration: none;
@@ -33,13 +47,10 @@
 }
 
 .location:hover{
-    color: #00bfff;
+    color: #59c5ea;
 }
 
-.container_contact h1{
-    font-size: 35px;
-    padding: 0.8em 0em;
-}
+/* área das redes sociais */
 
 .container_contact h2{
     font-size: 20px;
@@ -51,7 +62,7 @@
 .item{
     align-items: center;
     list-style: none;
-    line-height: 1.5;
+    line-height: 2;
 }
 
 .item_icons{
@@ -66,21 +77,22 @@
 }
 
 .social a{
-    color: black;
+    color: #43727a;
     font-size: 25px;
     transition: color 0.3s;
 }
 
 .social a:hover{
-    color: #00bfff;
+    color: #FF7A00;
 }
+
+/* formulário */
 
 .container_form{
     max-width: 500px;
     width: 40%;
     justify-content: center;
     align-items: center;
-    text-align: left;
     margin: 0em;
     padding: 1em;
     
@@ -109,7 +121,7 @@
     margin-bottom: .6em;
     padding: .6em;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #59c5ea;
     box-shadow: 1px 1px 1px #999;
 }
 
@@ -117,36 +129,60 @@
     padding: 1em;
     margin-bottom: .6em;
     width: 100%;
+    min-height: 30vh;
     line-height: 1.5;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #59c5ea;
     box-shadow: 1px 1px 1px #999;
 }
 
+/* botões do formulário */
+
 button{
-    background-color: white;
+    color: white;
+    background-color: #43727a;
     border-radius: 5px;
     margin-right: 1em;
     padding: 0.5em;
-    border: 1px solid #ccc;
+    border: 1px solid #59c5ea;
     box-shadow: 1px 1px 1px #999;
     cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 button:hover{
-    color: #00bfff;
+    color: #FF7A00;
 }
 
 @media (max-width: 768px){
     .container{
-        padding: 1em;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1.5em;
+        padding: 1em;
     }
 
     .container_contact{
-        padding: 0.5em;
+        width: 100%;
+        padding: 1em;
+        margin: 0;
     }
+
+    .container_form{
+        padding: 1em;
+        margin-bottom: 5em;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024px){
+    .container{
+        padding: 0;
+    }
+}
+
+.container_form input:focus, label:focus, textarea:focus {
+    outline: none;
 }

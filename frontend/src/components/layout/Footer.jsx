@@ -1,6 +1,6 @@
 import { FaFacebook, FaInstagram, FaPhone, FaEnvelope, FaMapPin} from "react-icons/fa"
 import styles from "./Footer.module.css"
-import logo from "../../assets/img/logoCeuRosadaChina.jpg"
+import logo from "../../assets/img/CEU_footer.png"
 import { NavLink } from "react-router-dom"
 import {LuMapPin} from "react-icons/lu"
 
@@ -8,23 +8,23 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <address>
-        <div className={styles.container}>
-          <div className={styles.leftsection}>
+        <div className={styles.content_footer}>
+          <div className={styles.container_ceuInformation}>
             <NavLink to="/">
               <img
                 src={logo}
                 alt="logo do CEU Rosa da China"
-                className={styles.logo}
+                className={styles.logo_ceu}
               />
             </NavLink>
             <ul className={styles.contact}>
-              <li><FaPhone className={styles.contact_icons}/>Telefone: (11) 2701-2358</li>
-              <li><LuMapPin size={22} className={styles.contact_icons}/> Endereço:{" "}
+              <li><span>Telefone:</span>{" "} (11) 2701-2358</li>
+              <li><span>Endereço:</span>{" "}
                 <a href="https://maps.app.goo.gl/Rp8foy6VvnwMxZxr5" target="_blank" rel="noreferrer">
                   Rua Clara Petrela, 113, São Paulo, SP, Brazil, 03978-500
                 </a>
               </li>
-              <li><FaEnvelope className={styles.contact_icons}/> E-mail:{" "} 
+              <li><span>E-mail:</span>{" "} 
                 <a href="mailto:atendimentoceurosadachina@gmail.com" className={styles.email}>
                   atendimentoceurosadachina@gmail.com
                 </a>
@@ -45,9 +45,11 @@ function Footer() {
           </div>
         </div>
       </address>
-      <p className={styles.copyright}>
-          &copy; 2025 Todos os direitos reservados Projeto Integrador 2
-        </p>
+      <div className={styles.copyright}>
+          <p>
+            &copy; 2025 Todos os direitos reservados Projeto Integrador 2
+          </p>
+      </div>
     </footer>
   )
 }

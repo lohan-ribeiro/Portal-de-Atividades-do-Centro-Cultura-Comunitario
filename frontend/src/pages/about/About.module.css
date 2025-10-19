@@ -1,52 +1,144 @@
 .container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
     width: 100%;
-    font-size: 16px;
-    padding: 2em;
-}
-
-.container h1{
-    text-align: center;
-    font-size: 35px;
-    padding: 1em;
 }
 
 .background{
-    height: auto;
-    width: 100%;
-    background-image: url(frontend\src\assets\img\backgroundUnivespAbout.png);
+    background-image: url(../../assets/img/About_background.png);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center; 
+    padding-left: 8%;
+    padding-top: 3em;
 }
+
+/* conteúdo Sobre Nós */
 
 .content_about{
     text-align: left;
-    padding: 2em;
+    max-width: 800px;
 }
 
+.content_about h1{
+   font-size: 35px;
+   margin-bottom: 2em;
+}
+
+.content_about p{
+    color: black;
+    padding-bottom: 8em;
+}
+
+.content_about span{
+    color: #ad1f26;
+}
+
+.content_about a{
+    text-decoration: none;
+    color: #ad1f26;
+}
+
+.content_about a:hover , a:focus{
+    text-decoration: underline;
+    color: #ad1f26;
+}
+
+/* conteudo Nossa Equipe */
+
 .content_team{
-   text-align: start;
+   text-align: left;
+   padding-top: 1em;
 }
 
 .content_team h2{
     font-size: 25px;
-    text-align: left;
-    padding-left: 1.2em;
+    padding-bottom: 1em;
 }
-.content_team ul{
-    padding: 2em;
-}
+
 .content_team li{
     line-height: 1.8;
     list-style: none; 
 }
 
+.content_team span{
+    color: #ad1f26;
+}
+
+/* Imagem da Logo Univesp */
+
+.content_Univesp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12em;
+    margin-bottom: 3em;
+}
+
+.content_Univesp img{
+    height: auto;
+    width: 100%;
+    max-width: 350px;
+}
+
 @media (max-width: 768px){
+    .background{
+       background-image: none;
+    }
 
     .container{
-        padding: 1em;
+        padding: 0em;
+    }
+
+    .content_about{
+        padding-right: 0.7em;
+    }
+
+    .content_about h1{
+        margin-bottom: 1em;
+    }
+
+    .content_about p{
+        margin-bottom: 5em;
+        margin-right: 0;
+        padding: 0;
+    }
+
+    .content_team h2{
+        padding: 0;
+        padding-top: 2em;
+    }
+
+    .content_team ul{
+        margin-bottom: 3em;
+        padding: 2em 0em;
+    }
+
+    .content_Univesp{
+        margin-top: 4em;
+    }
+
+    .content_Univesp img{
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 1024px){
+    .background{
+        background-image: none;
+    }
+
+    .content_about p{
+        margin: 0;
+    }
+
+    .content_Univesp img{
+        max-width: 300px;
     }
 }
