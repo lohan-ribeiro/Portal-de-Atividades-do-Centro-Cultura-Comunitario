@@ -1,6 +1,8 @@
-import { FaFacebook, FaInstagram, FaPhone, FaEnvelope, FaMap } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaPhone, FaEnvelope } from "react-icons/fa";
 import {LuMapPin} from "react-icons/lu"
+
 import styles from "./Contact.module.css";
+
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -9,6 +11,7 @@ function Contact() {
   const [status, setStatus] = useState("");
   const [emailError, setEmailErro] = useState("")
 
+  /* funçao para validar email a partir da ordem do caracteres. Não ideal, mas evita digita qualquer coisa no email */
   const validarEmail = (email) =>{
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return regex.test(email)
@@ -51,7 +54,7 @@ function Contact() {
 
   return (
       <main className={styles.container}>
-        <section className={styles.container_contact}>
+        <section className={styles.container_contact} aria-labelledby="Entre em contato com a agente">
             <h1>Contate-Nos</h1>
             <ul className={styles.item}>
               <li><FaPhone aria-label="Telefone"/>{" "}(11) 2701-2358</li>
@@ -77,7 +80,7 @@ function Contact() {
             </div>
         </section>
 
-        <section className={styles.container_form}>
+        <section className={styles.container_form} aria-labelledby="Formulário de contato">
             <h1>Formulário de Contato</h1>
             <form ref={form} onSubmit={sendEmail} aria-label="formulário de contato">
               <label htmlFor="name">Nome:</label>

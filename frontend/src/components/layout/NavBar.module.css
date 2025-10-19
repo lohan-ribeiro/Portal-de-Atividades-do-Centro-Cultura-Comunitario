@@ -1,61 +1,63 @@
 .navbar {
-    
     display: flex;              
     justify-content: space-between; 
-    padding: 1em;
-    background-color: #222;
+    background-color: #333;
+    box-shadow: 0 3px 7px 1px #333;
     width: 100%;
-    margin: 0;
+    padding: 0.6em;
+    font-size: 20px;
 }
+
+/* LOGO CEU */
 
 .logo {
     display: block;
-    width: 100px;
-    height: auto;
-    object-fit: contain;
-    background: transparent;
+    max-width: 200px;
+    width: 100%;
+    height:auto;
+    max-height: 60px;
 }
+
+.logo:hover {
+    border: 2px solid #59c5ea;
+    transform: scale(1.05);
+}
+
+/* NAVEGAÇÃO */
 
 .list {
     display: flex;
     list-style: none;
     align-items: center;
-    padding: 0;
-    margin: 0;
-    
 }
 
-.item {
+.list li{
     margin-right: 1.3em;
 }
 
-.item a {
+.list a {
     color: #FFF;
     text-decoration: none;
 }
 
-.list a:hover,
-.list a:focus {
+.list a:hover {
     text-decoration: none;
-    color: #00bfff;
+    color: #59c5ea;
 }
 
-.list a.active {
-    color: #00bfff;
-    font-weight: bold;
+.list a:active {
+    color: #59c5ea;
 }
 
 @media (max-width: 768px){
     .navbar{
-        padding: 0.8em;
+       font-size: 14px;
+       margin: 0;
     }
 
     .logo{
-        width: auto;
-        height: 42px;
-    }
-
-    .list{
-        padding-left: 0em;
+        max-width: 200px;
+        width: 100%;
+        height: auto;
     }
 }

@@ -1,3 +1,33 @@
-.container{
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1.5em;
+    margin-right: 3em;
     padding: 1em;
+    background-color: white;
+    border: 1px solid #59c5ea;
+    box-shadow: 1px 1px 1px #999;
+    border-radius: 5px;
+}
+
+.card h3{
+    margin-bottom: 0.5em;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: default;
+}
+
+.card p{
+    padding: 0.2em 0em;
+    text-transform: uppercase;
+    cursor: default;
+}
+
+@media (max-width: 768px){
+    .card{
+        margin-right: 0;
+        padding: .5em;
+    }
 }

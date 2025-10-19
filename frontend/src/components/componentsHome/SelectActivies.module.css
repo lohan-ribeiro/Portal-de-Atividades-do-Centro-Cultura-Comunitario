@@ -1,0 +1,61 @@
+.container{
+    padding: 1em;
+    
+}
+
+.container{
+    padding: 1em;
+    overflow: visible;
+    background-color: white;
+}
+
+.container select{
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    padding: 1em 3em 1em 1em;
+    text-transform: uppercase;
+    border: 2px solid #59c5ea;
+    box-shadow: 1px 1px 1px #999;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+
+    /* centraliza o texo do select */
+    text-align: center;
+    text-align-last: center;
+    direction: ltr;
+    
+    /* remove seta nativa do select */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    /* seta personalizada do select */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath fill='%2359c5ea' d='M0 0l5 6 5-6H0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+    background-size: .8em;
+}
+
+.container select option{
+    text-align: center;
+}
+
+.container option:hover{
+    cursor: pointer;
+    color: #59c5ea;
+}
+
+.container select:focus{
+    outline: none;
+}
+
+@media (max-width: 768px){
+    .container select{
+        width: 100%;
+        height: auto;
+        padding: 1em;
+    }
+
+}

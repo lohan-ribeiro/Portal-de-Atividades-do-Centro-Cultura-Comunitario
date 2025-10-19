@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import styles from "./NavBar.module.css"
-import logo from "../../assets/img/logoCeuRosadaChina.jpg"
+import logo from "../../assets/img/CEU_navbar.png"
 
 function NavBar(){
 
@@ -11,15 +11,15 @@ function NavBar(){
             </NavLink>
             
             <ul className={styles.list}>
-                <li className={styles.item}>
+                <li>
                     <NavLink to="/">INÍCIO</NavLink>
-                    </li>
-                <li className={styles.item}>
-                    <NavLink to="/Contact">CONTATO</NavLink>
-                    </li>
-                <li className={styles.item}>
+                </li>
+                <li>
                     <NavLink to="/About">SOBRE</NavLink>
-                    </li> 
+                </li>
+                <li>
+                    <NavLink to="/Contact">CONTATO</NavLink>
+                </li> 
             </ul>
         </nav>
     )
