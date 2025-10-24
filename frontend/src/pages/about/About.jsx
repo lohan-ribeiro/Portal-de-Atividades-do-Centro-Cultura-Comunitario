@@ -30,7 +30,7 @@ function About(){
                             <li>Ronald Odair Oliveira Juliao</li>
                             <li>Wilson Ademar de Arruda</li>
                             <li>Lohan Ribeiro Cerqueira</li>
-                            <li>Lucas Souza Fraga</li>
+                            <li>Lucas Sousa Fraga</li>
                         </ul>
                     </section>
                 </div>
