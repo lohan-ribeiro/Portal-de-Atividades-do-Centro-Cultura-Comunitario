@@ -1,4 +1,4 @@
-.container {
+.container_contact {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -6,13 +6,21 @@
     padding: 4em;
 }
 
+<<<<<<< HEAD
 h1, h2{
+=======
+.container h1, h2{
+>>>>>>> frontend
     cursor: default;
 }
 
 /* área dos meios de contato */
 
+<<<<<<< HEAD
 .container_contact{
+=======
+.content_contact{
+>>>>>>> frontend
     max-width: 500px;
     justify-content: center;
     text-align: left;
@@ -21,8 +29,14 @@ h1, h2{
     margin-left: 4em;
 }
 
+<<<<<<< HEAD
 .container_contact h1{
     font-size: 35px;
+=======
+.content_contact h1{
+    font-size: 30px;
+    text-transform: uppercase;
+>>>>>>> frontend
     padding: 0.8em 0em;
 }
 
@@ -52,9 +66,10 @@ h1, h2{
 
 /* área das redes sociais */
 
-.container_contact h2{
+.content_contact h2{
     font-size: 20px;
     font-weight: bold;
+
     padding-top: 3em;
     padding-bottom: 1em;
 }
@@ -70,14 +85,20 @@ h1, h2{
 }
 
 .social{
-    list-style: none;
     display: flex;
     flex-direction: row;
+
+    list-style: none;
+
     gap: 0.8em;
 }
 
 .social a{
+<<<<<<< HEAD
     color: #43727a;
+=======
+    color: #1A4C54;
+>>>>>>> frontend
     font-size: 25px;
     transition: color 0.3s;
 }
@@ -88,11 +109,20 @@ h1, h2{
 
 /* formulário */
 
+<<<<<<< HEAD
 .container_form{
+=======
+.content_form{
+>>>>>>> frontend
     max-width: 500px;
     width: 40%;
+
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
+=======
+
+>>>>>>> frontend
     margin: 0em;
     padding: 1em;
     
@@ -104,30 +134,52 @@ h1, h2{
     margin-bottom: 0.5em;
 }
 
-.container_form h1{
-    font-size: 35px;
+.content_form h3{
+    font-size: 30px;
+    text-transform: uppercase;
     padding: 0.8em 0em;
 }
 
-.container_form label{
+.content_form label{
     display: flex;
     flex-direction: column;
+
     font-weight: bold;
+
     margin-bottom: .4em;
 }
 
-.container_form input{
-    width: 100%;
-    margin-bottom: .6em;
-    padding: .6em;
+.content_form input{
+    border: 1px solid #59c5ea;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
     border-radius: 5px;
+<<<<<<< HEAD
     border: 1px solid #59c5ea;
     box-shadow: 1px 1px 1px #999;
+=======
+    
+    width: 100%;
+
+    padding: .6em;
+    margin-bottom: .6em;
+>>>>>>> frontend
 }
 
-.container_form textarea{
+.content_form input:focus-visible{
+    outline: solid #FF7A00;
+}
+
+.content_form textarea{
+    border: 1px solid #59c5ea;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    border-radius: 5px;
+    
+    min-height: 30vh;
+    width: 100%;
+
     padding: 1em;
     margin-bottom: .6em;
+<<<<<<< HEAD
     width: 100%;
     min-height: 30vh;
     line-height: 1.5;
@@ -141,48 +193,120 @@ h1, h2{
 button{
     color: white;
     background-color: #43727a;
+=======
+    line-height: 1.5;
+}
+
+.content_form textarea:focus-visible{
+    outline: solid #FF7A00;
+}
+
+/* botões do formulário */
+
+.content_form button{
+    background-color: #1A4C54;
+    border: 1px solid #59c5ea;
+    box-shadow: 1px 1px 1px #999;
+>>>>>>> frontend
     border-radius: 5px;
+    cursor: pointer;
+    
     margin-right: 1em;
     padding: 0.5em;
+<<<<<<< HEAD
     border: 1px solid #59c5ea;
     box-shadow: 1px 1px 1px #999;
     cursor: pointer;
+=======
+    
+    color: white;
+>>>>>>> frontend
     text-transform: uppercase;
     font-weight: bold;
 }
 
+<<<<<<< HEAD
 button:hover{
     color: #FF7A00;
 }
 
 @media (max-width: 768px){
     .container{
+=======
+.content_form button:hover{
+    color: #FF7A00;
+}
+
+.container_map{
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_map h4{
+    width: 100%;
+    font-size: 30px;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+@media (max-width: 768px){
+    .container_contact{
+>>>>>>> frontend
         display: flex;
         flex-direction: column;
         align-items: center;
+
         gap: 1.5em;
         padding: 1em;
     }
 
+<<<<<<< HEAD
     .container_contact{
+=======
+    .content_contact{
+>>>>>>> frontend
         width: 100%;
         padding: 1em;
         margin: 0;
     }
 
+<<<<<<< HEAD
     .container_form{
+=======
+    .content_form{
+>>>>>>> frontend
         padding: 1em;
         margin-bottom: 5em;
         width: 100%;
     }
+<<<<<<< HEAD
 }
 
 @media (max-width: 1024px){
     .container{
+=======
+
+    .container_map h4{
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 1024px){
+    .container_contact{
+>>>>>>> frontend
         padding: 0;
     }
 }
 
+<<<<<<< HEAD
 .container_form input:focus, label:focus, textarea:focus {
     outline: none;
 }
+=======
+>>>>>>> frontend

@@ -1,11 +1,16 @@
 .footer {
   background-color: #333;
+  width: 100%;
+
   color: white;
   font-size: 14px;
+<<<<<<< HEAD
+=======
+  line-height: 2;
+
+>>>>>>> frontend
   bottom: 0;
   left: 0;
-  width: 100%;
-  line-height: 2;
   padding-top: 1em;
 }
 
@@ -17,6 +22,10 @@
   display: flex;
   justify-content: space-between; 
   align-items: center;
+<<<<<<< HEAD
+=======
+
+>>>>>>> frontend
   padding: .6em 1em;
 }
 
@@ -26,6 +35,10 @@
   height: auto;
   max-width: 100px;
   width: 100%;
+<<<<<<< HEAD
+=======
+
+>>>>>>> frontend
   margin-left: 2em;
   margin-right: 2em;
 }
@@ -37,6 +50,10 @@
   flex-direction: row;
   align-items: center;
   text-align: left;
+<<<<<<< HEAD
+=======
+
+>>>>>>> frontend
   gap: 2em;
 }
 
@@ -95,15 +112,29 @@
 /* DIREITOS PI2*/
 
 .copyright {
+  display: flex;
+  justify-content: center;
   width: 100%;
+<<<<<<< HEAD
   text-align: center;
   font-size: 12px;
+=======
+>>>>>>> frontend
   background-color: #222;
+
   color: white;
+<<<<<<< HEAD
   padding: 0.8em 0em;
   margin-top: 1em;
   display: flex;
   justify-content: center;
+=======
+  text-align: center;
+  font-size: 12px;
+  
+  padding: 0.8em 0em;
+  margin-top: 1em;
+>>>>>>> frontend
 }
 
 @media (max-width: 768px) {

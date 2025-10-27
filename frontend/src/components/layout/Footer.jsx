@@ -1,8 +1,7 @@
-import { FaFacebook, FaInstagram, FaPhone, FaEnvelope, FaMapPin} from "react-icons/fa"
+import { FaFacebook, FaInstagram} from "react-icons/fa"
 import styles from "./Footer.module.css"
 import logo from "../../assets/img/CEU_footer.png"
 import { NavLink } from "react-router-dom"
-import {LuMapPin} from "react-icons/lu"
 
 function Footer() {
   return (
@@ -13,7 +12,11 @@ function Footer() {
             <NavLink to="/">
               <img
                 src={logo}
+<<<<<<< HEAD
                 alt="logo do CEU Rosa da China"
+=======
+                alt="CEU Rosa da China"
+>>>>>>> frontend
                 className={styles.logo_ceu}
               />
             </NavLink>
@@ -35,10 +38,10 @@ function Footer() {
           <div className={styles.social}>
             <p>Siga-nos:</p>
             <div className={styles.social_icons}>
-              <a href="https://www.facebook.com/ceurosachina" target="_blank" rel="noreferrer">
+              <a href="https://www.facebook.com/ceurosachina" target="_blank" rel="noreferrer" aria-label="Facebook">
                 <FaFacebook />
               </a>
-              <a href="https://instagram.com/ceu.rosadachina" target="_blank" rel="noreferrer">
+              <a href="https://instagram.com/ceu.rosadachina" target="_blank" rel="noreferrer" aria-label="Instagram">
                 <FaInstagram />
               </a>
             </div>

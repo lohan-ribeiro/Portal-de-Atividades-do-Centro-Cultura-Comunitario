@@ -8,7 +8,11 @@
 html, body, #root {
   height: 100%;
   width: 100%;
+<<<<<<< HEAD
   background-color: F5F9FC; 
+=======
+  background-color: #F5F9FC; 
+>>>>>>> frontend
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   word-spacing: 0.2em;
@@ -23,7 +27,11 @@ html, body, #root {
 }
 
 .content {
+<<<<<<< HEAD
   flex: 1; 
+=======
+  flex: 1;
+>>>>>>> frontend
 }
 
 button {
@@ -40,6 +48,7 @@ p {
   max-width: 65ch;
 }
 
+<<<<<<< HEAD
 :focus{
   outline: none;
 }
@@ -51,4 +60,10 @@ button:focus-visible,
 a:focus-visible {
   outline: 2px dashed #FF7A00;
   outline-offset: 2px;
+=======
+a:focus-visible,
+button:focus-visible{
+  outline: 2px solid #FF7A00;
+  outline-offset: 4px;
+>>>>>>> frontend
 }
