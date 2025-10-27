@@ -37,15 +37,9 @@
             "disponivel_em":"CEU - Rosa da China"
         },
         {
-<<<<<<< HEAD
-            "id": 3,
-            "nome":"Futsal",
-            "nível":"intermediario",
-=======
             "id": 4,
             "nome":"Futsal",
             "nível":"Intermediario",
->>>>>>> frontend
             "local":"Quadra",
             "professor":"Paulo",
             "horario":"9h a 10h",
@@ -53,8 +47,7 @@
             "idade":"Adolecente",
             "dias":"seg/ter",
             "disponivel_em":"CEU - Rosa da China"
-<<<<<<< HEAD
-=======
+
         },
         {
             "id": 5,
@@ -91,7 +84,6 @@
             "idade":"Adulto",
             "dias":"seg/ter",
             "disponivel_em":"CEU - Rosa da China"
->>>>>>> frontend
         }
         
         

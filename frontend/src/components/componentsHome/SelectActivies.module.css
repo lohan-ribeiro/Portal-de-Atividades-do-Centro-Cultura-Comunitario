@@ -1,15 +1,4 @@
-<<<<<<< HEAD
 .container{
-    padding: 1em;
-    
-}
-
-.container{
-    padding: 1em;
-=======
-
-.container{
->>>>>>> frontend
     overflow: visible;
     background-color: white;
 }
@@ -17,17 +6,6 @@
 .container select{
     display: block;
     width: 100%;
-<<<<<<< HEAD
-    font-size: 16px;
-    padding: 1em 3em 1em 1em;
-    text-transform: uppercase;
-    border: 2px solid #59c5ea;
-    box-shadow: 1px 1px 1px #999;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-
-=======
     width: 400px;
 
     border: 2px solid #59c5ea;
@@ -41,7 +19,6 @@
 
     padding: 1em 3em 1em 1em;
 
->>>>>>> frontend
     /* centraliza o texo do select */
     text-align: center;
     text-align-last: center;
@@ -59,26 +36,12 @@
     background-size: .8em;
 }
 
-<<<<<<< HEAD
-.container select option{
-    text-align: center;
-}
-
-.container option:hover{
-    cursor: pointer;
-    color: #59c5ea;
-}
-
-.container select:focus{
-    outline: none;
-=======
-.container select:focus-visible{
+ select:focus-visible{
     border-color: #FF7A00;
 }
 
 .container select option{
     text-align: left;
->>>>>>> frontend
 }
 
 @media (max-width: 768px){
@@ -86,11 +49,9 @@
         width: 100%;
         height: auto;
         padding: 1em;
-<<<<<<< HEAD
-=======
+
         background-position: right .2em center;
         background-size: .6em;
->>>>>>> frontend
     }
 
 }

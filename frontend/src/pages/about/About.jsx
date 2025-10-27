@@ -8,11 +8,7 @@ function About(){
             <div className={styles.container}>
                 <div className={styles.background}>
                     <section className={styles.content_about} aria-labelledby="Sobre nós">
-<<<<<<< HEAD
-                        <h1>Sobre  <span>Nós</span></h1>
-=======
                         <h1>Quem Somos <span>Nós</span>?</h1>
->>>>>>> frontend
                         <p>
                             Somos um grupo de estudantes do eixo de Computação da <a href="https://univesp.br/" target="blank" rel="noreferrer">UNIVESP</a> e, como proposta para o Projeto Integrador,
                             identificamos que o CEU Rosa da China oferece diversas atividades gratuitas para a comunidade local.

@@ -12,11 +12,7 @@ function Footer() {
             <NavLink to="/">
               <img
                 src={logo}
-<<<<<<< HEAD
-                alt="logo do CEU Rosa da China"
-=======
                 alt="CEU Rosa da China"
->>>>>>> frontend
                 className={styles.logo_ceu}
               />
             </NavLink>

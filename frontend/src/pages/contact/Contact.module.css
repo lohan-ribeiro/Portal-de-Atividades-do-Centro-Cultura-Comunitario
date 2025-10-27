@@ -6,21 +6,13 @@
     padding: 4em;
 }
 
-<<<<<<< HEAD
-h1, h2{
-=======
 .container h1, h2{
->>>>>>> frontend
     cursor: default;
 }
 
 /* área dos meios de contato */
 
-<<<<<<< HEAD
-.container_contact{
-=======
 .content_contact{
->>>>>>> frontend
     max-width: 500px;
     justify-content: center;
     text-align: left;
@@ -29,14 +21,9 @@ h1, h2{
     margin-left: 4em;
 }
 
-<<<<<<< HEAD
-.container_contact h1{
-    font-size: 35px;
-=======
 .content_contact h1{
     font-size: 30px;
     text-transform: uppercase;
->>>>>>> frontend
     padding: 0.8em 0em;
 }
 
@@ -94,11 +81,7 @@ h1, h2{
 }
 
 .social a{
-<<<<<<< HEAD
-    color: #43727a;
-=======
     color: #1A4C54;
->>>>>>> frontend
     font-size: 25px;
     transition: color 0.3s;
 }
@@ -109,20 +92,14 @@ h1, h2{
 
 /* formulário */
 
-<<<<<<< HEAD
-.container_form{
-=======
 .content_form{
->>>>>>> frontend
     max-width: 500px;
     width: 40%;
 
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
-=======
 
->>>>>>> frontend
+
     margin: 0em;
     padding: 1em;
     
@@ -153,16 +130,11 @@ h1, h2{
     border: 1px solid #59c5ea;
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
     border-radius: 5px;
-<<<<<<< HEAD
-    border: 1px solid #59c5ea;
-    box-shadow: 1px 1px 1px #999;
-=======
     
     width: 100%;
 
     padding: .6em;
     margin-bottom: .6em;
->>>>>>> frontend
 }
 
 .content_form input:focus-visible{
@@ -179,21 +151,6 @@ h1, h2{
 
     padding: 1em;
     margin-bottom: .6em;
-<<<<<<< HEAD
-    width: 100%;
-    min-height: 30vh;
-    line-height: 1.5;
-    border-radius: 5px;
-    border: 1px solid #59c5ea;
-    box-shadow: 1px 1px 1px #999;
-}
-
-/* botões do formulário */
-
-button{
-    color: white;
-    background-color: #43727a;
-=======
     line-height: 1.5;
 }
 
@@ -207,32 +164,17 @@ button{
     background-color: #1A4C54;
     border: 1px solid #59c5ea;
     box-shadow: 1px 1px 1px #999;
->>>>>>> frontend
     border-radius: 5px;
     cursor: pointer;
     
     margin-right: 1em;
     padding: 0.5em;
-<<<<<<< HEAD
-    border: 1px solid #59c5ea;
-    box-shadow: 1px 1px 1px #999;
-    cursor: pointer;
-=======
-    
+
     color: white;
->>>>>>> frontend
     text-transform: uppercase;
     font-weight: bold;
 }
 
-<<<<<<< HEAD
-button:hover{
-    color: #FF7A00;
-}
-
-@media (max-width: 768px){
-    .container{
-=======
 .content_form button:hover{
     color: #FF7A00;
 }
@@ -257,7 +199,6 @@ button:hover{
 
 @media (max-width: 768px){
     .container_contact{
->>>>>>> frontend
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -266,31 +207,17 @@ button:hover{
         padding: 1em;
     }
 
-<<<<<<< HEAD
-    .container_contact{
-=======
     .content_contact{
->>>>>>> frontend
         width: 100%;
         padding: 1em;
         margin: 0;
     }
 
-<<<<<<< HEAD
-    .container_form{
-=======
     .content_form{
->>>>>>> frontend
         padding: 1em;
         margin-bottom: 5em;
         width: 100%;
     }
-<<<<<<< HEAD
-}
-
-@media (max-width: 1024px){
-    .container{
-=======
 
     .container_map h4{
         margin-top: 0;
@@ -299,14 +226,8 @@ button:hover{
 
 @media (max-width: 1024px){
     .container_contact{
->>>>>>> frontend
+
         padding: 0;
     }
 }
 
-<<<<<<< HEAD
-.container_form input:focus, label:focus, textarea:focus {
-    outline: none;
-}
-=======
->>>>>>> frontend
