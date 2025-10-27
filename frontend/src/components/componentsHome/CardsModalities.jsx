@@ -9,7 +9,7 @@ function CardsModalities ({modalidade}){
         <div className={styles.card}>
             <h3>{modalidade.nome}</h3>
             <p><strong>Idade: </strong>{modalidade.idade}</p>
-            <p><strong>Nivel: </strong>{modalidade.nivel}</p>
+            <p><strong>Nível: </strong>{modalidade.nível}</p>
             <p><strong>Turno: </strong>{modalidade.turno}</p>
             <p><strong>Horario: </strong>{modalidade.horario}</p>
             <p><strong>Dias: </strong>{modalidade.dias}</p>
@@ -25,7 +25,7 @@ function CardsModalities ({modalidade}){
 CardsModalities.propTypes = {
     modalidade:PropTypes.shape({
         idade:PropTypes.string.isRequired,
-        nivel:PropTypes.string.isRequired,
+        nível:PropTypes.string.isRequired,
         turno:PropTypes.string.isRequired,
         horario:PropTypes.string.isRequired,
         dias:PropTypes.string.isRequired,

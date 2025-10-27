@@ -11,19 +11,19 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: 3px 3px 3px 1px #999;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     width: 100%;
-    height: 100vh;
+    height: 120vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 1%;
+    padding-left: 4%;
 }
 
 /* Conteúdo de introdução */
 
 .introduction_container{
-    padding: 1em;
+    padding: 1.8em;
 }
 
 .introduction_content{
@@ -45,8 +45,8 @@
     color: black;
     font-size: 20px;
     padding-bottom: 1em;
+    margin-right: 1em;
 }
-
 /* CARDS DE ATIVIDADES */
 
 .activies_container{
@@ -55,13 +55,15 @@
     align-items: center;
     justify-content: center;
     text-align: left;
+
     padding: 0;
+    margin-bottom: 15em;
 }
 
 .activies_container h2{
     width: 100%;
-    background-color: #43727a;
-    box-shadow: 3px 1px 3px 3px #999;
+    background-color: #1A4C54;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
     color: white;
     font-size: 30px;
     padding: 1em;
@@ -75,14 +77,83 @@
     color: #FF7A00;
 }
 
+.activies_container p{
+    text-transform: uppercase;
+}
+
 .activies_container label{
     font-size: 20px;
     margin-top: 1em;
     text-transform: uppercase;
     font-weight: bold;
+    color: #1A4C54;
 }
 
-/* LOCALIZAÇÃO CEU */
+.activies_container .filters{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2em;
+    margin-top: 3em;
+}
+
+.activies_container .filter_age_level{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.activies_container .button_area{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    align-items: center;
+    margin-top: 2em;
+    margin-right: 30em;
+}
+
+.activies_container button{
+    background-color: #1A4C54;
+    border: 1px solid #59c5ea;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    
+    padding: 0.5em;
+    
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.activies_container .cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+
+    margin-top: 2em;
+    gap: 1.8em;
+}
+
+.found_activies {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* MAPA */
 
 .map_container{
     width: 100%;
@@ -92,12 +163,12 @@
 
 .map_container h3{
     width: 100%;
-    background-color: #43727a;
-    box-shadow: 3px 1px 3px 3px #999;
+    background-color: #1A4C54;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
     color: white;
     font-size: 30px;
     padding: 1em;
-    margin-top: 5em;
+    margin-top: 2em;
     margin-bottom: 2em;
     text-transform: uppercase;
     text-align: center;
@@ -114,10 +185,14 @@
         background-size: cover;
         margin: 0;
         padding: 0;
-        padding-top: clamp(25em, 100vw, 100em);
+        padding-top: clamp(35em, 100vw, 100em);
         width: 100%;
         height: auto;
         justify-content: center;
+    }
+
+    .introduction_container{
+        padding: .6em;
     }
     
     .introduction_content{
@@ -133,10 +208,14 @@
     }
 
     .introduction_content p{
-        font-size: 16px;
+        font-size: 18px;
+        padding-bottom: 5em;
+        margin-right: 0;
+        
     }
 
     .activies_container{
+        flex-direction: column;
         padding: 0;
         margin: 0;
     }
@@ -146,8 +225,38 @@
         text-align: center;
     }
 
+    .activies_container p{
+        text-align: center;
+        padding: 1em;
+    }
+
+    .activies_container .filters{
+        flex-direction: column;
+    }
+
+    .activies_container .button_area{
+        margin-right: 2em;
+        margin-top: 2em;
+    }
+
+    .activies_container .cards{
+        padding: 1em;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .activies_container .cards p{
+        text-align: left;
+    }
+
 }
 
-select:focus{
-    outline: none;
+@media (max-width: 768px){
+    .activies_container .cards{
+        padding: 1em;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .map_container h3{
+        margin-top: 5em;
+    }
 }

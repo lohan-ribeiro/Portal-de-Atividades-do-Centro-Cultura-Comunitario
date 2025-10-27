@@ -7,7 +7,7 @@ function NavBar(){
     return(
         <nav aria-label="Navegação principal" className= {styles.navbar}>
             <NavLink to="/">
-                <img src={logo} alt="logo do CEU Rosa da China" className={styles.logo} />
+                <img src={logo} alt="CEU Rosa da China" className={styles.logo} />
             </NavLink>
             
             <ul className={styles.list}>
