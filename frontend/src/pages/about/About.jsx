@@ -27,7 +27,6 @@ function About(){
                             <li>Felipe da Silva Faria de Oliveira</li>
                             <li>Rafael Dias de Santi</li>
                             <li>Rodrigo Souza Machado Bitener</li>
-                            <li>Ronald Odair Oliveira Juliao</li>
                             <li>Wilson Ademar de Arruda</li>
                             <li>Lohan Ribeiro Cerqueira</li>
                             <li>Lucas Sousa Fraga</li>
