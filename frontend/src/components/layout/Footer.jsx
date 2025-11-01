@@ -35,10 +35,10 @@ function Footer() {
             <p>Siga-nos:</p>
             <div className={styles.social_icons}>
               <a href="https://www.facebook.com/ceurosachina" target="_blank" rel="noreferrer" aria-label="Facebook">
-                <FaFacebook />
+                <FaFacebook className={styles.social_face}/>
               </a>
               <a href="https://instagram.com/ceu.rosadachina" target="_blank" rel="noreferrer" aria-label="Instagram">
-                <FaInstagram />
+                <FaInstagram className={styles.social_insta}/>
               </a>
             </div>
           </div>

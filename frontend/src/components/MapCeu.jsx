@@ -1,5 +1,5 @@
 import styles from "./MapCeu.module.css"
-import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps"
+import { APIProvider, Map, AdvancedMarker } from "@vis.gl/react-google-maps"
 import { useCallback, useRef, useState } from "react"
 
 function MapCeu() {
@@ -55,12 +55,12 @@ function MapCeu() {
             <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
                 <div className={styles.mapWrapper}>
                     <Map
-                        defaultZoom={13}
+                        defaultZoom={17}
                         defaultCenter={Position}
                         onLoad={onMapLoad}
                         mapId="ceu-map"
                     >
-                        <Marker position={position} onClick={handleMarkerClick} />
+                    <AdvancedMarker position={position} onClick={handleMarkerClick} title="CEU Rosa da China"/>
                     </Map>
 
                     {/* Botões (gerado somente se houver mapa, por isso o "mapReady &&") */}

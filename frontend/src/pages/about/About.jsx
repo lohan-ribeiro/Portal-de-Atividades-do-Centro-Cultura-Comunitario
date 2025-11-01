@@ -10,7 +10,8 @@ function About(){
                     <section className={styles.content_about} aria-labelledby="Sobre nós">
                         <h1>Quem Somos <span>Nós</span>?</h1>
                         <p>
-                            Somos um grupo de estudantes do eixo de Computação da <a href="https://univesp.br/" target="blank" rel="noreferrer">UNIVESP</a> e, como proposta para o Projeto Integrador,
+                            Somos um grupo de estudantes do eixo de Computação da <a id="univesp" href="https://univesp.br/" target="_blank" rel="noreferrer">
+                            UNIVESP</a> e, como proposta para o Projeto Integrador,
                             identificamos que o CEU Rosa da China oferece diversas atividades gratuitas para a comunidade local.
                             No entanto, percebemos que a divulgação dessas oportunidades ainda é limitada e não alcança todo o público
                             que poderia se beneficiar delas.<br/>

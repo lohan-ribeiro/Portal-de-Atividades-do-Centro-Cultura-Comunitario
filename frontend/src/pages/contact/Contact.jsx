@@ -1,8 +1,7 @@
-import { FaFacebook, FaInstagram, FaPhone, FaEnvelope } from "react-icons/fa";
-
+import { FaFacebook, FaInstagram, FaPhone, FaEnvelope, FaTrash } from "react-icons/fa";
 import { LuMapPin } from "react-icons/lu";
-import Map from "../../components/MapCeu"
 
+import Map from "../../components/MapCeu"
 import { useState, useRef, } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -89,10 +88,10 @@ function Contact() {
           <h2>Siga-nos:</h2>
           <div className={styles.social}>
             <a href="https://www.facebook.com/ceurosachina" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <FaFacebook/>
+              <FaFacebook className={styles.social_face}/>
             </a>
             <a href="https://instagram.com/ceu.rosadachina" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <FaInstagram/>
+              <FaInstagram className={styles.social_insta}/>
             </a>
           </div>
         </section>
@@ -118,12 +117,12 @@ function Contact() {
               autoComplete="off"
             ></textarea>
 
-            <div className={styles.buttons}>
-              <button type="button" onClick={limparCampos} aria-label="Limpar formulário">
-                Limpar
-              </button>
-              <button type="submit" aria-label="Enviar email">
+            <div className={styles.buttons_group}>
+              <button type="submit" aria-label="Enviar email" className={styles.button_send}>
                 Enviar
+              </button>
+              <button type="reset" onClick={limparCampos} aria-label="Limpar formulário" className={styles.button_clear}>
+                <FaTrash/>
               </button>
             </div>
 

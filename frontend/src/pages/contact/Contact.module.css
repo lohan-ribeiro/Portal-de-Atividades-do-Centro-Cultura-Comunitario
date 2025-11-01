@@ -49,6 +49,7 @@
 
 .location:hover{
     color: #59c5ea;
+    text-decoration: underline;
 }
 
 /* área das redes sociais */
@@ -86,8 +87,12 @@
     transition: color 0.3s;
 }
 
-.social a:hover{
-    color: #FF7A00;
+.social_face:hover{
+    color: #1877F2;
+}
+
+.social_insta:hover{
+    color: #E1306C;
 }
 
 /* formulário */
@@ -99,10 +104,8 @@
     justify-content: center;
     align-items: center;
 
-
     margin: 0em;
     padding: 1em;
-    
 }
 
 .email_erro {
@@ -159,15 +162,18 @@
 }
 
 /* botões do formulário */
+.buttons_group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
 .content_form button{
-    background-color: #1A4C54;
-    border: 1px solid #59c5ea;
     box-shadow: 1px 1px 1px #999;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     
-    margin-right: 1em;
     padding: 0.5em;
 
     color: white;
@@ -175,8 +181,20 @@
     font-weight: bold;
 }
 
-.content_form button:hover{
-    color: #FF7A00;
+.content_form .button_send{
+    background-color: #006fe5;
+}
+
+.content_form .button_send:hover{
+    background-color: #1c4bcb;
+}
+
+.content_form .button_clear{
+    background-color: #EF4444;
+}
+
+.content_form .button_clear:hover{
+    background-color: #cf2424;
 }
 
 .container_map{

@@ -90,8 +90,12 @@
   transition: color 0.3s;
 }
 
-.social_icons a:hover {
-  color: #59c5ea;
+.social_face:hover{
+    color: #1877F2;
+}
+
+.social_insta:hover{
+    color: #E1306C;
 }
 
 /* DIREITOS PI2*/

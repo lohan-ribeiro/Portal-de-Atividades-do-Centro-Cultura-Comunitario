@@ -47,11 +47,12 @@
 }
 
 .content_about a{
-    text-decoration: none;
     color: #ad1f26;
+    text-decoration: none;
 }
 
-.content_about a:hover , a:focus{
+.content_about a:hover, 
+.content_about a:focus{
     text-decoration: underline;
     color: #ad1f26;
 }
