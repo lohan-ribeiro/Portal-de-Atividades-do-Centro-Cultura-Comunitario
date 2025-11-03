@@ -4,7 +4,8 @@
   "description": "site para divulgaçao das atividades do CEU rosa da china",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./backend/src/bin/www"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   "homepage": "https://gitlab.com/grupo-pi-ii/projeto-integrador-ii#readme",
   "dependencies": {
     "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "mariadb": "^3.4.5",
     "react-router-dom": "^7.9.3"
   }
 }
