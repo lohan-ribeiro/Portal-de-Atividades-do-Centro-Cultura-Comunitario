@@ -12,9 +12,14 @@
 //     const [selectedLevel, setSelectedLevel] = useState("")
 
 
-// useEffect(() => {
-//         fetch("http://127.0.0.1:3000/atividades")
-//         //fetch("/api/atividades")
+//     useEffect(() => {
+//         // Usado em ambiente de desenvolvimento
+//         //fetch("http://127.0.0.1:3000/atividades")
+
+//         // Usado em produção, para comunicação com a API do backend. 
+//         // Configurado redirecionamento de porta no nginx do servidor
+//         fetch("api/atividades")
+        
 //         .then(response => {
 //             if (!response.ok) {
 //                 return response.text().then(text => {
@@ -38,24 +43,43 @@
 //     }, []);
 
 
-//     // Começa com todas as modalidades
-//     let filteredActivities = activities
+//     // LOGIC FIX: Create separate filtered lists for dropdown options vs. final card display
 
-//     // Se houver algum filtro selecionado, aplica
+//     // 1. Filtering for the CARDS to be displayed
+//     let displayActivities = activities;
 //     if (selectedActivity) {
-//         filteredActivities = filteredActivities.filter(m => m.nome === selectedActivity)
+//         displayActivities = displayActivities.filter(m => m.nome === selectedActivity);
 //     }
 //     if (selectedAge) {
-//         filteredActivities = filteredActivities.filter(m => m.idade === selectedAge)
+//         displayActivities = displayActivities.filter(m => m.idade === selectedAge);
 //     }
 //     if (selectedLevel) {
-//         filteredActivities = filteredActivities.filter(m => m.nivel === selectedLevel)
+//         displayActivities = displayActivities.filter(m => m.nivel === selectedLevel);
 //     }
 
-//     // Atualiza as opções de cada select conforme os outros
-//     const allActivities = [...new Set(activities.map((m) => m.nome))]
-//     const filteredAges = [...new Set(filteredActivities.map((m) => m.idade))]
-//     const filteredLevels = [...new Set(filteredActivities.map((m) => m.nivel))]
+//     // 2. Filtering for the DROPDOWN OPTIONS
+//     // Options for Age should depend on Activity and Level, but not Age itself.
+//     let ageOptionsActivities = activities;
+//     if (selectedActivity) {
+//         ageOptionsActivities = ageOptionsActivities.filter(m => m.nome === selectedActivity);
+//     }
+//     if (selectedLevel) {
+//         ageOptionsActivities = ageOptionsActivities.filter(m => m.nivel === selectedLevel);
+//     }
+
+//     // Options for Level should depend on Activity and Age, but not Level itself.
+//     let levelOptionsActivities = activities;
+//     if (selectedActivity) {
+//         levelOptionsActivities = levelOptionsActivities.filter(m => m.nome === selectedActivity);
+//     }
+//     if (selectedAge) {
+//         levelOptionsActivities = levelOptionsActivities.filter(m => m.idade === selectedAge);
+//     }
+
+//     // 3. Create the unique option lists from the correctly filtered data
+//     const allActivities = [...new Set(activities.map((m) => m.nome))];
+//     const availableAges = [...new Set(ageOptionsActivities.map((m) => m.idade))];
+//     const availableLevels = [...new Set(levelOptionsActivities.map((m) => m.nivel))];
 
 //     // BOTÃO LIMPAR 
 //     const LimparFiltro = () => {
@@ -102,7 +126,7 @@
 //                             <label htmlFor="idade">Idade</label>
 //                             <SelectAtivies
 //                                 name="idade"
-//                                 options={filteredAges.map((idade, idx) => ({ id: idx, idade }))}
+//                                 options={availableAges.map((idade, idx) => ({ id: idx, idade }))} // Use a nova lista de opções
 //                                 labelField="idade"
 //                                 onSelect={setSelectedAge}
 //                                 selectedValue={selectedAge}
@@ -112,7 +136,7 @@
 //                             <label htmlFor="nível">Nível</label>
 //                             <SelectAtivies
 //                                 name="nível"
-//                                 options={filteredLevels.map((nivel, idx) => ({ id: idx, nivel }))}
+//                                 options={availableLevels.map((nivel, idx) => ({ id: idx, nivel }))} // Use a nova lista de opções
 //                                 labelField="nivel"
 //                                 onSelect={setSelectedLevel}
 //                                 selectedValue={selectedLevel}
@@ -128,8 +152,8 @@
 //                     {/* Feedback para leitor de tela */}
 //                     <p className={styles.found_activies} aria-live="assertive">
 //                         {ShowCards
-//                             ? (filteredActivities.length > 0 
-//                                 ? `${filteredActivities.length} atividades encontradas.` 
+//                             ? (displayActivities.length > 0 
+//                                 ? `${displayActivities.length} atividades encontradas.` 
 //                                 : "Nenhuma atividade encontrada para este filtro.")
 //                             : ""}
 //                     </p>
@@ -137,8 +161,8 @@
 //                     {/* Cards */}
 //                     {ShowCards && (
 //                         <div aria-live="polite" className={styles.cards}>
-//                             {filteredActivities.length > 0 ? (
-//                                 filteredActivities.map((activity) => (
+//                             {displayActivities.length > 0 ? (
+//                                 displayActivities.map((activity) => (
 //                                     <CardsActivities key={activity.id} activity={activity} />
 //                                 ))
 //                             ) : (
@@ -160,7 +184,7 @@
 // }
 
 // export default HomePage;
-///==============================================================================================
+
 import styles from "./HomePage.module.css"
 import { useState, useEffect } from "react"
 
@@ -173,16 +197,10 @@ function HomePage() {
     const [selectedActivity, setSelectedActivity] = useState("")
     const [selectedAge, setSelectedAge] = useState("")
     const [selectedLevel, setSelectedLevel] = useState("")
-
+    const [searchTerm, setSearchTerm] = useState(""); // 1. State for search term
 
     useEffect(() => {
-        // Usado em ambiente de desenvolvimento
-        //fetch("http://127.0.0.1:3000/atividades")
-
-        // Usado em produção, para comunicação com a API do backend. 
-        // Configurado redirecionamento de porta no nginx do servidor
-        fetch("api/atividades")
-        
+        fetch("http://127.0.0.1:3000/atividades")
         .then(response => {
             if (!response.ok) {
                 return response.text().then(text => {
@@ -206,10 +224,14 @@ function HomePage() {
     }, []);
 
 
-    // LOGIC FIX: Create separate filtered lists for dropdown options vs. final card display
-
     // 1. Filtering for the CARDS to be displayed
     let displayActivities = activities;
+    // 3. Add search term filtering
+    if (searchTerm) {
+        displayActivities = displayActivities.filter(m => 
+            m.nome.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }
     if (selectedActivity) {
         displayActivities = displayActivities.filter(m => m.nome === selectedActivity);
     }
@@ -221,7 +243,6 @@ function HomePage() {
     }
 
     // 2. Filtering for the DROPDOWN OPTIONS
-    // Options for Age should depend on Activity and Level, but not Age itself.
     let ageOptionsActivities = activities;
     if (selectedActivity) {
         ageOptionsActivities = ageOptionsActivities.filter(m => m.nome === selectedActivity);
@@ -230,7 +251,6 @@ function HomePage() {
         ageOptionsActivities = ageOptionsActivities.filter(m => m.nivel === selectedLevel);
     }
 
-    // Options for Level should depend on Activity and Age, but not Level itself.
     let levelOptionsActivities = activities;
     if (selectedActivity) {
         levelOptionsActivities = levelOptionsActivities.filter(m => m.nome === selectedActivity);
@@ -239,20 +259,20 @@ function HomePage() {
         levelOptionsActivities = levelOptionsActivities.filter(m => m.idade === selectedAge);
     }
 
-    // 3. Create the unique option lists from the correctly filtered data
     const allActivities = [...new Set(activities.map((m) => m.nome))];
     const availableAges = [...new Set(ageOptionsActivities.map((m) => m.idade))];
     const availableLevels = [...new Set(levelOptionsActivities.map((m) => m.nivel))];
 
-    // BOTÃO LIMPAR 
+    // 4. BOTÃO LIMPAR (Clear Button)
     const LimparFiltro = () => {
         setSelectedActivity("")
         setSelectedAge("")
         setSelectedLevel("")
+        setSearchTerm(""); // Reset search term
     }
 
-    // CONTROLE DE EXIBIÇÃO DOS CARDS
-    const ShowCards = selectedActivity || selectedAge || selectedLevel; // Mostra se qualquer filtro foi selecionado
+    // 5. CONTROLE DE EXIBIÇÃO DOS CARDS (Card Display Logic)
+    const ShowCards = selectedActivity || selectedAge || selectedLevel || searchTerm; // Show if any filter or search is active
 
     return (
         <main>
@@ -272,6 +292,19 @@ function HomePage() {
                 <section className={styles.activies_container} aria-labelledby="Atividades do CEU Rosa da China">
                     <h2>Confira nossas <span>atividades</span> disponíveis!</h2>
                     <p>Use os filtros para encontra a atividade desejada!</p>
+
+                    {/* 2. Search Input */}
+                    <div className={styles.search_container}>
+                         <label htmlFor="search">Pesquisar por nome</label>
+                         <input 
+                            type="text"
+                            id="search"
+                            name="search"
+                            placeholder="Digite o nome da atividade..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                         />
+                    </div>
                     
                     {/* Select de Atividade */}
                     <label htmlFor="atividade">Atividades</label>
@@ -289,7 +322,7 @@ function HomePage() {
                             <label htmlFor="idade">Idade</label>
                             <SelectAtivies
                                 name="idade"
-                                options={availableAges.map((idade, idx) => ({ id: idx, idade }))} // Use a nova lista de opções
+                                options={availableAges.map((idade, idx) => ({ id: idx, idade }))} 
                                 labelField="idade"
                                 onSelect={setSelectedAge}
                                 selectedValue={selectedAge}
@@ -299,7 +332,7 @@ function HomePage() {
                             <label htmlFor="nível">Nível</label>
                             <SelectAtivies
                                 name="nível"
-                                options={availableLevels.map((nivel, idx) => ({ id: idx, nivel }))} // Use a nova lista de opções
+                                options={availableLevels.map((nivel, idx) => ({ id: idx, nivel }))}
                                 labelField="nivel"
                                 onSelect={setSelectedLevel}
                                 selectedValue={selectedLevel}

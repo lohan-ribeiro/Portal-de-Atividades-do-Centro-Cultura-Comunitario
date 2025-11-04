@@ -1,43 +1,62 @@
-.card{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: white;
-    width: 100%;
-
-    border: 1px solid #59c5ea;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    border-radius: 5px;
-
-    gap: 0.2em;
-    padding: 1em;
+/* Add a keyframes animation for a subtle fade-in and slide-up effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.card h3{
-    font-size: 20px;
-    text-transform: uppercase;
-    color: #FF7A00;
-    border-bottom: 1px solid #59c5ea;
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  width: 100%;
 
-    margin-bottom: 0.5em;
+  border: 1px solid #59c5ea;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; /* Adjusted shadow */
+  border-radius: 5px;
+  
+  gap: 0.2em;
+  padding: 1em;
 
+  /* --- SMOOTHER ANIMATION --- */
+  /* 1. Add a transition for hover effects */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-    cursor: default;
+  /* 2. Apply the keyframe animation to each card as it appears */
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
-.card p{
-    padding: 0.2em 0em;
-
-
-    text-transform: uppercase;
-    color: #1A4C54;
-
-    cursor: default;
+/* 3. Add a hover effect to make the cards interactive */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; /* Enhanced shadow on hover */
 }
 
-@media (max-width: 768px){
-    .card{
-        margin-right: 0;
-        padding: .5em;
-    }
+.card h3 {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #FF7A00;
+  border-bottom: 1px solid #59c5ea;
+  margin-bottom: 0.5em;
+  cursor: default;
+}
+
+.card p {
+  padding: 0.2em 0em;
+  text-transform: uppercase;
+  color: #1A4C54;
+  cursor: default;
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin-right: 0;
+    padding: .5em;
+  }
 }

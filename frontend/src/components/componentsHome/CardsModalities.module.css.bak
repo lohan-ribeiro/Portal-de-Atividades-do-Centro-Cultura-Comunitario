@@ -1,0 +1,43 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    width: 100%;
+
+    border: 1px solid #59c5ea;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 5px;
+
+    gap: 0.2em;
+    padding: 1em;
+}
+
+.card h3{
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #FF7A00;
+    border-bottom: 1px solid #59c5ea;
+
+    margin-bottom: 0.5em;
+
+
+    cursor: default;
+}
+
+.card p{
+    padding: 0.2em 0em;
+
+
+    text-transform: uppercase;
+    color: #1A4C54;
+
+    cursor: default;
+}
+
+@media (max-width: 768px){
+    .card{
+        margin-right: 0;
+        padding: .5em;
+    }
+}
