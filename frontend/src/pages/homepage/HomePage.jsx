@@ -307,8 +307,8 @@ function HomePage() {
 
 
 useEffect(() => {
-        //fetch("http://127.0.0.1:3000/atividades")
-        fetch("/api/atividades")
+        fetch("http://127.0.0.1:3000/atividades")
+        //fetch("/api/atividades")
         .then(response => {
             if (!response.ok) {
                 return response.text().then(text => {

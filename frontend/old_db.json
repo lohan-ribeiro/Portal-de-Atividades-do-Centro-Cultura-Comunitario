@@ -1,0 +1,92 @@
+{
+    "modalidades": [
+        {
+            "id": 1,
+            "nome":"Natação",
+            "nível":"Avançado",
+            "local":"Piscina",
+            "professor":"Renato",
+            "horario":"9h a 10h",
+            "turno":"Matutino",
+            "idade":"Adulto",
+            "dias":"seg/ter/qui",
+            "disponivel_em":"CEU - Rosa da China"
+        },
+        {
+            "id": 2,
+            "nome":"Natação",
+            "nível":"Basico",
+            "local":"Piscina",
+            "professor":"Renato",
+            "horario":"10h a 11h",
+            "turno":"Matutino",
+            "idade":"Criaça",
+            "dias":"seg/ter/qui",
+            "disponivel_em":"CEU - Rosa da China"
+        },
+        {
+            "id": 3,
+            "nome":"Futsal",
+            "nível":"Avançado",
+            "local":"Quadra",
+            "professor":"Paulo",
+            "horario":"9h a 10h",
+            "turno":"Matutino",
+            "idade":"Adulto",
+            "dias":"seg/ter",
+            "disponivel_em":"CEU - Rosa da China"
+        },
+        {
+            "id": 4,
+            "nome":"Futsal",
+            "nível":"Intermediario",
+            "local":"Quadra",
+            "professor":"Paulo",
+            "horario":"9h a 10h",
+            "turno":"Matutino",
+            "idade":"Adolecente",
+            "dias":"seg/ter",
+            "disponivel_em":"CEU - Rosa da China"
+
+        },
+        {
+            "id": 5,
+            "nome":"Futsal",
+            "nível":"Intermediario",
+            "local":"Quadra",
+            "professor":"Paulo",
+            "horario":"9h a 10h",
+            "turno":"Matutino",
+            "idade":"Adulto",
+            "dias":"seg/ter",
+            "disponivel_em":"CEU - Rosa da China"
+        },
+        {
+            "id": 6,
+            "nome":"Futsal",
+            "nível":"basico",
+            "local":"Quadra",
+            "professor":"Paulo",
+            "horario":"9h a 10h",
+            "turno":"Matutino",
+            "idade":"Adulto",
+            "dias":"seg/ter",
+            "disponivel_em":"CEU - Rosa da China"
+        },
+        {
+            "id": 7,
+            "nome":"Futsal",
+            "nível":"Experiente",
+            "local":"Quadra",
+            "professor":"Paulo",
+            "horario":"9h a 10h",
+            "turno":"Matutino",
+            "idade":"Adulto",
+            "dias":"seg/ter",
+            "disponivel_em":"CEU - Rosa da China"
+        }
+        
+        
+    ]
+    
+}

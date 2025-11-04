@@ -1,3 +1,5 @@
+    // Test connection to the database.
+    // Standalone usage with npm start ./backend/src/config/test_db.js
     const mariadb = require('mariadb');
     const pool = mariadb.createPool({
         host: '127.0.0.1',

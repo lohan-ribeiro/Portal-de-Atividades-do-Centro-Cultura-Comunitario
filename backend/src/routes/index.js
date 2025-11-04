@@ -1,40 +1,3 @@
-//======== ORIGINAL CONTENT ===================
-// var express = require('express');
-// var router = express.Router();
-
-// /* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
-
-// module.exports = router;
-//=============================================
-
-// var express = require('express');
-// var router = express.Router();
-// const pool = require('../config/db');
-
-// /* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
-
-// router.get('/atividades', async function(req, res, next) {
-//   let conn;
-//   try {
-//     conn = await pool.getConnection();
-//     const rows = await conn.query("SELECT * FROM atividades");
-//     res.json(rows);
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ error: 'Database error' });
-//   } finally {
-//     if (conn) conn.end();
-//   }
-// });
-
-// module.exports = router;
-
 var express = require('express');
 var router = express.Router();
 const pool = require('../config/db');
@@ -44,7 +7,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-
 router.get('/atividades', async (req, res) => {
   try {
     const connection = await pool.getConnection();
@@ -52,10 +14,14 @@ router.get('/atividades', async (req, res) => {
       SELECT 
         a.id, 
         m.nome AS nome, 
-        a.horario, 
-        a.idade, 
         n.nome AS nivel, 
-        a.local
+        a.local,
+        a.analista,
+        a.horario, 
+        a.turno,
+        a.idade,
+        a.dias_semana,
+        a.disponivel_em
       FROM atividades AS a
       JOIN modalidades AS m ON a.modalidade_id = m.id
       JOIN niveis AS n ON a.nivel_id = n.id;

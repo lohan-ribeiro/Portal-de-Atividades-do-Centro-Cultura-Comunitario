@@ -9,11 +9,11 @@ function CardsActivities ({activity}){
         <div className={styles.card}>
             <h3>{activity.nome}</h3>
             <p><strong>Idade: </strong>{activity.idade}</p>
-            <p><strong>Nível: </strong>{activity.nível}</p>
+            <p><strong>Nível: </strong>{activity.nivel}</p>
             <p><strong>Turno: </strong>{activity.turno}</p>
             <p><strong>Horario: </strong>{activity.horario}</p>
-            <p><strong>Dias: </strong>{activity.dias}</p>
-            <p><strong>Analista: </strong>{activity.professor}</p>
+            <p><strong>Dias: </strong>{activity.dias_semana}</p>
+            <p><strong>Responsável: </strong>{activity.analista}</p>
             <p><strong>Local: </strong>{activity.local}</p>
             <p><strong>Disponivel em: </strong>{activity.disponivel_em}</p>
         </div>

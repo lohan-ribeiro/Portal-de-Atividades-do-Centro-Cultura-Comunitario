@@ -77,7 +77,7 @@ function SelectAtivies({ name, options, labelField, onSelect, selectedValue }) {
                 {options.map((option) => (
                     <option value={option[labelField]} key={option.id}>
                         {option[labelField]}
-                        {/* "labelfield" é uma chave dinânmica que define qual value será usado no select*/}
+                        {/* "labelfield" é uma chave dinâmica que define qual value será usado no select*/}
                     </option>
                 ))}
             </select>
