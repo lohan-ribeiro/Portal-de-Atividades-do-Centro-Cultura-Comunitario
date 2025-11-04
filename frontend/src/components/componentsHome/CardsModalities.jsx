@@ -13,7 +13,7 @@ function CardsModalities ({modalidade}){
             <p><strong>Turno: </strong>{modalidade.turno}</p>
             <p><strong>Horario: </strong>{modalidade.horario}</p>
             <p><strong>Dias: </strong>{modalidade.dias}</p>
-            <p><strong>Analista: </strong>{modalidade.professor}</p>
+            <p><strong>Responsável: </strong>{modalidade.professor}</p>
             <p><strong>Local: </strong>{modalidade.local}</p>
             <p><strong>Disponivel em: </strong>{modalidade.disponivel_em}</p>
         </div>

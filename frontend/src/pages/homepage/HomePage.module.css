@@ -96,7 +96,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-bottom: 2em;
+    margin-bottom: 1em; /* Adjusted margin */
 }
 
 .search_container input[type="text"] {
@@ -128,7 +128,7 @@
     justify-content: center;
     align-items: flex-start;
     gap: 2em;
-    margin-top: 3em;
+    margin-top: 1em; /* Adjusted margin */
 }
 
 .activies_container .filter_age_level{
@@ -138,29 +138,36 @@
     text-align: center;
 }
 
+/* --- Button Styles --- */
 .activies_container .button_area{
     display: flex;
     width: 100%;
-    justify-content: right;
+    justify-content: center; /* Center the button */
     align-items: center;
-    margin-top: 2em;
-    margin-right: 30em;
+    margin-top: 3em;
+    margin-bottom: 2em; /* Add space below the button */
 }
 
 .activies_container button{
+    width: 418px; /* Match the search bar width */
     background-color: #1A4C54;
     border: 1px solid #59c5ea;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     border-radius: 5px;
     cursor: pointer;
-    
-    
-    padding: 0.5em;
-    
+    padding: 0.8em 1em;
     color: white;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease;
 }
+
+.activies_container button:hover {
+    background-color: #2c7a85; /* Slightly lighter on hover */
+    transform: translateY(-2px);
+}
+
 
 .activies_container .cards{
     display: grid;
@@ -273,8 +280,12 @@
     }
 
     .activies_container .button_area{
-        margin-right: 2em;
-        margin-top: 2em;
+        margin-right: 0; /* Reset margin */
+        margin-top: 3em;
+    }
+
+    .activies_container button {
+        width: 63%; /* Match responsive search bar width */
     }
 
     .activies_container .cards{
@@ -291,6 +302,10 @@
 @media (max-width: 768px){
     .search_container input[type="text"] {
         width: 80%;
+    }
+
+    .activies_container button {
+        width: 85%; /* Match responsive search bar width */
     }
 
     .activies_container .cards{
