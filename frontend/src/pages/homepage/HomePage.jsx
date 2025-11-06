@@ -113,7 +113,7 @@ function HomePage() {
                 </div>
                 <section className={styles.activies_container} aria-labelledby="Atividades do CEU Rosa da China">
                     <h2>Confira nossas <span>atividades</span> disponíveis!</h2>
-                    <p>Use os filtros para encontra a atividade desejada!</p>
+                    <p>Use os filtros para encontrar a atividade desejada!</p>
 
                     {/* Search Input */}
                     <div className={styles.search_container}>
