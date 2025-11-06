@@ -71,6 +71,7 @@ function HomePage() {
                 <section className={styles.activies_container} aria-labelledby="atividades">
                     <h2 id="atividades">Confira nossas <span>atividades</span> disponíveis!</h2>
                     <p>Use a barra de pesquisa ou os filtros para encontrar a atividade desejada!</p>
+
                     
                     {/* Select de Atividade */}
                     <label htmlFor="atividade">Atividades</label>
