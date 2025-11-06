@@ -1,5 +1,6 @@
 import styles from "./HomePage.module.css"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
+import Fuse from 'fuse.js'
 
 import CardsActivities from "../../components/componentsHome/CardsActivities"
 import SelectAtivies from "../../components/componentsHome/SelectActivies"
@@ -10,8 +11,9 @@ function HomePage() {
     const [selectedActivity, setSelectedActivity] = useState("")
     const [selectedAge, setSelectedAge] = useState("")
     const [selectedLevel, setSelectedLevel] = useState("")
-    const [searchTerm, setSearchTerm] = useState(""); // 1. State for search term
+    const [searchTerm, setSearchTerm] = useState("");
 
+        // Pedido dos dados à API do backend e validação de formato
     useEffect(() => {
         // Usado em ambiente de desenvolvimento
         //fetch("http://127.0.0.1:3000/atividades")
@@ -44,15 +46,23 @@ function HomePage() {
         });
     }, []);
 
+    const fuse = useMemo(() => {
+        if (!activities.length) return null;
+        const options = {
+            keys: ['nome'],
+            includeScore: true,
+            threshold: 0.4, // Adjust for more or less fuzziness
+            minMatchCharLength: 2,
+        };
+        return new Fuse(activities, options);
+    }, [activities]);
 
-    // 1. Filtering for the CARDS to be displayed
     let displayActivities = activities;
-    // 3. Add search term filtering
-    if (searchTerm) {
-        displayActivities = displayActivities.filter(m => 
-            m.nome.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-    }
+    if (searchTerm && fuse) {
+        const results = fuse.search(searchTerm);
+        displayActivities = results.map(result => result.item);
+    } 
+
     if (selectedActivity) {
         displayActivities = displayActivities.filter(m => m.nome === selectedActivity);
     }
@@ -85,16 +95,15 @@ function HomePage() {
     const availableAges = [...new Set(ageOptionsActivities.map((m) => m.idade))].sort((a, b) => String(a).localeCompare(String(b), undefined, { numeric: true }));
     const availableLevels = [...new Set(levelOptionsActivities.map((m) => m.nivel))].sort((a, b) => a.localeCompare(b));
 
-    // 4. BOTÃO LIMPAR (Clear Button)
+    // BOTÃO LIMPAR 
     const LimparFiltro = () => {
         setSelectedActivity("")
         setSelectedAge("")
         setSelectedLevel("")
-        setSearchTerm(""); // Reset search term
+        setSearchTerm("");
     }
 
-    // 5. CONTROLE DE EXIBIÇÃO DOS CARDS (Card Display Logic)
-    const ShowCards = selectedActivity || selectedAge || selectedLevel || searchTerm; // Show if any filter or search is active
+    const ShowCards = selectedActivity || selectedAge || selectedLevel || searchTerm;
 
     return (
         <main>
@@ -115,7 +124,6 @@ function HomePage() {
                     <h2>Confira nossas <span>atividades</span> disponíveis!</h2>
                     <p>Use os filtros para encontrar a atividade desejada!</p>
 
-                    {/* Search Input */}
                     <div className={styles.search_container}>
                          <label htmlFor="search">Pesquisar por nome</label>
                          <input 
@@ -128,7 +136,6 @@ function HomePage() {
                          />
                     </div>
                     
-                    {/* Select de Atividade */}
                     <label htmlFor="atividade">Atividades</label>
                     <SelectAtivies
                         name="atividade"
@@ -138,7 +145,6 @@ function HomePage() {
                         selectedValue={selectedActivity} 
                     />
 
-                    {/* Filtros de Idade e Nível */}
                     <div className={styles.filters}>
                         <div className={styles.filter_age_level}>
                             <label htmlFor="idade">Idade</label>
@@ -161,15 +167,13 @@ function HomePage() {
                             />
                         </div>
                     </div>
-                    
-                    {/* Botão Limpar */}
+
                     <div className={styles.button_area}>
                         <button type="button" onClick={LimparFiltro} aria-label="Limpar filtros">
                                 Limpar
                         </button>
                     </div>
 
-                    {/* Feedback para leitor de tela */}
                     <p className={styles.found_activies} aria-live="assertive">
                         {ShowCards
                             ? (displayActivities.length > 0 
@@ -178,7 +182,6 @@ function HomePage() {
                             : ""}
                     </p>
 
-                    {/* Cards */}
                     {ShowCards && (
                         <div aria-live="polite" className={styles.cards}>
                             {displayActivities.length > 0 ? (
