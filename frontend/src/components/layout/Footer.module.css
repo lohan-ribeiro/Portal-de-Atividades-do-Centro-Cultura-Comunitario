@@ -142,6 +142,10 @@
     padding-right: 0px;
   }
 
+  .social_icons{
+    gap: 0px;
+  }
+
   .contact{
     text-align: left;
     font-size: 12px;

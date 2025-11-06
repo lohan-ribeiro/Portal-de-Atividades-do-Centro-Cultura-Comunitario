@@ -6,7 +6,7 @@ function CardsModalities ({modalidade}){
     if(!modalidade) return null;
 
     return(
-        <div className={styles.card}>
+        <article className={styles.card} aria-label={`Informaçoes sobre a atividade ${modalidade.nome.toLowerCase()}`}>
             <h3>{modalidade.nome}</h3>
             <p><strong>Idade: </strong>{modalidade.idade}</p>
             <p><strong>Nível: </strong>{modalidade.nível}</p>
@@ -16,7 +16,7 @@ function CardsModalities ({modalidade}){
             <p><strong>Analista: </strong>{modalidade.professor}</p>
             <p><strong>Local: </strong>{modalidade.local}</p>
             <p><strong>Disponivel em: </strong>{modalidade.disponivel_em}</p>
-        </div>
+        </article>
     )
 }
 
@@ -30,7 +30,7 @@ CardsModalities.propTypes = {
         horario:PropTypes.string.isRequired,
         dias:PropTypes.string.isRequired,
         professor:PropTypes.string,
-        local:PropTypes.string.isRequired,
+        local:PropTypes.string,
         disponivel_em:PropTypes.string.isRequired
     }),
 };
@@ -38,6 +38,7 @@ CardsModalities.propTypes = {
 CardsModalities.defaultProps = {
     modalidade: {
         professor:"Não especificado",
+        local:"Não especificado",
     //adicionar valores padroes para os campos nao obrigatorios
     },
 

@@ -1,51 +1,72 @@
-import PropTypes from "prop-types"
-import styles from "./SelectActivies.module.css"
+import { forwardRef } from "react";
+import PropTypes from "prop-types";
+import styles from "./SelectActivies.module.css";
 
-function SelectAtivies({ name, options, labelField, onSelect, selectedValue }) {
+/*
+  Usamos forwardRef para permitir que o componente pai envie uma referência (ref)
+  para o elemento <select>. Assim, conseguimos dar foco no select quando
+  o usuário clicar no botão "Limpar".
+*/
+const SelectAtivies = forwardRef(function SelectAtivies(
+    { name, options, labelField, onSelect, selectedValue },
+    ref
+){
 
-    const artigo = (name) => {
-        if (name === "atividade" || name === "idade") return "uma";
-        if (name === "nível") return "um";
-        return "";
-    }
+  /* Função para definir automaticamente o artigo "uma" ou "um" antes do label,
+     melhorando acessibilidade e usabilidade */
+  const artigo = (name) => {
+    if (name === "atividade" || name === "idade") return "uma";
+    if (name === "nível") return "um";
+    return "";
+  };
 
-    const handleChange = (e) => { //"e" é o evento disparado quando o usuário escolhe uma nova opção no "SELECT".
-        onSelect(e.target.value)
-    }
+  /* "e" é o evento disparado quando o usuário escolhe uma nova opção no SELECT. */
+  const handleChange = (e) => {
+    onSelect(e.target.value);
+  };
 
-    return (
-        <div className={styles.container}>
-            {/* controlado pelo estado selectedValue */}
-            <select name={name} id={name} onChange={handleChange} value={selectedValue || ""} aria-label={`Filtro de ${name}`}>
-                {/* as opções vem direto do BD para o option pelo "options" */}
+  return (
+    <div className={styles.container}>
+        {/* "selectedValue" controla o value do SELECT através de estado. */}
+            <select
+                ref={ref}
+                name={name}
+                id={name}
+                onChange={handleChange}
+                value={selectedValue || ""}
+                aria-label={`Filtro de ${name}`} // acessibilidade do select
+            >
+                {/* Placeholder do SELECT (fica desabilitado e oculto depois de selecionado) */}
                 <option value="" disabled hidden>
-                    Selecione {artigo(name)} {name}
+                Selecione {artigo(name)} {name}
                 </option>
 
-                {/* como "OPTIONS" é um array de itens, usasse ".MAP" para percorre-lo e guarda os itens em "OPTION" */}
+                {/* "options" é uma lista vinda do Banco de Dados.
+                    Como é um array, fazemos ".map" para gerar cada <option>.
+                */}
                 {options.map((option) => (
-                    <option value={option[labelField]} key={option.id}>
-                        {option[labelField]}
-                        {/* "labelfield" é uma chave dinânmica que define qual value será usado no select*/}
-                    </option>
+                <option value={option[labelField]} key={option.id}>
+                    {option[labelField]}
+                    {/* "labelField" define dinamicamente qual valor será exibido */}
+                </option>
                 ))}
             </select>
         </div>
-    )
-}
+    );
+});
 
-//propTypes para garantir segurança do tipo de dado passado para "NAME","OPTIONS","ID",etc. erro a nivel de programação.
-SelectAtivies.propTypes = {
+/* PropTypes para garantir que os dados recebidos são válidos
+   — ajuda a identificar erros durante o desenvolvimento. */
+SelectAtivies.prototype = {
     name: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.number.isRequired,
+        id: PropTypes.number.isRequired,
         })
     ).isRequired,
     labelField: PropTypes.string.isRequired,
     onSelect: PropTypes.func.isRequired,
-    selectedValue: PropTypes.string, 
-}
+    selectedValue: PropTypes.string,
+};
 
-export default SelectAtivies
-
+export default SelectAtivies;

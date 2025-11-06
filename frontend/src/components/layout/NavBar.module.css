@@ -2,10 +2,13 @@
     position: fixed;
     display: flex;              
     justify-content: space-between; 
+    width: 100%;
+
     background-color: #1A4C54;
     box-shadow: 0 3px 7px 1px #333;
-    width: 100%;
+
     padding:  0.3em;
+    
     font-size: 20px;
     transition: top 0.3s ease;
     z-index: 1000;
@@ -60,7 +63,7 @@ main{
 
 @media (max-width: 768px){
     .navbar{
-       font-size: 14px;
+       font-size: clamp(14px, 3vw, 24px);;
        margin: 0;
     }
 
@@ -80,4 +83,3 @@ main{
         margin-right: 1em;
     }
 }
-
