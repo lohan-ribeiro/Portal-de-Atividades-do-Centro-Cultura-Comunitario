@@ -16,11 +16,11 @@ function HomePage() {
         // Pedido dos dados à API do backend e validação de formato
     useEffect(() => {
         // Usado em ambiente de desenvolvimento
-        //fetch("http://127.0.0.1:3000/atividades")
+        fetch("http://127.0.0.1:3000/atividades")
 
         // Usado em produção, para comunicação com a API do backend. 
         // Configurado redirecionamento de porta no nginx do servidor
-        fetch("api/atividades")
+        //fetch("api/atividades")
         .then(response => {
             if (!response.ok) {
                 return response.text().then(text => {
@@ -34,7 +34,6 @@ function HomePage() {
                 console.error("Data received from API is not an array: ", data);
                 setActivities([]);
             } else {
-                setActivities(data);
                 // Sort the data alphabetically by name before setting the state
                 const sortedData = data.sort((a, b) => a.nome.localeCompare(b.nome));
                 setActivities(sortedData);

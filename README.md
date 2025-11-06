@@ -1,93 +1,91 @@
-# Projeto Integrador II
 
+# Projeto CEU Rosa da China
 
+## Visão Geral
 
-## Getting started
+Este é o portal do CEU Rosa da China, um espaço digital criado para que a comunidade possa se informar e se inscrever nas diversas atividades gratuitas que oferecemos. O objetivo deste projeto é facilitar o acesso à informação, centralizando em um único lugar todas as atividades disponíveis, com filtros e buscas que tornam a navegação mais ágil e intuitiva.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+O site foi construído com uma arquitetura moderna, separando o `frontend` (a parte com a qual o usuário interage) do `backend` (a lógica e o banco de dados que alimentam o site). Essa separação garante mais flexibilidade para futuras manutenções e novas funcionalidades.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+---
 
-## Add your files
+## Tecnologias Utilizadas
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+A seguir, uma lista das tecnologias que escolhemos para este projeto, com uma breve justificativa da razão pela qual cada uma foi selecionada.
 
+### Frontend
+
+O `frontend` é a camada visual do projeto, com a qual os usuários interagem diretamente. Foi desenvolvido com as seguintes tecnologias:
+
+- **React:** Uma biblioteca JavaScript para a criação de interfaces de usuário. O React foi escolhido pela sua eficiência e componentização, o que nos permitiu criar uma interface dinâmica e responsiva, onde as informações são atualizadas em tempo real sem a necessidade de recarregar a página.
+
+- **Vite:** Um ambiente de desenvolvimento moderno e ultrarrápido. O Vite acelera o processo de desenvolvimento, oferecendo um servidor de desenvolvimento com *hot-reload* (atualização automática) quase instantâneo, o que torna a criação e o teste de novas funcionalidades muito mais ágil.
+
+- **React Router:** Para gerenciar a navegação entre as diferentes páginas do site (Home, Sobre, Contato) de forma fluida e sem a necessidade de recarregar o navegador, o que é característico de uma *Single-Page Application* (SPA).
+
+- **Axios:** Um cliente HTTP para fazer a comunicação entre o `frontend` e o `backend`. O Axios foi utilizado para buscar as atividades no banco de dados e exibi-las na tela, de forma assíncrona e segura.
+
+- **Fuse.js:** Uma biblioteca de *fuzzy search* (busca aproximada) que torna a barra de pesquisa mais inteligente. Com o Fuse.js, os usuários podem encontrar atividades mesmo que digitem o nome com algum erro de ortografia, melhorando a experiência de uso.
+
+- **Email.js:** Para a funcionalidade de contato, o Email.js foi integrado para permitir que os usuários enviem mensagens diretamente do site, sem a necessidade de uma configuração de servidor de e-mail no `backend`.
+
+- **Google Maps React:** Para exibir o mapa de localização do CEU Rosa da China, esta biblioteca oferece uma integração simples e direta com a API do Google Maps, facilitando a visualização do endereço.
+
+### Backend
+
+O `backend` é o cérebro do projeto. É ele quem processa as informações, se comunica com o banco de dados e envia os dados para o `frontend`.
+
+- **Node.js e Express:** O Node.js é o ambiente que permite executar código JavaScript no servidor, enquanto o Express é um *framework* que simplifica a criação de APIs REST. Juntos, eles formam a base do nosso `backend`, gerenciando as rotas e a lógica de negócios.
+
+- **MariaDB:** Um sistema de gerenciamento de banco de dados relacional, robusto e de código aberto. O MariaDB foi escolhido para armazenar as informações das atividades de forma organizada e segura, garantindo a integridade dos dados.
+
+- **CORS:** Um pacote para habilitar o *Cross-Origin Resource Sharing*. O CORS é essencial para permitir que o `frontend`, que roda em um domínio, possa fazer requisições para o `backend`, que está em outro, de forma segura.
+
+---
+
+## Estrutura do Projeto
+
+O projeto está organizado em duas pastas principais:
+
+- **/frontend:** Contém todos os arquivos relacionados à interface do usuário, incluindo os componentes React, as folhas de estilo (CSS) e as imagens.
+- **/backend:** Contém a lógica do servidor, a configuração do banco de dados e os *endpoints* da API.
+
+---
+
+## Como Executar o Projeto
+
+Para executar o projeto em sua máquina local, siga os passos abaixo.
+
+### Pré-requisitos
+
+- **Node.js:** Certifique-se de que você tem o Node.js instalado.
+- **MariaDB:** É necessário ter o MariaDB (ou MySQL) instalado e em execução.
+
+### 1. Configurar o Banco de Dados
+
+- Crie um banco de dados com o nome `projeto_db`.
+- Execute o script `backend/src/projeto_db.sql` para criar a tabela `atividades` e inserir os dados iniciais.
+
+### 2. Iniciar o Backend
+
+Abra um terminal e navegue até a pasta do `backend`:
+
+```bash
+cd backend
+npm install
+npm start
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/grupo-pi-ii/projeto-integrador-ii.git
-git branch -M main
-git push -uf origin main
+
+O servidor `backend` estará em execução em `http://localhost:3000`.
+
+### 3. Iniciar o Frontend
+
+Abra um segundo terminal e navegue até a pasta do `frontend`:
+
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.com/grupo-pi-ii/projeto-integrador-ii/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+O site estará acessível em `http://localhost:5173`.
