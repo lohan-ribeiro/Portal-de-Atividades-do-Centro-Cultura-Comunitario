@@ -37,6 +37,7 @@
 }
 
 .content_about p{
+    width: 100%;
     font-size: 18px;
     color: black;
     padding-bottom: 8em;
@@ -98,6 +99,7 @@
 @media (max-width: 768px){
     .background{
        background-image: none;
+       padding: 0;
     }
 
     .container{
@@ -105,7 +107,7 @@
     }
 
     .content_about{
-        padding-right: 0.7em;
+        padding: 0em 2em; 
     }
 
     .content_about h1{
@@ -116,6 +118,10 @@
         margin-bottom: 5em;
         margin-right: 0;
         padding: 0;
+    }
+
+    .content_team{
+        padding-left: 2em ;
     }
 
     .content_team h2{

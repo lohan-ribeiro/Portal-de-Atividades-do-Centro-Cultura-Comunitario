@@ -1,106 +1,124 @@
+import { APIProvider, Map, AdvancedMarker, useMap } from "@vis.gl/react-google-maps"
+import { useCallback, useEffect, useState } from "react"
+
 import styles from "./MapCeu.module.css"
-import { APIProvider, Map, AdvancedMarker } from "@vis.gl/react-google-maps"
-import { useCallback, useRef, useState } from "react"
 
-function MapCeu() {
-    const mapRef = useRef(null)
+
+function MapControlsAndMarker({ Position }) {
+    const map = useMap() 
     const [mapReady, setMapReady] = useState(false)
+    const [isAnimating, setIsAnimating] = useState(false)
 
-    //Posição do CEU em coordenadas
-    const Position = { lat: -23.62195799066044 , lng: -46.501034948373324 }
+    // Armazena o mapa quando ele carrega
+    useEffect(() => {
+        if (map) {
+            setMapReady(true)
+        }
+    }, [map])
 
-    const [position] = useState(Position)
-
-    //Armazena o mapa quando ele carrega
-    const onMapLoad = useCallback((map) => {
-        mapRef.current = map
-        setMapReady(true)
-    }, []);
-
-    //Centraliza o mapa ao clicar no marcador
+    // Centraliza o mapa ao clicar no marcador
     const handleMarkerClick = useCallback((e) => {
-        const map = mapRef.current
         if (!map || !e.latLng) return
         map.panTo(e.latLng)
-    }, []);
+    }, [map])
 
-    //botões de zoom
+    const withAnimationLock = (action) => {
+        if (isAnimating) return
+        setIsAnimating(true)
+        action()
+        setTimeout(() => setIsAnimating(false), 400)
+    }
+
+    // botões de zoom
     const zoomIn = () => {
-        const map = mapRef.current;
         if (map) map.setZoom(map.getZoom() + 1)
-    };
+    }
 
     const zoomOut = () => {
-        const map = mapRef.current;
         if (map) map.setZoom(map.getZoom() - 1)
-    };
+    }
 
-    //botão de voltar a localização do CEU
+    // botão de voltar a localização do CEU
     const recenter = () => {
-        const map = mapRef.current
         if (map) map.panTo(Position)
-    };
+    }
 
-    //Permitir teclado (Enter ou Espaço ativam o botão)
+    // Permitir teclado (Enter ou Espaço ativam o botão)
     const handleKeyDown = (e, action) => {
         if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault()
-        action()
+            e.preventDefault()
+            action()
         }
-    };
+    }
 
-  return (
+    return (
+        <>
+            <AdvancedMarker
+                position={Position}
+                onClick={handleMarkerClick}
+                title="CEU Rosa da China"
+            />
+            {!mapReady && (
+                <div className={styles.loading}>Carregando mapa...</div>
+            )}
+
+            {/* Botões gerado somente se houver mapa, por isso o "mapReady &&" */}
+            {mapReady && (
+                <div className={styles.controls} role="group" aria-hidden="true">
+                    <button
+                        type="button"
+                        onClick={() => withAnimationLock(zoomIn)}
+                        onKeyDown={(e) => handleKeyDown(e, zoomIn)}
+                        aria-hidden="true"
+                        className={styles.buttons_map}
+                    >
+                        <span className={styles.zoom_plus} />
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => withAnimationLock(zoomOut)}
+                        onKeyDown={(e) => handleKeyDown(e, zoomOut)}
+                        aria-hidden="true"
+                        className={styles.buttons_map}
+                    >
+                        <span className={styles.zoom_minus} />
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => withAnimationLock(recenter)}
+                        onKeyDown={(e) => handleKeyDown(e, recenter)}
+                        className={styles.buttons_map}
+                        aria-hidden="true"
+                    >
+                        <span className={styles.center} />
+                    </button>
+                </div>
+            )}
+        </>
+    )
+}
+
+function MapCeu() {
+    //Posição do CEU em coordenadas
+    const Position = { lat: -23.62195799066044, lng: -46.501034948373324 }
+
+    return (
         <div className={styles.container}>
-            {/* renderização do mapa e o marcador*/}
             <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
                 <div className={styles.mapWrapper}>
                     <Map
                         defaultZoom={17}
                         defaultCenter={Position}
-                        onLoad={onMapLoad}
                         mapId="ceu-map"
                     >
-                    <AdvancedMarker position={position} onClick={handleMarkerClick} title="CEU Rosa da China"/>
+                        <MapControlsAndMarker Position={Position} />
                     </Map>
-
-                    {/* Botões (gerado somente se houver mapa, por isso o "mapReady &&") */}
-                    {mapReady && (
-                        <div className={styles.controls} role="group" aria-label="Controles do mapa">
-                            <button
-                                type="button"
-                                onClick={zoomIn}
-                                onKeyDown={(e) => handleKeyDown(e, zoomIn)}
-                                aria-label="Aumentar zoom"
-                                className={styles.buttons_map}
-                            >
-                                <span className={styles.zoom_plus} />
-                            </button>
-
-                            <button
-                                type="button"
-                                onClick={zoomOut}
-                                onKeyDown={(e) => handleKeyDown(e, zoomOut)}
-                                aria-label="Diminuir zoom"
-                                className={styles.buttons_map}
-                            >
-                                <span className={styles.zoom_minus} />
-                            </button>
-
-                            <button
-                                type="button"
-                                onClick={recenter}
-                                onKeyDown={(e) => handleKeyDown(e, recenter)}
-                                aria-label="Voltar para o marcador"
-                                className={styles.buttons_map}
-                            >
-                                <span className={styles.center} />
-                            </button>
-                        </div>
-                    )}
                 </div>
             </APIProvider>
         </div>
-    );
+    )
 }
 
-export default MapCeu;
+export default MapCeu

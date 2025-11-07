@@ -41,7 +41,7 @@
 .card h3 {
   font-size: 20px;
   text-transform: uppercase;
-  color: #FF7A00;
+  color: #e46e00;
   border-bottom: 1px solid #59c5ea;
   margin-bottom: 0.5em;
   cursor: default;
@@ -50,8 +50,11 @@
 .card p {
   padding: 0.2em 0em;
   text-transform: uppercase;
-  color: #1A4C54;
   cursor: default;
+}
+
+.card strong{
+  color: #1A4C54;
 }
 
 @media (max-width: 768px) {

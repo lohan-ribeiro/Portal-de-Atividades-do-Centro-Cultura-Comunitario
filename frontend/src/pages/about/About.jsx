@@ -1,5 +1,6 @@
-import styles from "./About.module.css"
 import logoUnivesp from "../../assets/img/logoUnivesp.png"
+
+import styles from "./About.module.css"
 
 function About(){
     
@@ -35,10 +36,16 @@ function About(){
                     </section>
                 </div>
                 
-                    <a className={styles.content_Univesp} href="https://univesp.br/" target="blank" rel="noreferrer">
+                    <a 
+                    className={styles.content_Univesp} 
+                    href="https://univesp.br/" 
+                    target="blank" 
+                    rel="noreferrer" 
+                    aria-label="Acessar a pagina da UNIVESP"
+                    >
                         <img  
                         src={logoUnivesp} 
-                        alt="Logo da UNIVESP - Universidade Virtual do Estado de São Paulo" />
+                        alt="UNIVESP - Universidade Virtual do Estado de São Paulo" />
                     </a>
                 
             </div>

@@ -1,10 +1,13 @@
-import styles from "./HomePage.module.css"
-import { useState, useEffect, useMemo } from "react"
+
+import { useState, useEffect, useMemo, useRef} from "react"
 import Fuse from 'fuse.js'
 
-import CardsActivities from "../../components/componentsHome/CardsActivities"
+import CardsModalities from "../../components/componentsHome/CardsModalities"
 import SelectAtivies from "../../components/componentsHome/SelectActivies"
 import Map from "../../components/MapCeu"
+import Limpar from "../../assets/IconsAnimated/ButtonClear"
+
+import styles from "./HomePage.module.css"
 
 function HomePage() {
     const [activities, setActivities] = useState([]);
@@ -18,7 +21,7 @@ function HomePage() {
         // Usado em ambiente de desenvolvimento
         fetch("http://127.0.0.1:3000/atividades")
 
-        // Usado em produção, para comunicação com a API do backend. 
+        // Usado em produção, para comunicação com a API do backend.
         // Configurado redirecionamento de porta no nginx do servidor
         //fetch("api/atividades")
         .then(response => {
@@ -94,7 +97,7 @@ function HomePage() {
     const availableAges = [...new Set(ageOptionsActivities.map((m) => m.idade))].sort((a, b) => String(a).localeCompare(String(b), undefined, { numeric: true }));
     const availableLevels = [...new Set(levelOptionsActivities.map((m) => m.nivel))].sort((a, b) => a.localeCompare(b));
 
-    // BOTÃO LIMPAR 
+
     const LimparFiltro = () => {
         setSelectedActivity("")
         setSelectedAge("")
@@ -102,15 +105,18 @@ function HomePage() {
         setSearchTerm("");
     }
 
-    const ShowCards = selectedActivity || selectedAge || selectedLevel || searchTerm;
+    const firstSelectRef = useRef(null)
+
+    // CONTROLE DE EXIBIÇÃO DOS CARDS
+    const ShowCards = selectedActivity || selectedAge || selectedLevel || searchTerm; // Mostra se qualquer filtro foi selecionado
 
     return (
         <main>
             <div className={styles.home_container}>
                 <div className={styles.introduction_container}>
                     <div className={styles.background_introduction}>
-                        <section className={styles.introduction_content} aria-labelledby="Objetivo do site">
-                            <h1>CEU Rosa da China — Um <span>Espaço</span> Para <span>Todos</span>!</h1>
+                        <section className={styles.introduction_content} aria-labelledby="introdução">
+                            <h1 id="introdução">CEU Rosa da China — Um <span>Espaço</span> Para <span>Todos</span>!</h1>
                             <p>
                                 Este é o nosso espaço para você ficar por dentro das atividades gratuitas do CEU Rosa da China.
                                 Aqui você encontra todas as atividades gratuitas que o CEU Rosa da China oferece.
@@ -119,31 +125,33 @@ function HomePage() {
                         </section>
                     </div>
                 </div>
-                <section className={styles.activies_container} aria-labelledby="Atividades do CEU Rosa da China">
-                    <h2>Confira nossas <span>atividades</span> disponíveis!</h2>
-                    <p>Use os filtros para encontrar a atividade desejada!</p>
+                <section className={styles.activies_container} aria-labelledby="atividades">
+                    <h2 id="atividades">Confira nossas <span>atividades</span> disponíveis!</h2>
+                    <p>Use a barra de pesquisa ou os filtros para encontrar a atividade desejada!</p>
 
                     <div className={styles.search_container}>
-                         <label htmlFor="search">Pesquisar por nome</label>
-                         <input 
+                        <label htmlFor="search">Pesquisar por nome</label>
+                        <input 
+                            ref={firstSelectRef}
                             type="text"
                             id="search"
                             name="search"
                             placeholder="Digite o nome da atividade..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                         />
-                    </div>
-                    
+                        />
+                    </div>    
                     <label htmlFor="atividade">Atividades</label>
-                    <SelectAtivies
-                        name="atividade"
-                        options={allActivities.map((nome, idx) => ({ id: idx, nome }))} 
-                        labelField="nome"
-                        onSelect={setSelectedActivity}
-                        selectedValue={selectedActivity} 
-                    />
-
+                    <div className={styles.comp_select_activies}>
+                        <SelectAtivies
+                            name="atividade"
+                            options={allActivities.map((nome, idx) => ({ id: idx, nome }))} 
+                            labelField="nome"
+                            onSelect={setSelectedActivity}
+                            selectedValue={selectedActivity}
+                            
+                        />
+                    </div>
                     <div className={styles.filters}>
                         <div className={styles.filter_age_level}>
                             <label htmlFor="idade">Idade</label>
@@ -168,35 +176,39 @@ function HomePage() {
                     </div>
 
                     <div className={styles.button_area}>
-                        <button type="button" onClick={LimparFiltro} aria-label="Limpar filtros">
-                                Limpar
-                        </button>
+                        <Limpar 
+                        focusTarget={firstSelectRef}
+                        onClick={LimparFiltro} 
+                        aria-label="Limpar Filtros e voltar para selecionar atividade"/>
                     </div>
 
-                    <p className={styles.found_activies} aria-live="assertive">
-                        {ShowCards
-                            ? (displayActivities.length > 0 
-                                ? `${displayActivities.length} atividades encontradas.` 
-                                : "Nenhuma atividade encontrada para este filtro.")
-                            : ""}
-                    </p>
+                </section> 
 
+                <section className={styles.cards_container}>
                     {ShowCards && (
-                        <div aria-live="polite" className={styles.cards}>
-                            {displayActivities.length > 0 ? (
-                                displayActivities.map((activity) => (
-                                    <CardsActivities key={activity.id} activity={activity} />
-                                ))
-                            ) : (
+                        displayActivities.length > 0 ? (
+                            <div
+                                aria-live="polite"
+                                className={`${styles.cards} ${
+                                displayActivities.length === 1 ? styles.singleCard :
+                                displayActivities.length === 2 ? styles.centerCards : ""
+                                }`}
+                            >
+                                {displayActivities.map((mod) => (
+                                <CardsModalities key={mod.id} modalidade={mod} />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className={styles.no_activies_message} aria-live="polite">
                                 <p>Nenhuma atividade encontrada para este filtro</p>
-                            )}
-                        </div>
+                            </div>
+                        )
                     )}
                 </section>
 
                 <div className={styles.map_container}>
-                    <section aria-labelledby="Localização do CEU Rosa da China">
-                        <h3>Passe por <span>aqui </span> e conheça nosso <span>espaço</span>!</h3>
+                    <section aria-labelledby="localização">
+                        <h3 id="localização">Passe por <span>aqui </span>e conheça nosso <span>espaço</span>!</h3>
                         <Map/>
                     </section>
                 </div>
