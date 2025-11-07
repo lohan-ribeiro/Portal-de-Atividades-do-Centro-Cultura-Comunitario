@@ -311,6 +311,7 @@
 
     .activies_container .filters{
         flex-direction: column;
+        gap: 2em;
     }
 
     .activies_container .button_area{

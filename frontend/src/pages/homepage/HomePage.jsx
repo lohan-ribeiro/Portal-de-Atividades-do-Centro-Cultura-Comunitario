@@ -200,7 +200,7 @@ function HomePage() {
                             </div>
                         ) : (
                             <div className={styles.no_activies_message} aria-live="polite">
-                                <p>Nenhuma atividade encontrada para este filtro</p>
+                                <p>Nenhuma atividade encontrada para este filtro ou nome.</p>
                             </div>
                         )
                     )}
