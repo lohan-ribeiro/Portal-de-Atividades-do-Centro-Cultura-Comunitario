@@ -1,6 +1,8 @@
 import Envelope from "../../assets/icon/envelope.svg?react"
 import Pinmap from "../../assets/icon/marcador.svg?react"
 import Telefone from "../../assets/icon/chamada-telefonica.svg?react"
+import Horario from "../../assets/icon/relogio.svg?react"
+
 import FacebookIcon from "../../assets/IconsAnimated/FacebookIcon"
 import InstagramIcon from "../../assets/IconsAnimated/InstagramIcon"
 import Enviar from "../../assets/IconsAnimated/ButtonSend"
@@ -14,6 +16,7 @@ import styles from "./Contact.module.css";
 
 function Contact() {
   const form = useRef();
+  const firstInputRef = useRef(null)
   const [status, setStatus] = useState("");
   const [emailError, setEmailErro] = useState("");
 
@@ -22,12 +25,16 @@ function Contact() {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
+  
 
   /* Função para enviar um e-mail ao CEU após a validação do endereço de e-mail */
   const sendEmail = (e) => {
     e.preventDefault();
 
-    const email = form.current.from_email.value;
+    //const email = form.current.from_email.value;
+    const formEl = form.current;
+    const email = formEl.user_email.value;
+
 
     if (!validarEmail(email)) {
       setEmailErro("Por favor, insira um email válido");
@@ -36,15 +43,26 @@ function Contact() {
       setEmailErro("");
     }
 
+    // pegar data/hora formatada
+    const agora = new Date();
+    const data = agora.toLocaleDateString("pt-BR");
+    const hora = agora.toLocaleTimeString("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    const timeFormatado = `${data} às ${hora}`;
+
+    // adiciona o time no form antes de enviar (matching com {{time}} no template do EmailJS)
+    formEl.time.value = timeFormatado;
+
     /* parametros necessario para o envio do email */
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current, /* "form.current" é o conteúdo do meu formulário (nome, email, mensagem) */
-        {
-        publicKey:import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      })
+        {publicKey:import.meta.env.VITE_EMAILJS_PUBLIC_KEY}
+      )
       .then(
         () => {
           setStatus("Enviado com sucesso!");
@@ -53,12 +71,12 @@ function Contact() {
         (error) => {
           console.error(error);
           setStatus("Erro ao enviar. Tente novamente.");
+          firstInputRef.current?.focus();
         }
       );
   };
 
   /* referencia para voltar pro input de nome(acessibilidade) */
-  const firstInputRef = useRef(null)
 
   /* Função para limpar os campos do formulário */
   const limparCampos = () => {
@@ -94,7 +112,9 @@ function Contact() {
                 Rua Clara Petrela, 113, São Paulo, SP, Brazil, 03978-500
               </a>
             </li>
-            
+            <li>
+              <Horario className= {styles.item_icons} aria-hidden="true" focusable="false" /> Seg a Sex: 8H - 20H | Sáb e Dom: 8H - 16h30H
+            </li>
           </ul>
           <h2>Siga-nos:</h2>
           <div className={styles.social}>
@@ -116,27 +136,30 @@ function Contact() {
           </div>
         </section>
 
-        <section className={styles.content_form} aria-labelledby="Formulário de contato">
+        <section className={styles.content_form} aria-labelledby="formulário">
 
-          <h3>Formulário de Contato</h3>
+          <h3 id="formulário">Formulário de Contato</h3>
 
           <form ref={form} onSubmit={sendEmail} aria-label="formulário de contato">
+            
+            {/* campo escondido */}
+            <input type="hidden" name="time" />
+
             <label htmlFor="name">Nome:</label>
             <input 
               ref={firstInputRef} 
-              type="text" 
-              id="name" 
-              name="from_name"
+              type="text"
+              name="user_name"
               placeholder="Digite seu nome" 
               required
               aria-required="true" 
-              autoComplete="off" 
+              autoComplete="off"
             />
 
             <label htmlFor="email">E-mail:</label>
             <input 
               type="email" 
-              name="from_email" 
+              name="user_email"
               placeholder="exemplo@email.com"
               required 
               aria-required="true" 
@@ -172,7 +195,13 @@ function Contact() {
               />
             </div>
 
-            {status && <p aria-live="polite" className={styles.email_erro}>{status}</p>}
+            {status && 
+              <p 
+                aria-live="polite" 
+                className={`${ status === "Enviado com sucesso!"? styles.send_sucess : styles.send_error}`}
+              >
+                {status}
+              </p>}
           </form>
         </section>
       </div>

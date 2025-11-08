@@ -8,8 +8,8 @@ function About(){
         <main>
             <div className={styles.container}>
                 <div className={styles.background}>
-                    <section className={styles.content_about} aria-labelledby="Sobre nós">
-                        <h1>Quem Somos <span>Nós</span>?</h1>
+                    <section className={styles.content_about} aria-labelledby="sobre">
+                        <h1 id="sobre">Quem Somos <span>Nós</span>?</h1>
                         <p>
                             Somos um grupo de estudantes do eixo de Computação da <a id="univesp" href="https://univesp.br/" target="_blank" rel="noreferrer">
                             UNIVESP</a> e, como proposta para o Projeto Integrador,
@@ -23,8 +23,8 @@ function About(){
                         </p>
                     </section>
 
-                    <section className={styles.content_team} aria-labelledby="Nossa equipe">
-                        <h2><span>Nossa</span>  Equipe:</h2>
+                    <section className={styles.content_team} aria-labelledby="equipe">
+                        <h2 id="equipe"><span>Nossa</span>  Equipe:</h2>
                         <ul>
                             <li>Felipe da Silva Faria de Oliveira</li>
                             <li>Rafael Dias de Santi</li>
@@ -43,8 +43,8 @@ function About(){
                     rel="noreferrer" 
                     aria-label="Acessar a pagina da UNIVESP"
                     >
-                        <img  
-                        src={logoUnivesp} 
+                        <img
+                        src={logoUnivesp}
                         alt="UNIVESP - Universidade Virtual do Estado de São Paulo" />
                     </a>
                 

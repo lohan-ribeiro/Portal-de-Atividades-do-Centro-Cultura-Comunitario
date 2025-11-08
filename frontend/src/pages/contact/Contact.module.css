@@ -2,7 +2,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    gap: 2em;
+    gap: 3em;
     padding: 4em;
 }
 
@@ -65,13 +65,18 @@
 .item{
     align-items: center;
     list-style: none;
-    line-height: 2.2em;
+    line-height: 2.8em;
+    margin-top: 2em;
 }
 
 .item_icons{
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
     fill: #1A4C54;
-    width: 17px;
-    height: 17px;
+    width: 26px;
+    height: 26px;
+    margin-right: .5em;
 }
 
 .social{
@@ -103,9 +108,16 @@
     padding: 1em;
 }
 
-.email_erro {
+.send_erro {
     color: rgb(230, 9, 9);
-    font-size: 14px;
+    font-size: 16px;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.send_sucess{
+    color: #28a745;
+    font-size: 16px;
     margin-top: 1em;
     margin-bottom: 0.5em;
 }
@@ -176,7 +188,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding-right: .4em;
+    padding-right: .42em;
 }
 
 /* MAPA */
