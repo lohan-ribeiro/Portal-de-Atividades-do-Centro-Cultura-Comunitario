@@ -195,7 +195,7 @@ function HomePage() {
                                 }`}
                             >
                                 {displayActivities.map((mod) => (
-                                <CardsModalities key={mod.id} modalidade={mod} />
+                                <CardsModalities key={mod.id} activity={mod} />
                                 ))}
                             </div>
                         ) : (
