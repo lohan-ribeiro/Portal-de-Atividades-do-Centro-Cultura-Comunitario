@@ -64,12 +64,12 @@ function MapControlsAndMarker({ Position }) {
 
             {/* Botões gerado somente se houver mapa, por isso o "mapReady &&" */}
             {mapReady && (
-                <div className={styles.controls} role="group" aria-hidden="true">
+                <div className={styles.controls} role="group">
                     <button
                         type="button"
                         onClick={() => withAnimationLock(zoomIn)}
                         onKeyDown={(e) => handleKeyDown(e, zoomIn)}
-                        aria-hidden="true"
+                        aria-label="Aumentar zoom"
                         className={styles.buttons_map}
                     >
                         <span className={styles.zoom_plus} />
@@ -79,7 +79,7 @@ function MapControlsAndMarker({ Position }) {
                         type="button"
                         onClick={() => withAnimationLock(zoomOut)}
                         onKeyDown={(e) => handleKeyDown(e, zoomOut)}
-                        aria-hidden="true"
+                        aria-label="Diminuir zoom"
                         className={styles.buttons_map}
                     >
                         <span className={styles.zoom_minus} />
@@ -90,7 +90,7 @@ function MapControlsAndMarker({ Position }) {
                         onClick={() => withAnimationLock(recenter)}
                         onKeyDown={(e) => handleKeyDown(e, recenter)}
                         className={styles.buttons_map}
-                        aria-hidden="true"
+                        aria-label="Centralizar mapa"
                     >
                         <span className={styles.center} />
                     </button>

@@ -13,7 +13,7 @@ const Button = ({onClick, focusTarget}) => {
     
   return (
     <StyledWrapper>
-      <button type="reset" className="btn" onClick={handleClick}>
+      <button type="reset" className="btn" onClick={handleClick} aria-label='Limpar'>
         <p className="paragraph"> Limpar </p>
         <span className="icon-wrapper">
           <svg aria-hidden="true" className="icon" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

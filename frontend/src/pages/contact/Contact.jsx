@@ -150,6 +150,7 @@ function Contact() {
               ref={firstInputRef} 
               type="text"
               name="user_name"
+              id="name"
               placeholder="Digite seu nome" 
               required
               aria-required="true" 
@@ -160,6 +161,7 @@ function Contact() {
             <input 
               type="email" 
               name="user_email"
+              id="email"
               placeholder="exemplo@email.com"
               required 
               aria-required="true" 
@@ -176,6 +178,7 @@ function Contact() {
             <label htmlFor="mensage">Mensagem:</label>
             <textarea
               name="message"
+              id="mensage"
               placeholder="Digite sua mensagem aqui"
               rows={5}
               maxLength={400}
