@@ -1,65 +1,114 @@
 
-# Projeto CEU Rosa da China
+# Portal de Atividades do CEU Rosa da China
+
+Sistema web para visualização das atividades gratuitas do CEU Rosa da China.
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
+![EmailJS](https://img.shields.io/badge/EmailJS-FFB000?style=for-the-badge)
+![Google Maps](https://img.shields.io/badge/Google%20Maps%20API-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white)
+
+---
 
 ## Visão Geral
 
 Este é o portal do CEU Rosa da China, um espaço digital criado para que a comunidade possa se informar e se inscrever nas diversas atividades gratuitas que oferecemos. O objetivo deste projeto é facilitar o acesso à informação, centralizando em um único lugar todas as atividades disponíveis, com filtros e buscas que tornam a navegação mais ágil e intuitiva.
 
-O site foi construído com uma arquitetura moderna, separando o `frontend` (a parte com a qual o usuário interage) do `backend` (a lógica e o banco de dados que alimentam o site). Essa separação garante mais flexibilidade para futuras manutenções e novas funcionalidades.
+A aplicação foi estruturada com frontend e backend separados, permitindo que a interface e a lógica do sistema evoluam de forma independente, facilitando a manutenção e a adição de novas funcionalidades.
 
 ---
 
-## Tecnologias Utilizadas
+## 🚀 Tecnologias Utilizadas
 
-A seguir, uma lista das tecnologias que escolhemos para este projeto, com uma breve justificativa da razão pela qual cada uma foi selecionada.
+### 🎨 Frontend
 
-### Frontend
+[![React.js]][React-url] [![Vite]][Vite-url] [![Styled Components]][StyledComponents-url]
+[![Fuse.js]][Fuse-url] [![Regex]][Regex-url]
+---
 
-O `frontend` é a camada visual do projeto, com a qual os usuários interagem diretamente. Foi desenvolvido com as seguintes tecnologias:
+### ⚙️ Backend
 
-- **React:** Uma biblioteca JavaScript para a criação de interfaces de usuário. O React foi escolhido pela sua eficiência e componentização, o que nos permitiu criar uma interface dinâmica e responsiva, onde as informações são atualizadas em tempo real sem a necessidade de recarregar a página.
-
-- **Vite:** Um ambiente de desenvolvimento moderno e ultrarrápido. O Vite acelera o processo de desenvolvimento, oferecendo um servidor de desenvolvimento com *hot-reload* (atualização automática) quase instantâneo, o que torna a criação e o teste de novas funcionalidades muito mais ágil.
-
-- **React Router:** Para gerenciar a navegação entre as diferentes páginas do site (Home, Sobre, Contato) de forma fluida e sem a necessidade de recarregar o navegador, o que é característico de uma *Single-Page Application* (SPA).
-
-- **Axios:** Um cliente HTTP para fazer a comunicação entre o `frontend` e o `backend`. O Axios foi utilizado para buscar as atividades no banco de dados e exibi-las na tela, de forma assíncrona e segura.
-
-- **Fuse.js:** Uma biblioteca de *fuzzy search* (busca aproximada) que torna a barra de pesquisa mais inteligente. Com o Fuse.js, os usuários podem encontrar atividades mesmo que digitem o nome com algum erro de ortografia, melhorando a experiência de uso.
-
-- **Email.js:** Para a funcionalidade de contato, o Email.js foi integrado para permitir que os usuários enviem mensagens diretamente do site, sem a necessidade de uma configuração de servidor de e-mail no `backend`.
-
-- **Google Maps React:** Para exibir o mapa de localização do CEU Rosa da China, esta biblioteca oferece uma integração simples e direta com a API do Google Maps, facilitando a visualização do endereço.
-
-### Backend
-
-O `backend` é o cérebro do projeto. É ele quem processa as informações, se comunica com o banco de dados e envia os dados para o `frontend`.
-
-- **Node.js e Express:** O Node.js é o ambiente que permite executar código JavaScript no servidor, enquanto o Express é um *framework* que simplifica a criação de APIs REST. Juntos, eles formam a base do nosso `backend`, gerenciando as rotas e a lógica de negócios.
-
-- **MariaDB:** Um sistema de gerenciamento de banco de dados relacional, robusto e de código aberto. O MariaDB foi escolhido para armazenar as informações das atividades de forma organizada e segura, garantindo a integridade dos dados.
-
-- **CORS:** Um pacote para habilitar o *Cross-Origin Resource Sharing*. O CORS é essencial para permitir que o `frontend`, que roda em um domínio, possa fazer requisições para o `backend`, que está em outro, de forma segura.
+[![Node.js]][NodeJS-url] [![Express.js]][Express-url] [![CORS]][CORS-url]
 
 ---
 
-## Estrutura do Projeto
+### 🗄️ Banco de Dados
 
-O projeto está organizado em duas pastas principais:
-
-- **/frontend:** Contém todos os arquivos relacionados à interface do usuário, incluindo os componentes React, as folhas de estilo (CSS) e as imagens.
-- **/backend:** Contém a lógica do servidor, a configuração do banco de dados e os *endpoints* da API.
+[![MariaDB]][MariaDB-url]
 
 ---
 
-## Como Executar o Projeto
+### 🔌 APIs e Integrações
+
+[![EmailJS]][EmailJS-url] [![Google Maps]][GoogleMaps-url]
+
+---
+
+## ⚙️ Funcionalidades
+
+-  Busca inteligente de atividades com base em palavras-chave
+-  Filtro de atividades por diferentes critérios
+-  Visualização em mapa interativo
+-  Envio de formulário para contato
+-  Validação de e-mail no frontend
+-  Interface dinâmica com renderização condicional de componentes
+
+
+## 📚 Estrutura do Projeto
+
+O projeto está organizado em duas partes principais:
+
+### 🎨 Frontend
+
+Responsável pela interface do usuário, desenvolvido com React.
+
+Principais diretórios:
+- `assets/` → Imagens e arquivos estáticos
+- `components/` → Componentes reutilizáveis da interface
+- `pages/` → Páginas da aplicação
+- `routes/` → Rotas para as páginas
+
+---
+
+### ⚙️ Backend
+
+Responsável pela lógica de negócio e comunicação com o banco de dados.
+
+Principais diretórios:
+- `bin/` → Arquivos de inicialização do servidor  
+    - `www` → Responsável por iniciar a aplicação  
+
+- `config/` → Configurações da aplicação  
+    - `database.js` → Configuração da conexão com o banco de dados  
+    - `test-db.js` → Script para testar a conexão com o banco  
+
+- `app/` → Contém a lógica principal da aplicação  
+
+
+## 🔐 Variáveis de Ambiente
+
+Este projeto utiliza APIs externas e requer chaves de acesso (API Keys).
+
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+
+```env
+VITE_EMAILJS_SERVICE_ID=ID_SERVICE_AQUI
+VITE_EMAILJS_TEMPLATE_ID=ID_TEMPLATE_AQUI
+VITE_EMAILJS_PUBLIC_KEY=CHAVE_API_AQUI
+
+VITE_GOOGLE_MAPS_API_KEY=CHAVE_API_AQUI
+```
+
+## 🔧 Como Executar
 
 Para executar o projeto em sua máquina local, siga os passos abaixo.
 
 ### Pré-requisitos
 
-- **Node.js:** Certifique-se de que você tem o Node.js instalado.
-- **MariaDB:** É necessário ter o MariaDB (ou MySQL) instalado e em execução.
+- **IDE:** Recomendado o uso do VS Code  
+- **Node.js:** Versão LTS recomendada (>= 18)  
+- **Banco de Dados:** MariaDB ou MySQL
 
 ### 1. Configurar o Banco de Dados
 
@@ -89,3 +138,57 @@ npm run dev
 ```
 
 O site estará acessível em `http://localhost:5173`.
+
+---
+
+## 📝 Licença
+
+Esse projeto está sob licença apache. Veja o arquivo [LICENÇA](https://gitlab.com/grupo-pi-ii/projeto-integrador-ii/-/blob/main/LICENSE?ref_type=heads) para mais detalhes.
+
+
+## 📚 Saiba mais
+
+Quer entender melhor como o projeto foi desenvolvido? Confira a documentação abaixo:
+
+- [Repositório do Backend](https://gitlab.com/grupo-pi-ii/projeto-integrador-ii/-/tree/main/backend?ref_type=heads)
+- [Repositório do Frontend](https://gitlab.com/grupo-pi-ii/projeto-integrador-ii/-/tree/main/frontend?ref_type=heads)
+- [Documentação da API React Google Maps](https://visgl.github.io/react-google-maps/docs)
+- [Documentação da API EmailJS](https://www.emailjs.com/docs/tutorial/overview/)
+
+
+
+
+
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://react.dev/
+
+[Vite]: https://img.shields.io/badge/Vite-563D7C?style=for-the-badge&logo=vite&logoColor=FFD62E
+[Vite-url]: https://vitejs.dev/
+
+[Node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
+[NodeJS-url]: https://nodejs.org/
+
+[Express.js]: https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
+[Express-url]: https://expressjs.com/
+
+[CORS]: https://img.shields.io/badge/CORS-00599C?style=for-the-badge
+[CORS-url]: https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CORS
+
+[MariaDB]: https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white
+[MariaDB-url]: https://mariadb.org/
+
+[Styled Components]: https://img.shields.io/badge/Styled--Components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white
+[StyledComponents-url]: https://styled-components.com/
+
+[Fuse.js]: https://img.shields.io/badge/Fuse.js-000000?style=for-the-badge
+[Fuse-url]: https://fusejs.io/
+
+[EmailJS]: https://img.shields.io/badge/EmailJS-FFB000?style=for-the-badge
+[EmailJS-url]: https://www.emailjs.com/
+
+[Google Maps]: https://img.shields.io/badge/Google%20Maps%20API-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white
+[GoogleMaps-url]: https://developers.google.com/maps
+
+[Regex]: https://img.shields.io/badge/Regex-FF6F00?style=for-the-badge
+[Regex-url]: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions
+
