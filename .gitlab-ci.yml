@@ -1,0 +1,21 @@
+stages:
+  - build
+  - deploy
+
+build-frontend:
+  stage: build
+  image: node:18
+  script:
+    - cd frontend
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - frontend/dist/
+
+build-backend:
+  stage: build
+  image: node:18
+  script:
+    - cd backend
+    - npm install
