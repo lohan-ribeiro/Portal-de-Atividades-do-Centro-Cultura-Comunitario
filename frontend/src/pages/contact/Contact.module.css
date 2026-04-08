@@ -1,11 +1,15 @@
 .container_contact {
+    min-height: 120vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     gap: 3em;
-    padding: 4em;
-}
+    padding: 1em;
 
+    background-color: none;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    
+}
 .container h1, h2{
     cursor: default;
 }
@@ -18,13 +22,13 @@
     text-align: left;
     align-items: center;
     padding: 1em;
-    margin-left: 4em;
+    
 }
 
 .content_contact h1{
     font-size: 30px;
     text-transform: uppercase;
-    padding: 0.8em 0em;
+    padding: 0.8em 0em .3em 0em;
 }
 
 
@@ -36,7 +40,7 @@
 }
 
 .email:hover{
-    color: #59c5ea;
+    color: #1d82c1;
     text-decoration: underline;
 }
 
@@ -48,17 +52,17 @@
 }
 
 .location:hover{
-    color: #59c5ea;
+    color: #1d82c1;
     text-decoration: underline;
 }
 
 /* REDES SOCIAIS */
 
 .content_contact h2{
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
 
-    padding-top: 3em;
+    padding-top: 1.5rem;
     padding-bottom: 1em;
 }
 
@@ -66,7 +70,8 @@
     align-items: center;
     list-style: none;
     line-height: 2.8em;
-    margin-top: 2em;
+    margin-top: 1rem;
+    font-size: 15px;
 }
 
 .item_icons{
@@ -74,9 +79,9 @@
     justify-content: center;
     align-items: center;
     fill: #1A4C54;
-    width: 26px;
-    height: 26px;
-    margin-right: .5em;
+    width: 22px;
+    height: 22px;
+    margin-right: 0em;
 }
 
 .social{
@@ -95,125 +100,13 @@
     transition: color 0.3s;
 }
 
-/* FORMULÁRIO */
-
-.content_form{
-    max-width: 500px;
-    width: 40%;
-
-    justify-content: center;
-    align-items: center;
-
-    margin: 0em;
-    padding: 1em;
-}
-
-.send_erro {
-    color: rgb(230, 9, 9);
-    font-size: 16px;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-}
-
-.send_sucess{
-    color: #28a745;
-    font-size: 16px;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-}
-
-.content_form h3{
-    font-size: 30px;
-    text-transform: uppercase;
-    padding: 0.8em 0em;
-}
-
-.content_form label{
-    display: flex;
-    flex-direction: column;
-
-    font-weight: bold;
-
-    margin-bottom: .4em;
-}
-
-.content_form input{
-    border: 1px solid #59c5ea;
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-    border-radius: 5px;
-    
-    width: 100%;
-
-    padding: .6em;
-    margin-bottom: .6em;
-}
-
-.content_form input:focus-visible{
-    outline: solid #FF7A00;
-}
-
-.content_form input::placeholder{
-    font-size: 14px;
-    color: #999;
-    font-style: italic;
-}
-
-.content_form textarea{
-    border: 1px solid #59c5ea;
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-    border-radius: 5px;
-    
-    min-height: 30vh;
-    width: 100%;
-    font-size: 14px;
-
-    padding: 1em;
-    margin-bottom: .6em;
-    line-height: 1.5;
-}
-
-.content_form textarea:focus-visible{
-    outline: solid #FF7A00;
-}
-
-.content_form textarea::placeholder{
-    
-    color: #999;
-    font-style: italic;
-}
-
-/* botões do formulário */
-.buttons_group{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding-right: .42em;
-}
 
 /* MAPA */
 
-.container_map{
-    width: 100%;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+.mapWrapper{
+    width: 90%;
+    height: 260px;
 
-.container_map h4{
-    width: 100%;
-    font-size: 30px;
-    text-transform: uppercase;
-    text-align: center;
-
-    background-color: #1A4C54;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-    color: white;
-
-    padding: 1em;
-    margin-top: 1em;
-    margin-bottom: 2em;
 }
 
 @media (max-width: 768px){
@@ -229,12 +122,6 @@
         width: 100%;
         padding: 1em;
         margin: 0;
-    }
-
-    .content_form{
-        padding: 1.3em;
-        margin-bottom: 5em;
-        width: 100%;
     }
 
     .container_map h4{

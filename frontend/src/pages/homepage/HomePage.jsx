@@ -209,7 +209,9 @@ function HomePage() {
                 <div className={styles.map_container}>
                     <section aria-labelledby="localização">
                         <h3 id="localização">Passe por <span>aqui </span>e conheça nosso <span>espaço</span>!</h3>
-                        <Map/>
+                        <div className={styles.map_content}>
+                            <Map className={styles.mapWrapper}/>
+                        </div>
                     </section>
                 </div>
             </div>

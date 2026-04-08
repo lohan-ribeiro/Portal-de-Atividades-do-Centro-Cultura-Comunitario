@@ -253,6 +253,21 @@
     color: #FF7A00;
 }
 
+.map_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.mapWrapper{
+    width: 100%;
+    height: 500px;
+
+    padding: 0;
+    
+}
+
 @media (max-width: 1920px){
     .activies_container .button_area{
         width: 60%;

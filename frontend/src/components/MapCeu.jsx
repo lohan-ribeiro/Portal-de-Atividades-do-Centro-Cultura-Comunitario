@@ -100,25 +100,24 @@ function MapControlsAndMarker({ Position }) {
     )
 }
 
-function MapCeu() {
-    //Posição do CEU em coordenadas
+function MapCeu({ className }) {
     const Position = { lat: -23.62195799066044, lng: -46.501034948373324 }
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${className}`}>
             <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-                <div className={styles.mapWrapper}>
-                    <Map
-                        defaultZoom={17}
-                        defaultCenter={Position}
-                        mapId="ceu-map"
-                    >
-                        <MapControlsAndMarker Position={Position} />
-                    </Map>
-                </div>
+                <Map
+                    defaultZoom={17}
+                    defaultCenter={Position}
+                    mapId="ceu-map"
+                    options={{
+                        disableDefaultUI: true
+                    }}
+                >
+                    <MapControlsAndMarker Position={Position} />
+                </Map>
             </APIProvider>
         </div>
     )
 }
-
 export default MapCeu
