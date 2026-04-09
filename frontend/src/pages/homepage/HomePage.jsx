@@ -5,7 +5,7 @@ import Fuse from 'fuse.js'
 import CardsModalities from "../../components/componentsHome/CardsModalities"
 import SelectAtivies from "../../components/componentsHome/SelectActivies"
 import Map from "../../components/MapCeu"
-import Limpar from "../../assets/IconsAnimated/ButtonClear"
+import Limpar from "../../components/IconsAnimated/ButtonClear"
 
 import styles from "./HomePage.module.css"
 

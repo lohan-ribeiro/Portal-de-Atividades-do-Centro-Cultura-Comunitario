@@ -1,5 +1,5 @@
 import logo from "../../assets/img/CEU_footer.png"
-import Social from "../../assets/IconsAnimated/SocialFooter"
+import Social from "../../components/IconsAnimated/SocialFooter"
 
 import { NavLink } from "react-router-dom"
 

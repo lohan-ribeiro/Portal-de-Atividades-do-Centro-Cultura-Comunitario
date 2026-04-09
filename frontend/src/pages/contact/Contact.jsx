@@ -3,8 +3,8 @@ import Pinmap from "../../assets/icon/marcador.svg?react"
 import Telefone from "../../assets/icon/chamada-telefonica.svg?react"
 import Horario from "../../assets/icon/relogio.svg?react"
 
-import FacebookIcon from "../../assets/IconsAnimated/FacebookIcon"
-import InstagramIcon from "../../assets/IconsAnimated/InstagramIcon"
+import FacebookIcon from "../../components/IconsAnimated/FacebookIcon"
+import InstagramIcon from "../../components/IconsAnimated/InstagramIcon"
 
 import Map from "../../components/MapCeu"
 import FormContact from "../../components/componentsContact/FormContact.jsx"
