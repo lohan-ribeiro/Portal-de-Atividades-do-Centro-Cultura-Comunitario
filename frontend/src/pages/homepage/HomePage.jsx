@@ -111,111 +111,110 @@ function HomePage() {
     const ShowCards = selectedActivity || selectedAge || selectedLevel || searchTerm; // Mostra se qualquer filtro foi selecionado
 
     return (
-        <main>
-            <div className={styles.home_container}>
-                <div className={styles.introduction_container}>
-                    <div className={styles.background_introduction}>
-                        <section className={styles.introduction_content} aria-labelledby="introdução">
-                            <h1 id="introdução">CEU Rosa da China — Um <span>Espaço</span> Para <span>Todos</span>!</h1>
-                            <p>
-                                Este é o nosso espaço para você ficar por dentro das atividades gratuitas do CEU Rosa da China.
-                                Aqui você encontra todas as atividades gratuitas que o CEU Rosa da China oferece.
-                                Confira o que está disponível e descubra maneiras de se divertir e aprender com a sua comunidade!
-                            </p>
-                        </section>
-                    </div>
-                </div>
-                <section className={styles.activies_container} aria-labelledby="atividades">
-                    <h2 id="atividades">Confira nossas <span>atividades</span> disponíveis!</h2>
-                    <p>Use a barra de pesquisa ou os filtros para encontrar a atividade desejada!</p>
-
-                    <div className={styles.search_container}>
-                        <label htmlFor="search">Pesquisar por nome</label>
-                        <input 
-                            ref={firstSelectRef}
-                            type="text"
-                            id="search"
-                            name="search"
-                            placeholder="Digite o nome da atividade..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-                    </div>    
-                    <label htmlFor="atividade">Atividades</label>
-                    <div className={styles.comp_select_activies}>
-                        <SelectAtivies
-                            name="atividade"
-                            options={allActivities.map((nome, idx) => ({ id: idx, nome }))} 
-                            labelField="nome"
-                            onSelect={setSelectedActivity}
-                            selectedValue={selectedActivity}
-                            
-                        />
-                    </div>
-                    <div className={styles.filters}>
-                        <div className={styles.filter_age_level}>
-                            <label htmlFor="idade">Idade</label>
-                            <SelectAtivies
-                                name="idade"
-                                options={availableAges.map((idade, idx) => ({ id: idx, idade }))} 
-                                labelField="idade"
-                                onSelect={setSelectedAge}
-                                selectedValue={selectedAge}
-                            />
-                        </div>
-                        <div className={styles.filter_age_level}>
-                            <label htmlFor="nível">Nível</label>
-                            <SelectAtivies
-                                name="nível"
-                                options={availableLevels.map((nivel, idx) => ({ id: idx, nivel }))}
-                                labelField="nivel"
-                                onSelect={setSelectedLevel}
-                                selectedValue={selectedLevel}
-                            />
-                        </div>
-                    </div>
-
-                    <div className={styles.button_area}>
-                        <Limpar 
-                        focusTarget={firstSelectRef}
-                        onClick={LimparFiltro} 
-                        aria-label="Limpar Filtros e voltar para selecionar atividade"/>
-                    </div>
-
-                </section> 
-
-                <section className={styles.cards_container}>
-                    {ShowCards && (
-                        displayActivities.length > 0 ? (
-                            <div
-                                aria-live="polite"
-                                className={`${styles.cards} ${
-                                displayActivities.length === 1 ? styles.singleCard :
-                                displayActivities.length === 2 ? styles.centerCards : ""
-                                }`}
-                            >
-                                {displayActivities.map((mod) => (
-                                <CardsModalities key={mod.id} activity={mod} />
-                                ))}
-                            </div>
-                        ) : (
-                            <div className={styles.no_activies_message} aria-live="polite">
-                                <p>Nenhuma atividade encontrada para este filtro ou nome.</p>
-                            </div>
-                        )
-                    )}
-                </section>
-
-                <div className={styles.map_container}>
-                    <section aria-labelledby="localização">
-                        <h3 id="localização">Passe por <span>aqui </span>e conheça nosso <span>espaço</span>!</h3>
-                        <div className={styles.map_content}>
-                            <Map className={styles.mapWrapper}/>
-                        </div>
+        <div className={styles.home_container}>
+            <div className={styles.introduction_container}>
+                <div className={styles.background_introduction}>
+                    <section className={styles.introduction_content} aria-labelledby="introdução">
+                        <h1 id="introdução">CEU Rosa da China — Um <span>Espaço</span> Para <span>Todos</span>!</h1>
+                        <p>
+                            Este é o nosso espaço para você ficar por dentro das atividades gratuitas do CEU Rosa da China.
+                            Aqui você encontra todas as atividades gratuitas que o CEU Rosa da China oferece.
+                            Confira o que está disponível e descubra maneiras de se divertir e aprender com a sua comunidade!
+                        </p>
                     </section>
                 </div>
             </div>
-        </main>
+            <section className={styles.activies_container} aria-labelledby="atividades">
+                <h2 id="atividades">Confira nossas <span>atividades</span> disponíveis!</h2>
+                <p>Use a barra de pesquisa ou os filtros para encontrar a atividade desejada!</p>
+
+                <div className={styles.search_container}>
+                    <label htmlFor="search">Pesquisar por nome</label>
+                    <input 
+                        ref={firstSelectRef}
+                        type="text"
+                        id="search"
+                        name="search"
+                        placeholder="Digite o nome da atividade..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>    
+                <label htmlFor="atividade">Atividades</label>
+                <div className={styles.comp_select_activies}>
+                    <SelectAtivies
+                        name="atividade"
+                        options={allActivities.map((nome, idx) => ({ id: idx, nome }))} 
+                        labelField="nome"
+                        onSelect={setSelectedActivity}
+                        selectedValue={selectedActivity}
+                        
+                    />
+                </div>
+                <div className={styles.filters}>
+                    <div className={styles.filter_age_level}>
+                        <label htmlFor="idade">Idade</label>
+                        <SelectAtivies
+                            name="idade"
+                            options={availableAges.map((idade, idx) => ({ id: idx, idade }))} 
+                            labelField="idade"
+                            onSelect={setSelectedAge}
+                            selectedValue={selectedAge}
+                        />
+                    </div>
+                    <div className={styles.filter_age_level}>
+                        <label htmlFor="nível">Nível</label>
+                        <SelectAtivies
+                            name="nível"
+                            options={availableLevels.map((nivel, idx) => ({ id: idx, nivel }))}
+                            labelField="nivel"
+                            onSelect={setSelectedLevel}
+                            selectedValue={selectedLevel}
+                        />
+                    </div>
+                </div>
+
+                <div className={styles.button_area}>
+                    <Limpar 
+                    focusTarget={firstSelectRef}
+                    onClick={LimparFiltro} 
+                    aria-label="Limpar Filtros e voltar para selecionar atividade"/>
+                </div>
+
+            </section> 
+
+            <section className={styles.cards_container}>
+                {ShowCards && (
+                    displayActivities.length > 0 ? (
+                        <div
+                            aria-live="polite"
+                            className={`${styles.cards} ${
+                            displayActivities.length === 1 ? styles.singleCard :
+                            displayActivities.length === 2 ? styles.centerCards : ""
+                            }`}
+                        >
+                            {displayActivities.map((mod) => (
+                            <CardsModalities key={mod.id} activity={mod} />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className={styles.no_activies_message} aria-live="polite">
+                            <p>Nenhuma atividade encontrada para este filtro ou nome.</p>
+                        </div>
+                    )
+                )}
+            </section>
+
+            <div className={styles.map_container}>
+                <section aria-labelledby="localização">
+                    <h3 id="localização">Passe por <span>aqui </span>e conheça nosso <span>espaço</span>!</h3>
+                    <div className={styles.map_content}>
+                        <Map className={styles.mapWrapper}/>
+                    </div>
+                </section>
+            </div>
+        </div>
+    
     );
 }
 

@@ -55,7 +55,7 @@
     text-align: left;
 }
 
-/* CARDS DE ATIVIDADES */
+/* SEÇÃO DE ATIVIDADES */
 
 .activies_container{
     display: flex;
@@ -86,8 +86,9 @@
 
 .activies_container p{
     text-transform: uppercase;
-    margin: 2.5em 0em;
+    margin: 1.6em 0em;
     text-align: center;
+    font-size: 18px;
 }
 
 .activies_container label{
@@ -98,6 +99,8 @@
     color: #1A4C54;
 }
 
+/* BARRA DE PESQUISA DAS ATIVIDADES */
+
 .search_container {
     display: flex;
     flex-direction: column;
@@ -105,6 +108,8 @@
     width: 100%;
     margin-bottom: 2em;
 }
+
+/* FILTROS DAS  ATIVIDADES */
 
 .search_container input[type="text"] {
     width: 500px;
@@ -164,6 +169,8 @@
     
 }
 
+/* CARDS DE ATIVIDADES */
+
 .cards_container{
     display: flex;
     flex-direction: column;
@@ -171,7 +178,7 @@
     justify-content: center;
     text-align: left;
     padding: 0;
-    margin-bottom: 10em;
+    margin-bottom: 4em;
     padding: 1em;
 }
 
@@ -223,8 +230,6 @@
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
 }
-
-
 
 /* MAPA */
 

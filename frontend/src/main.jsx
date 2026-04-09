@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {BrowserRouter} from "react-router-dom"
 
+
 import NavBar from "./components/layout/NavBar"
 import Footer from "./components/layout/Footer"
 import AppRoutes from "./routes/AppRoutes.jsx"
@@ -13,9 +14,9 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <div className='app_layout'>
         <NavBar />
-        <div className='content'>
+        <main className='content'>
           <AppRoutes />  
-        </div>
+        </main>
         <Footer />
       </div>
     </BrowserRouter>  

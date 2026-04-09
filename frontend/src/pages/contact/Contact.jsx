@@ -15,66 +15,63 @@ import styles from "./Contact.module.css";
 function Contact() {
   
   return (
-    <main >
-      <div className={styles.container_contact}>
-        <section className={styles.content_contact} aria-labelledby="tituloContato">
-          <h1 id="tituloContato">Contate-Nos</h1>
-          <ul className={styles.item}>
-            <li>
-              <Map className={styles.mapWrapper}/>
-            </li>
-            <li>
-              <Telefone className={styles.item_icons} aria-hidden="true" focusable="false"/>{" "}
-               (11) 2701-2358
-            </li>
-            <li>
-              <Envelope className= {styles.item_icons} aria-hidden="true" focusable="false" />{" "}
-              <a href="mailto:atendimentoceurosadachina@gmail.com" className={styles.email}>
-                atendimentoceurosadachina@gmail.com
-              </a>
-            </li>
-            <li>
-              <Pinmap className= {styles.item_icons} aria-hidden="true" focusable="false" />{" "}
-              <a
-                href="https://maps.app.goo.gl/Rp8foy6VvnwMxZxr5"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.location}
-                aria-label="Abrir endereço no Google Maps em uma nova aba"
-              >
-                Rua Clara Petrela, 113, São Paulo, SP, Brazil, 03978-500
-              </a>
-            </li>
-            <li>
-              <Horario className= {styles.item_icons} aria-hidden="true" focusable="false" />{" "}
-               Seg a Sex: 8H - 20H | Sáb e Dom: 8H - 16h30H
-            </li>
-          </ul>
-          <h2>Siga-nos:</h2>
-          <div className={styles.social}>
-            <InstagramIcon
-              as="a"
-              href="https://instagram.com/ceu.rosadachina"
+    <div className={styles.container_contact}>
+      <section className={styles.content_contact} aria-labelledby="tituloContato">
+        <h1 id="tituloContato">Contate-Nos</h1>
+        <ul className={styles.item}>
+          <li>
+            <Map className={styles.mapWrapper}/>
+          </li>
+          <li>
+            <Telefone className={styles.item_icons} aria-hidden="true" focusable="false"/>{" "}
+              (11) 2701-2358
+          </li>
+          <li>
+            <Envelope className= {styles.item_icons} aria-hidden="true" focusable="false" />{" "}
+            <a href="mailto:atendimentoceurosadachina@gmail.com" className={styles.email}>
+              atendimentoceurosadachina@gmail.com
+            </a>
+          </li>
+          <li>
+            <Pinmap className= {styles.item_icons} aria-hidden="true" focusable="false" />{" "}
+            <a
+              href="https://maps.app.goo.gl/Rp8foy6VvnwMxZxr5"
               target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Acessar Instagram CEU Rosa da China"
-            />
+              rel="noreferrer"
+              className={styles.location}
+              aria-label="Abrir endereço no Google Maps em uma nova aba"
+            >
+              Rua Clara Petrela, 113, São Paulo, SP, Brazil, 03978-500
+            </a>
+          </li>
+          <li>
+            <Horario className= {styles.item_icons} aria-hidden="true" focusable="false" />{" "}
+              Seg a Sex: 8H - 20H | Sáb e Dom: 8H - 16h30H
+          </li>
+        </ul>
+        <h2>Siga-nos:</h2>
+        <div className={styles.social}>
+          <InstagramIcon
+            as="a"
+            href="https://instagram.com/ceu.rosadachina"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Acessar Instagram CEU Rosa da China"
+          />
 
-            <FacebookIcon
-              as="a"
-              href="https://www.facebook.com/ceurosachina"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Acessar página do Facebook CEU Rosa da China"
-            />
-          </div>
-        </section>
+          <FacebookIcon
+            as="a"
+            href="https://www.facebook.com/ceurosachina"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Acessar página do Facebook CEU Rosa da China"
+          />
+        </div>
+      </section>
 
-        <FormContact/>
+      <FormContact/>
 
-      </div>
-      
-    </main>
+    </div>
   );
 }
 

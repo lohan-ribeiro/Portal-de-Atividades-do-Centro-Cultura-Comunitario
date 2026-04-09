@@ -30,7 +30,7 @@ main{
 }
 
 .logo:hover {
-    border: 2px solid #59c5ea;
+    border: 2px solid #1d82c1;
     transform: scale(1.05);
 }
 
@@ -54,11 +54,11 @@ main{
 
 .list a:hover {
     text-decoration: none;
-    color: #59c5ea;
+    color: #1d82c1;
 }
 
 .list a:active {
-    color: #59c5ea;
+    color: #1d82c1;
 }
 
 @media (max-width: 768px){
