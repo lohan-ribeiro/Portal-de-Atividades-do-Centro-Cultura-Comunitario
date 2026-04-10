@@ -1,4 +1,4 @@
-import Styles from "./Admin.module.css"
+import "./Admin.css"
 
 const Admin = () => {
   return (

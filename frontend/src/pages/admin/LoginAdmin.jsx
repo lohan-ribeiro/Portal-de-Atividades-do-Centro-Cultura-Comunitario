@@ -1,9 +1,9 @@
-import Styles from "./LoginAdmin.module.css"
+import "./LoginAdmin.css"
 
 const LoginAdmin = () => {
   return (
-    <div>
-      
+    <div className=".container_login">
+      <h1>pagina de login</h1>
     </div>
   )
 }
