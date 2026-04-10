@@ -4,7 +4,7 @@ stages:
 
 build-frontend:
   stage: build
-  image: node:18
+  image: node:20
   cache:
     key: frontend-$CI_COMMIT_REF_SLUG
     paths:
@@ -19,7 +19,7 @@ build-frontend:
 
 build-backend:
   stage: build
-  image: node:18
+  image: node:20
   cache:
     key: backend-$CI_COMMIT_REF_SLUG
     paths:
@@ -30,7 +30,7 @@ build-backend:
 
 test-e2e:
   stage: test
-  image: node:18
+  image: node:20
   variables:
     CYPRESS_BASE_URL: 'http://localhost:5173'
   before_script:
