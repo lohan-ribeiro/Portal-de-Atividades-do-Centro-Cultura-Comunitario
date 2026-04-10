@@ -30,7 +30,7 @@ build-backend:
     
 test-e2e:
   stage: test
-  image: cypress/included:15.13.1
+  image: cypress/browsers:node18-chrome105
   variables:
     CYPRESS_BASE_URL: 'http://localhost:5173'
   script:
@@ -38,7 +38,7 @@ test-e2e:
     - npm install
     - npm run dev &
     - sleep 10
-    - npx cypress run
+    - npx cypress run --browser chrome --headless
   artifacts:
     when: on_failure
     paths:
