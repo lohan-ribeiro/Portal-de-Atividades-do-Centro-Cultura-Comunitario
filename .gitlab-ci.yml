@@ -26,3 +26,22 @@ build-backend:
   script:
     - cd backend
     - npm install
+    
+test-e2e:
+  stage: test
+  image: cypress/included:15.13.1
+  variables:
+    CYPRESS_BASE_URL: 'http://localhost:5173'
+  script:
+    - cd frontend
+    - npm install
+    - npm run dev &
+    - sleep 10
+    - npx cypress run
+  artifacts:
+    when: on_failure
+    paths:
+      - frontend/cypress/screenshots/
+      - frontend/cypress/videos/
+  only:
+    - main
