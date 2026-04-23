@@ -3,7 +3,7 @@ import {Route, Routes, BrowserRouter} from "react-router-dom"
 // ROTAS PÚBLICAS
 import About from '../pages/about/About'
 import Contact from '../pages/contact/Contact'
-import HomePage from '../pages/homepage/HomePage'
+import HomePage from '../pages/home/Home'
 import Login from "../pages/admin/LoginAdmin"
 import NotFound from '../pages/NotFound'
 

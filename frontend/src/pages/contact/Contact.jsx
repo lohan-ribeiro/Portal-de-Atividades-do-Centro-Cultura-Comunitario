@@ -6,8 +6,8 @@ import Horario from "../../assets/icon/relogio.svg?react"
 import FacebookIcon from "../../components/IconsAnimated/FacebookIcon"
 import InstagramIcon from "../../components/IconsAnimated/InstagramIcon"
 
-import Map from "../../components/MapCeu"
-import FormContact from "../../components/componentsContact/FormContact.jsx"
+import Map from "../../components/ui/MapCeu.jsx"
+import FormContact from "../../features/contact/components/FormContact.jsx"
 
 import styles from "./Contact.module.css";
 

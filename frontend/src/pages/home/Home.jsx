@@ -2,21 +2,21 @@
 import { useState, useEffect, useMemo, useRef} from "react"
 import Fuse from 'fuse.js'
 
-import CardsModalities from "../../components/componentsHome/CardsModalities"
-import SelectAtivies from "../../components/componentsHome/SelectActivies"
-import Map from "../../components/MapCeu"
+import CardsModalities from "../../features/home/components/CardsModalities"
+import SelectAtivies from "../../features/home/components/SelectActivies"
+import Map from "../../components/ui/MapCeu"
 import Limpar from "../../components/IconsAnimated/ButtonClear"
 
-import styles from "./HomePage.module.css"
+import styles from "./Home.module.css"
 
 function HomePage() {
-    const [activities, setActivities] = useState([]);
+    const [activities, setActivities] = useState([])
     const [selectedActivity, setSelectedActivity] = useState("")
     const [selectedAge, setSelectedAge] = useState("")
     const [selectedLevel, setSelectedLevel] = useState("")
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm, setSearchTerm] = useState("")
 
-        // Pedido dos dados à API do backend e validação de formato
+    // Pedido dos dados à API do backend e validação de formato
     useEffect(() => {
         // Usado em ambiente de desenvolvimento
         fetch("http://127.0.0.1:3000/atividades")

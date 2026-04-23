@@ -1,8 +1,8 @@
-import Limpar from "../IconsAnimated/ButtonClear"
+import Limpar from "../../../components/IconsAnimated/ButtonClear"
 
 import emailjs from "@emailjs/browser";
 import { useState, useRef, } from "react";
-import { validarEmail } from "../../utils/ValidateEmail"; 
+import { validarEmail } from "../../../utils/ValidateEmail"; 
 
 import styles from "./FormContact.module.css"
 

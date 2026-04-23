@@ -1,0 +1,12 @@
+.container-admin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #F5F9FC;
+}
+
+.container-admin h1{
+    font-size: 40px;
+}

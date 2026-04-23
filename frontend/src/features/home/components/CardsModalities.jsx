@@ -12,7 +12,7 @@ function CardsActivities ({activity}){
             <p><strong>Idade: </strong>{activity.idade}</p>
             <p><strong>Nível: </strong>{activity.nivel}</p>
             <p><strong>Turno: </strong>{activity.turno}</p>
-            <p><strong>Horario: </strong>{activity.horario}</p>
+            <p><strong>Horário: </strong>{activity.horario}</p>
             <p><strong>Dias: </strong>{activity.dias_semana}</p>
             <p><strong>Responsável: </strong>{activity.analista}</p>
             <p><strong>Local: </strong>{activity.local}</p>
@@ -40,7 +40,7 @@ CardsActivities.defaultProps = {
     activity: {
         professor:"Não especificado",
         local:"Não especificado",
-    //adicionar valores padroes para os campos não obrigatorios
+    //adiciona valores padroes para os campos não obrigatorios
     },
 
 };
