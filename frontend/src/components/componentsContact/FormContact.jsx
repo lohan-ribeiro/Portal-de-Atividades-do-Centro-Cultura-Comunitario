@@ -2,6 +2,7 @@ import Limpar from "../IconsAnimated/ButtonClear"
 
 import emailjs from "@emailjs/browser";
 import { useState, useRef, } from "react";
+import { validarEmail } from "../../utils/ValidateEmail"; 
 
 import styles from "./FormContact.module.css"
 
@@ -11,13 +12,6 @@ const FormContact = () => {
     const firstInputRef = useRef(null)
     const [status, setStatus] = useState("");
     const [emailError, setEmailErro] = useState("");
-
-
-    /* função para validar email a partir da ordem do caracteres. Não ideal, mas evita digitar qualquer coisa no email */
-    const validarEmail = (email) => {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-    };
     
 
     /* Função para enviar um e-mail ao CEU após a validação do endereço de e-mail */

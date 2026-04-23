@@ -71,6 +71,7 @@
     min-height: 30vh;
     width: 100%;
     font-size: 14px;
+    resize: none;
 
     padding: 1rem;
     margin-bottom: 1rem;
