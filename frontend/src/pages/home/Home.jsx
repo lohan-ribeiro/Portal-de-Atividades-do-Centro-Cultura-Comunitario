@@ -8,6 +8,8 @@ import Map from "../../components/ui/MapCeu"
 import Limpar from "../../components/IconsAnimated/ButtonClear"
 
 import styles from "./Home.module.css"
+import BotaoCompartilhar from "../../components/BotaoCompartilhar";
+
 
 function HomePage() {
     const [activities, setActivities] = useState([])
@@ -121,6 +123,10 @@ function HomePage() {
                             Aqui você encontra todas as atividades gratuitas que o CEU Rosa da China oferece.
                             Confira o que está disponível e descubra maneiras de se divertir e aprender com a sua comunidade!
                         </p>
+                        <div className={styles.share_section}>
+                              <p className={styles.share_text}>Ajude-nos, Compartilhe!</p>
+                              <BotaoCompartilhar />
+                        </div>
                     </section>
                 </div>
             </div>
