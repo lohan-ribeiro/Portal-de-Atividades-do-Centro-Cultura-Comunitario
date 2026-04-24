@@ -1,3 +1,4 @@
+/* Estrutura geral */
 .container-admin{
     display: flex;
     flex-direction: column;
@@ -7,6 +8,102 @@
     background-color: #F5F9FC;
 }
 
+/* Titulo */
 .container-admin h1{
     font-size: 40px;
+    padding: 2rem;
+}
+
+/* Filtros da tabela atividades */
+.box-filters{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    margin: 0rem 2rem;
+}
+
+.box-filters input{
+    padding: .5rem;
+    border-radius: 4px;
+
+}
+
+.box-filters select{
+    padding: .5rem;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.box-filters button{
+    background-color: #1A4C54;
+    color: white;
+    border-radius: 4px;
+    padding: .5rem;
+}
+
+/* Estrutura da tabela atividades*/
+.box-table{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* Tabela atividades */
+.box-table table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid rgb(140 140 140);
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin: 0rem 2rem;
+}
+
+/* Bordas gerais */
+.box-table th, td {
+  border: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+}
+
+/* Cabeçalho */
+.box-table thead{
+    background-color: #1A4C54;
+    color: white;
+}
+
+.box-table tbody{
+    text-align: left;
+}
+
+/* Linhas zebrada */
+.box-table tbody > tr:nth-of-type(even) {
+  background-color: #EAF3F3;
+}
+
+/* Ações da tabela */
+.action-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-group button{
+    background-color: #78baba;
+    border-radius: 4px;
+}
+
+/* Icones */
+.icon-remover{
+    width: 17px;
+    height: 17px;
+    color: white;
+}
+
+.icon-editar{
+    width: 17px;
+    height: 17px;
+    color: white;
 }
