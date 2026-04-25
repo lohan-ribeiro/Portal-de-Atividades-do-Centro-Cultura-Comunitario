@@ -1,9 +1,10 @@
 stages:
   - build
+  - test
 
 build-frontend:
   stage: build
-  image: node:18
+  image: node:20
   cache:
     key: frontend-$CI_COMMIT_REF_SLUG
     paths:
@@ -18,7 +19,7 @@ build-frontend:
 
 build-backend:
   stage: build
-  image: node:18
+  image: node:20
   cache:
     key: backend-$CI_COMMIT_REF_SLUG
     paths:
@@ -26,3 +27,24 @@ build-backend:
   script:
     - cd backend
     - npm install
+
+test-e2e:
+  stage: test
+  image: node:20
+  variables:
+    CYPRESS_BASE_URL: 'http://localhost:5173'
+  before_script:
+    - apt-get update && apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+  script:
+    - cd frontend
+    - npm install
+    - npm run dev &
+    - sleep 10
+    - npx cypress run --browser electron --headless
+  artifacts:
+    when: on_failure
+    paths:
+      - frontend/cypress/screenshots/
+      - frontend/cypress/videos/
+  only:
+    - main
