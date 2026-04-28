@@ -8,7 +8,8 @@ import Map from "../../components/ui/MapCeu"
 import Limpar from "../../components/IconsAnimated/ButtonClear"
 
 import styles from "./Home.module.css"
-import BotaoCompartilhar from "../../components/BotaoCompartilhar";
+import BotaoCompartilhar from "../../components/layout/BotaoCompartilhar";
+import Sidebar from '../../components/layout/Sidebar';
 
 
 function HomePage() {
@@ -114,6 +115,7 @@ function HomePage() {
 
     return (
         <div className={styles.home_container}>
+            <Sidebar />    
             <div className={styles.introduction_container}>
                 <div className={styles.background_introduction}>
                     <section className={styles.introduction_content} aria-labelledby="introdução">

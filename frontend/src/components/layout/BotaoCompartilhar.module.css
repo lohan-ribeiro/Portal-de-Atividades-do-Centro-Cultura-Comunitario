@@ -1,6 +1,6 @@
 /* --- Dentro de BotaoCompartilhar.module.css --- */
 .share_button {
-  /* ... outros estilos ... */
+
   border: none;
   border-radius: 8px; /* Cantos arredondados */
   color: white; /* Cor do texto dentro do botão */
@@ -9,7 +9,6 @@
   padding: 10px 20px; /* Espaço interno para o botão respirar */
   
   /* --- MUDANÇA PRINCIPAL PARA A COR --- */
-  /* Substitua #00FF00 pelo código exato do seu site (ex: #33CC66 ou #3a6332) */
-  background-color: #1A4C54; /* Cole o código exato aqui */
-  /* ------------------------------------ */
+   background-color: #1A4C54;
+
 } 

@@ -10,12 +10,15 @@ import Map from "../../components/ui/MapCeu.jsx"
 import FormContact from "../../features/contact/components/FormContact.jsx"
 
 import styles from "./Contact.module.css";
+import BotaoCompartilhar from "../../components/layout/BotaoCompartilhar";
+import Sidebar from '../../components/layout/Sidebar';
 
 
 function Contact() {
   
   return (
     <div className={styles.container_contact}>
+      <Sidebar /> 
       <section className={styles.content_contact} aria-labelledby="tituloContato">
         <h1 id="tituloContato">Contate-Nos</h1>
         <ul className={styles.item}>

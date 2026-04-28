@@ -1,12 +1,15 @@
 import logoUnivesp from "../../assets/img/logoUnivesp.png"
 
 import styles from "./About.module.css"
+import BotaoCompartilhar from "../../components/layout/BotaoCompartilhar";
+import Sidebar from '../../components/layout/Sidebar';
 
 function About(){
     
     return (
         <main>
             <div className={styles.container}>
+                <Sidebar /> 
                 <div className={styles.background}>
                     <section className={styles.content_about} aria-labelledby="sobre">
                         <h1 id="sobre">Quem Somos <span>Nós</span>?</h1>

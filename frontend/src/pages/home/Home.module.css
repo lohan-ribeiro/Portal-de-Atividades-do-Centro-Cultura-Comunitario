@@ -388,7 +388,8 @@
     }
 }
 
-/* --- Regras Principais (Desktop e Padrão) --- */
+
+/* --- Regras Principais Botão compartilhar (Desktop) --- */
 
 .share_section {
   display: flex;
@@ -397,12 +398,12 @@
   align-items: 0;   /* Texto e botão encostados à esquerda */
   
   padding: 20px;               /* Aumentamos um pouco o espaço interno */
-  background-color: #f0f0f0;  /* Azul claro */
+  background-color: #f0f0f0;  
   border-radius: 12px;
   gap: 1px; /* Adicionamos um gap uniforme entre o texto e o botão */
   min-height: auto;
   /* MUDANÇA: Centraliza o retângulo na tela no desktop */
-  margin: 0px ;          /* 'auto' nas laterais centraliza o retângulo */
+  margin: 0px ;          
   
   width: 62%;
   max-width: 410px;
@@ -420,37 +421,31 @@
   white-space: nowrap;
   
   /* MUDANÇA CORRIGIDA: Espaço normal e uniforme entre frase e botão */
-  margin-bottom: 0px;         /* Espaço positivo de 20px (era -30px) */
+  margin-bottom: 0px;         
   margin-top: 0;
 }
 
-/* --- No HomePage.module.css (Bloco Mobile Ajustado) --- */
+/* --- No HomePage.module.css (Bloco Mobile) --- */
 
 @media (max-width: 768px) {
   
   .share_section {
-    /* --- AJUSTES QUE FORÇAM A CENTRALIZAÇÃO E REDUZEM O ESPAÇO --- */
+    
     display: flex; /* Mantemos o Flexbox ativo */
     flex-direction: column; /* Organiza em coluna (texto em cima, botão embaixo) */
-    align-items: 0; /* Centraliza horizontalmente o texto e o botão */
-    /*justify-content: center; /* Centraliza verticalmente o texto e o botão */
+    align-items: 0; /* Centraliza horizontalmente o texto e o botão */    
     text-align: center; /* Centraliza as linhas de texto */
     gap: 5px; /* Adicionamos um gap uniforme entre o texto e o botão */
     min-height: auto;
-    /* --- MUDANÇA PRINCIPAL PARA DIMINUIR O 'BURACO' --- */
-   
-    /* -------------------------------------------------- */
-    
+          
     /* --- AJUSTE DE LARGURA E ESPAÇO INTERNO --- */
     padding: 10px; /* Reduzimos o padding uniforme de 40px para 20px */
     width: 100%; /* Largura maior (90%) para usar bem a tela do celular */
-    max-width: 100%; /* Garante que nunca passe do tamanho da tela */
-    
+    max-width: 100%; /* Garante que nunca passe do tamanho da tela */    
     background-color: #f0f0f0; /* Mantemos o Cinza Claro do desktop */
     border-radius: 12px; /* Mantemos as bordas arredondadas */
     
-    /* Removemos a barra verde lateral no mobile para não quebrar lateralmente: */
-    
+      
   }
   
   .share_text {
@@ -461,9 +456,7 @@
     /* --- MUDANÇA PRINCIPAL PARA O ESPAÇO FRASE-BOTÃO --- */
     text-align: center; /* Mantém o alinhamento do texto conforme o container pai (centralizado) */
     margin: 0 0; /* Removemos margens soltas (quebrava a centralização) */
-    margin-bottom: -70px; /* Criamos um espaço pequeno e uniforme de 20px positivos entre o texto e o botão */
-    /* ------------------------------------------------- */
-    
+    margin-bottom: -70px;        
     
   }
   
