@@ -46,3 +46,23 @@ button:focus-visible{
   outline: 2px solid #FF7A00;
   outline-offset: 3px;
 }
+
+.botao-share {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: #25D366; /* Verde chamativo */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 20px auto; /* Centraliza o botão */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.botao-share:hover {
+  background-color: #128C7E; /* Escurece um pouco ao passar o mouse */
+}

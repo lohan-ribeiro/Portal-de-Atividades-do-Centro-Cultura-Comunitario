@@ -1,0 +1,71 @@
+/* Botão Hamburguer */
+.hamburger {
+  display: none; /* Escondido no desktop */
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 9999;
+  position: fixed;
+  top: 0.95rem;
+  left: 0.75rem;
+}
+
+.bar, .barActive {
+  display: block;
+  width: 30px;
+  height: 4px;
+  margin: 6px auto;
+  background-color: #E46E00;
+  transition: 0.3s;
+}
+
+/* Menu Lateral */
+.sidebar {
+  position: fixed;
+  left: -100%; /* Começa fora da tela */
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  transition: 0.4s;
+  z-index: 1000;
+  padding-top: 4rem;
+}
+
+.sidebarActive {
+  left: 0; /* Desliza para dentro */
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+}
+
+.navItem a {
+  display: block;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: #1A4C54;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Mostrar apenas no Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  
+  
+}
