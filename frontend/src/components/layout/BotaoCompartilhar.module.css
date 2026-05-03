@@ -2,11 +2,11 @@
 .share_button {
 
   border: none;
-  border-radius: 8px; /* Cantos arredondados */
-  color: white; /* Cor do texto dentro do botão */
-  font-weight: 600; /* Texto em negrito */
+  border-radius: 8px; 
+  color: white; 
+  font-weight: 600; 
   cursor: pointer;
-  padding: 10px 20px; /* Espaço interno para o botão respirar */
+  padding: 10px 20px; 
   
   /* --- MUDANÇA PRINCIPAL PARA A COR --- */
    background-color: #1A4C54;
