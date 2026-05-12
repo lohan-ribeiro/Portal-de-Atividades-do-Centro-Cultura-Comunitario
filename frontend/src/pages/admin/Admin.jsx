@@ -1,136 +1,253 @@
+import Select from "react-select"
+
 import Remover from "../../assets/icon/trash.svg?react"
-import Editar from "../../assets/icon/pen.svg?react"
+import Add from "../../assets/icon/plus.svg?react"
+import Editar from "../../assets/icon/edit.svg?react"
+
+import { useAdmin } from "../../features/admin/hooks/useAdmin"
 
 import "./Admin.css"
 
+// TO DO:
+// Aumenta tamanho do checkbox, add funçao para os botoes, 
+// tamanho fixo para os select e input, rolagem horizontal para tabela, 
+// arrumar responsividade e acessibilidade, criar os serviços para admin,
+// organizar estrutura de arquivos e add Toast
 
 const Admin = () => {
-
+  const {
+    selectedActivities,
+    filteredActivities,
+    filters,
+    setFilters,
+    loadActivities,
+    handleSelectActivity,
+    handleSelectAll,
+    activityOptions,
+    analistaOptions,
+    turnoOptions,
+    idadeOptions
+  } = useAdmin()
 
   
   return (
     <div className="container-admin">
       <h1>Bem-vindo Admin</h1>
 
-      <div className="box-filters" aria-label="Filtros da tabela de atividades">
-        <select name="atividade" id="atividade">
-          <option value="volei">Volei</option>
-          <option value="PPDI">Psicomotricidade para Pessoa com Deficiência/Intelectual</option>
-        </select>
-        <select name="professor" id="professor">
-          <option value="reginaldo">Reginaldo</option>
-        </select>
-        <select name="turno" id="turno">
-          <option value="matutino">Matutino</option>
-        </select>
-        <select name="idade" id="idade">
-          <option value="idoso">Idoso</option>
-          <option value="50anos">Acima de 50 anos</option>
-        </select>
-        <input type="text" />
+      <div className="content-admin">
+        <div
+          className="box-filters"
+          aria-label="Filtros da tabela de atividades"
+        >
+          {/* ATIVIDADE */}
+          <Select
+            className="filter-select"
+            options={activityOptions}
+            placeholder="Atividade"
+            isClearable
+            isSearchable
+            maxMenuHeight={250}
+            value={
+              filters.atividade
+                ? {
+                    value: filters.atividade,
+                    label: filters.atividade
+                  }
+                : null
+            }
+            onChange={(selectedOption) =>
+              setFilters((prev) => ({
+                ...prev,
+                atividade: selectedOption
+                  ? selectedOption.value
+                  : ""
+              }))
+            }
+          />
 
-        <button type="create">Add atividade</button>
-      </div>
+          {/* ANALISTA */}
+          <Select
+            className="filter-select"
+            options={analistaOptions}
+            placeholder="Professor"
+            isClearable
+            isSearchable
+            maxMenuHeight={180}
+            value={
+              filters.analista
+                ? {
+                    value: filters.analista,
+                    label: filters.analista
+                  }
+                : null
+            }
+            onChange={(selectedOption) =>
+              setFilters((prev) => ({
+                ...prev,
+                analista: selectedOption
+                  ? selectedOption.value
+                  : ""
+              }))
+            }
+          />
 
-      <div className="box-table">
-        <table aria-label="Tabela de atividades">
-          <thead>
-            <tr>
-              <th scope="col">Atividade</th>
-              <th scope="col">Nível</th>
-              <th scope="col">Turno</th>
-              <th scope="col">Idade</th>
-              <th scope="col">Professor(a)</th>
-              <th scope="col">Dias da Semana</th>
-              <th scope="col">Horário</th>
-              <th scope="col">Local</th>
-              <th scope="col">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Circuito de ginástica</th>
-              <td>Iniciante</td>
-              <td>matutino</td>
-              <td>idoso</td>
-              <td>joao</td>
-              <td>Seg/Quarta/Sexta</td>
-              <td>8h às 9h</td>
-              <td>Sala de Dança</td>
-              <td>
-                <div className="action-group">
-                  <button>
-                    <Editar className="icon-editar"/>
-                  </button>
-                  <button>
-                    <Remover className="icon-remover"/>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Jump</th>
-              <td>basico</td>
-              <td>matutino</td>
-              <td>De 11 a 17 anos</td>
-              <td>joao</td>
-              <td>quinta e quarta</td>
-              <td>10h a 11h</td>
-              <td>ginasiio</td>
-              <td>
-                <div className="action-group">
-                  <button>
-                    <Editar className="icon-editar"/>
-                  </button>
-                  <button>
-                    <Remover className="icon-remover"/>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Hidroginástica/Condicionamento Físico</th>
-              <td>Iniciante e intermediário</td>
-              <td>matutino</td>
-              <td>Acima de 50 anos</td>
-              <td>Reginaldo</td>
-              <td>quinta e quarta</td>
-              <td>10h a 11h</td>
-              <td>ginasiio</td>
-              <td>
-                <div className="action-group">
-                  <button>
-                    <Editar className="icon-editar"/>
-                  </button>
-                  <button>
-                    <Remover className="icon-remover"/>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Psicomotricidade para Pessoa com Deficiência/Intelectual</th>
-              <td>Nível II e III</td>
-              <td>VESPERTINO</td>
-              <td>Juvenil</td>
-              <td>joao</td>
-              <td>Segunda-feira</td>
-              <td>13h30 às 14h30</td>
-              <td>Quadra Externa</td>
-              <td>
-                <div className="action-group">
-                  <button>
-                    <Editar className="icon-editar"/>
-                  </button>
-                  <button>
-                    <Remover className="icon-remover"/>
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-          
-        </table>
+          {/* TURNO */}
+          <Select
+            className="filter-select"
+            options={turnoOptions}
+            placeholder="Turno"
+            isClearable
+            isSearchable
+            maxMenuHeight={180}
+            value={
+              filters.turno
+                ? {
+                    value: filters.turno,
+                    label: filters.turno
+                  }
+                : null
+            }
+            onChange={(selectedOption) =>
+              setFilters((prev) => ({
+                ...prev,
+                turno: selectedOption
+                  ? selectedOption.value
+                  : ""
+              }))
+            }
+          />
+
+          {/* IDADE */}
+          <Select
+            className="filter-select"
+            options={idadeOptions}
+            placeholder="Idade"
+            isClearable
+            isSearchable
+            maxMenuHeight={180}
+            value={
+              filters.idade
+                ? {
+                    value: filters.idade,
+                    label: filters.idade
+                  }
+                : null
+            }
+            onChange={(selectedOption) =>
+              setFilters((prev) => ({
+                ...prev,
+                idade: selectedOption
+                  ? selectedOption.value
+                  : ""
+              }))
+            }
+          />
+
+          {/* BUSCA */}
+          <input
+            type="text"
+            name="search"
+            placeholder="Buscar atividade"
+            value={filters.search}
+            onChange={(e) =>
+              setFilters((prev) => ({
+                ...prev,
+                search: e.target.value
+              }))
+            }
+          />
+
+          {/* ADD */}
+          <button type="button">
+            <Add className="icon-add" />
+          </button>
+
+          {/* REMOVE */}
+          <button type="button">
+            <Remover className="icon-remove" />
+          </button>
+        </div>
+
+        <div className="box-table">
+          <table aria-label="Tabela de atividades">
+            <thead>
+              <tr>
+                <th>
+                  <input
+                    type="checkbox"
+                    onChange={handleSelectAll}
+                    checked={
+                      filteredActivities.length > 0 &&
+                      selectedActivities.length ===
+                        filteredActivities.length
+                    }
+                  />
+                </th>
+
+                <th>ID</th>
+                <th>Atividade</th>
+                <th>Nível</th>
+                <th>Turno</th>
+                <th>Idade</th>
+                <th>Professor(a)</th>
+                <th>Dias da Semana</th>
+                <th>Horário</th>
+                <th>Local</th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {filteredActivities.map((atividade) => (
+                <tr key={atividade.id}>
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked={selectedActivities.includes(
+                        atividade.id
+                      )}
+                      onChange={() =>
+                        handleSelectActivity(atividade.id)
+                      }
+                    />
+                  </td>
+
+                  <td>{atividade.id}</td>
+                  <td>{atividade.nome}</td>
+                  <td>{atividade.nivel}</td>
+                  <td>{atividade.turno}</td>
+                  <td>{atividade.idade}</td>
+                  <td>{atividade.analista}</td>
+                  <td>{atividade.dias_semana}</td>
+                  <td>{atividade.horario}</td>
+                  <td>{atividade.local}</td>
+
+                  <td>
+                    <div className="action-group">
+                      <button type="button">
+                        <Editar className="icon-editar" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+
+              {filteredActivities.length === 0 && (
+                <tr>
+                  <td
+                    colSpan="11"
+                    style={{
+                      textAlign: "center",
+                      padding: "1rem"
+                    }}
+                  >
+                    Nenhuma atividade encontrada
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   )

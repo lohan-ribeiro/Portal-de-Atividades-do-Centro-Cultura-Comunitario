@@ -6,6 +6,17 @@
     align-items: center;
     min-height: 100vh;
     background-color: #F5F9FC;
+    margin-top: 5rem;
+}
+
+
+.content-admin{
+    display: flex;
+    flex-direction: column;
+    background-color: #93c2c9;
+    padding: 0rem;
+    border-radius: 8px;
+    margin: 0rem 5rem;
 }
 
 /* Titulo */
@@ -16,12 +27,11 @@
 
 /* Filtros da tabela atividades */
 .box-filters{
-
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    gap: 1rem;
     margin: 0rem 2rem;
 }
 
@@ -31,14 +41,14 @@
 
 }
 
-.box-filters select{
-    padding: .5rem;
-    font-size: 16px;
-    border-radius: 4px;
+.filter-select {
+    min-width: 240px;
+    max-width: 350px;
+    width: 100%
 }
 
 .box-filters button{
-    background-color: #1A4C54;
+    
     color: white;
     border-radius: 4px;
     padding: .5rem;
@@ -50,23 +60,33 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: .5rem;
 }
 
 /* Tabela atividades */
 .box-table table{
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid rgb(140 140 140);
     font-size: 16px;
     letter-spacing: 1px;
     margin: 0rem 2rem;
 }
 
 /* Bordas gerais */
-.box-table th, td {
-  border: 1px solid rgb(160 160 160);
-  padding: 8px 10px;
+.box-table th {
+  padding: .3rem;
+}
+
+.box-table td{
+    padding: 0rem 1rem;
+}
+
+.box-table thead tr{
+    border-bottom: 2px solid #d1d5db;
+}
+
+.box-table tbody tr{
+    border-bottom: 1px solid #d1d5db;
 }
 
 /* Cabeçalho */
@@ -75,35 +95,43 @@
     color: white;
 }
 
+/* Conteúdo */
 .box-table tbody{
     text-align: left;
-}
-
-/* Linhas zebrada */
-.box-table tbody > tr:nth-of-type(even) {
-  background-color: #EAF3F3;
+    background-color: #fff;
 }
 
 /* Ações da tabela */
 .action-group{
     display: flex;
     justify-content: space-between;
+    
 }
 
 .action-group button{
-    background-color: #78baba;
     border-radius: 4px;
+    padding: .3rem;
+}
+
+.action-group button:hover{
+    transition: 0.3s ease-in-out;
 }
 
 /* Icones */
-.icon-remover{
-    width: 17px;
-    height: 17px;
-    color: white;
+.icon-remove{
+    width: 27px;
+    height: 27px;
+    fill: #1A4C54;
 }
 
 .icon-editar{
-    width: 17px;
-    height: 17px;
-    color: white;
+    width: 22px;
+    height: 22px;
+    fill: #1A4C54;
+}
+
+.icon-add{
+    width: 27px;
+    height: 27px;
+    fill: #1A4C54;
 }
