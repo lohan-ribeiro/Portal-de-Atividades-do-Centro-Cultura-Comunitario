@@ -1,14 +1,35 @@
 import { useEffect, useState } from "react"
 
-import { activies } from "../services/AdminService"
+import { formatText } from "../../../utils/FormatText"
+import { 
+  activities, deleteActivity, deleteActivities,
+  updateActivity, createActivity 
+} from "../services/AdminService"
+
 import banco from "../../../../db.json"
 
 
-export function useAdmin() {
+function getInitialFormData(atividade){
+  return{
+    nome: atividade?.nome || "",
+    nivel: atividade?.nivel || "",
+    turno: atividade?.turno || "",
+    idade: atividade?.idade || "",
+    analista: atividade?.analista || "",
+    dias_semana: atividade?.dias_semana || "",
+    horario: atividade?.horario || "",
+    local: atividade?.local || "",
+  }
+}
+
+export function useAdmin(atividade) {
 
   // Estados 
   const [atividades, setAtividades] = useState([])
   const [selectedActivities, setSelectedActivities] = useState([])
+  const [formData, setFormData] = useState(() => getInitialFormData(atividade))
+  const [isUpdate, setIsUpdate] = useState(false)
+
   const [filters, setFilters] = useState({
     atividade: "",
     analista: "",
@@ -22,19 +43,101 @@ export function useAdmin() {
     loadActivities()
   }, [])
 
+  // Mudar o estado de isUpdate
+  const handleIsUpdate = (mode) => (e) => {
+    e.preventDefault()
+
+    setIsUpdate(mode)
+  }
+
+  // Estruturar os dados da atividade
+  const handleChange = (e) => {
+    const {nome, value} = e.target
+
+    setFormData(prev => ({
+      ...prev, [name]: value
+    }))
+  }
+
   // Obter as atividades
   const loadActivities = async () => {
     try {
       // const data = await activies()
       const data = banco
 
-      setAtividades(data)
+      const formattedData = data.map((atividade) => ({
+        ...atividade,
+
+        nome: formatText(atividade.nome),
+        nivel: formatText(atividade.nivel),
+        turno: formatText(atividade.turno),
+        idade: formatText(atividade.idade),
+        analista: formatText(atividade.analista),
+        local: formatText(atividade.local)
+      }))
+
+      setAtividades(formattedData)
+
     } catch (error) {
       console.log(error)
     }
   }
 
-  // Selecionar atividade
+  // Adicionar ou atualizar atividade
+  const handleAddActivity = async(e) => {
+    e.preventDefault()
+
+    try {
+
+      // Cria um objeto para a atividade
+      const data = new FormData()
+
+      // Dados da atividade(nome,nivel,idade,etc)
+      Object.keys(formData).forEach((key) => {
+        data.append(key, formData[key])
+      })
+
+
+      if(isUpdate){
+        await updateActivity(atividade?.id, data)
+      }else{
+        await createActivity(data)
+
+        // Limpa o formulário
+        setFormData(getInitialFormData())
+      }
+
+       // Atualiza a tabela
+      await loadActivities()
+
+    } catch (error) {
+        console.error("Erro ao adicionar a atividade!")
+    }
+  }
+
+  // Deletar uma ou mais atividade
+  const handleDeleteActivity = async(e, ids) => {
+    e.preventDefault()
+
+    try {
+
+      if(ids?.length === 1){
+        await deleteActivity(ids[0])
+      }else{
+        await deleteActivities(ids)
+      }
+
+    } catch (error) {
+      if(ids.length === 1){
+        console.error("Erro ao excluir atividade!")
+      }else{
+        console.error("Erro ao excluir as atividades!")
+      }
+    }
+  }
+
+
+  // Selecionar atividade (checkbox)
   const handleSelectActivity = (id) => {
     setSelectedActivities((prev) => {
       if (prev.includes(id)) {
@@ -45,7 +148,7 @@ export function useAdmin() {
     })
   }
 
-  // Selecionar todas as atividades
+  // Selecionar todas as atividades (checkbox)
   const handleSelectAll = () => {
     if (selectedActivities.length === filteredActivities.length) {
       setSelectedActivities([])
@@ -76,8 +179,8 @@ export function useAdmin() {
 
       (filters.search === "" ||
         atividade.nome
-          .toLowerCase()
-          .includes(filters.search.toLowerCase()))
+        ?.toLowerCase()
+        .includes(filters.search.toLowerCase()))
     )
   })
 
@@ -111,13 +214,18 @@ export function useAdmin() {
   }))
 
   return {
+    formData,
+    isUpdate,
     selectedActivities,
     filteredActivities,
     filters,
     setFilters,
     loadActivities,
+    handleIsUpdate,
+    handleChange,
     handleSelectActivity,
     handleSelectAll,
+    handleDeleteActivity,
     activityOptions,
     analistaOptions,
     turnoOptions,

@@ -1,22 +1,21 @@
-// Trocar a URL da API e colocar o caminho para cada serviço.
-const URL_API = ""
+const URL_API = import.meta.env.VITE_API_URL
 
 
 // Validação de login
 export const loginUser = async(username, password) => {
-    const response = await fetch(`${URL_API}/`, {
+    const response = await fetch(`${URL_API}/login`, {
         method: "POST",
         headers: {"Content-Type": "application/json",},
 
         // Ajustar os nomes dos campos do body no front para bater com os da API
         body: JSON.stringify({ login: username, password}),
-    });
+    })
 
-    const data = await response.json();
+    const data = await response.json()
 
     if (!response.ok) {
-        throw new Error(data.message || "Erro no login");
+        throw new Error(data.message || "Erro no login")
     }
 
-    return data;
+    return data
 }

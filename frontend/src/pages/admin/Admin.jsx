@@ -9,6 +9,7 @@ import { useAdmin } from "../../features/admin/hooks/useAdmin"
 import ModalDeleteActivie from "../../features/admin/components/ModalDeleteActivie.jsx"
 
 import "./Admin.css"
+import { useNavigate } from "react-router-dom"
 
 // TO DO:
 // Aumenta tamanho do checkbox, add funçao para os botoes, 
@@ -20,15 +21,21 @@ const Admin = () => {
   const [openModalDelete, setOpenModalDelete] = useState(false)
   const [openForm, setOpenForm] = useState(false)
 
+  const navigate = useNavigate()
+
   const {
+    formData,
+    isUpdate,
     selectedActivities,
     filteredActivities,
     filters,
     setFilters,
     loadActivities,
+    handleIsUpdate,
+    handleChange,
     handleSelectActivity,
     handleSelectAll,
-    handleDeleteActivie,
+    handleDeleteActivity,
     activityOptions,
     analistaOptions,
     turnoOptions,
@@ -177,7 +184,7 @@ const Admin = () => {
         <ModalDeleteActivie 
           isOpen={openModalDelete} 
           setModalOpen={() => setOpenModalDelete(false)} 
-          HandleDelete={handleDeleteActivie} 
+          HandleDelete={handleDeleteActivity} 
         />
 
         <div className="box-table">
