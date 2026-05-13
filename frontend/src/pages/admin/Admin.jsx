@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Select from "react-select"
 
 import Remover from "../../assets/icon/trash.svg?react"
@@ -5,6 +6,7 @@ import Add from "../../assets/icon/plus.svg?react"
 import Editar from "../../assets/icon/edit.svg?react"
 
 import { useAdmin } from "../../features/admin/hooks/useAdmin"
+import ModalDeleteActivie from "../../features/admin/components/ModalDeleteActivie.jsx"
 
 import "./Admin.css"
 
@@ -15,6 +17,9 @@ import "./Admin.css"
 // organizar estrutura de arquivos e add Toast
 
 const Admin = () => {
+  const [openModalDelete, setOpenModalDelete] = useState(false)
+  const [openForm, setOpenForm] = useState(false)
+
   const {
     selectedActivities,
     filteredActivities,
@@ -23,6 +28,7 @@ const Admin = () => {
     loadActivities,
     handleSelectActivity,
     handleSelectAll,
+    handleDeleteActivie,
     activityOptions,
     analistaOptions,
     turnoOptions,
@@ -163,10 +169,16 @@ const Admin = () => {
           </button>
 
           {/* REMOVE */}
-          <button type="button">
+          <button type="button" onClick={() => setOpenModalDelete(true)}>
             <Remover className="icon-remove" />
           </button>
         </div>
+
+        <ModalDeleteActivie 
+          isOpen={openModalDelete} 
+          setModalOpen={() => setOpenModalDelete(false)} 
+          HandleDelete={handleDeleteActivie} 
+        />
 
         <div className="box-table">
           <table aria-label="Tabela de atividades">
