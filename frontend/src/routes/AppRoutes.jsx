@@ -9,6 +9,8 @@ import NotFound from '../pages/NotFound'
 
 // ROTAS PRIVADAS
 import Admin from "../pages/admin/Admin"
+import CreateActivity from "../pages/admin/CreateActivity"
+import EditActivity from "../pages/admin/EditActivity"
 
 // PROTEÇÃO PARA ROTAS PRIVADAS
 import PrivateRoutes from "./PrivateRoutes"
@@ -17,6 +19,7 @@ import PrivateRoutes from "./PrivateRoutes"
 import LayoutEmpty from "../pages/layouts/LayoutEmpty"
 import LayoutOnlyFooter from "../pages/layouts/LayoutOnlyFooter"
 import LayouFull from "../pages/layouts/LayoutFull"
+import AdminLayout from "../pages/layouts/AdminLayout"
 
 function AppRoutes() {
  
@@ -38,7 +41,11 @@ function AppRoutes() {
                     {/* rotas privadas */}
                     <Route element={<PrivateRoutes/>}>
                         <Route element={<LayouFull />}>
-                            <Route path="/admin" element={<Admin />}/>
+                            <Route path="/admin" element={<AdminLayout />}>
+                                <Route index element={<Admin />} />
+                                <Route path="criar-atividade" element={<CreateActivity />}/>
+                                <Route path="editar-atividade" element={<EditActivity />}/>
+                            </Route>
                         </Route>
                     </Route>
 

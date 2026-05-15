@@ -1,0 +1,24 @@
+.container-edit-activity{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 7rem;
+    min-height: 100vh;
+}
+
+.content-edit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    width: 95%;
+    background-color: #1A4C54;
+    margin-bottom: 4rem;
+}
+
+.content-edit h1{
+    color: #fff;
+    padding-top: 1.5rem;
+}

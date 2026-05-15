@@ -1,41 +1,30 @@
+import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
+import toast from "react-hot-toast"
 
 import { formatText } from "../../../utils/FormatText"
 import { 
-  activities, deleteActivity, deleteActivities,
-  updateActivity, createActivity 
+  getActivities, 
+  deleteActivity, 
+  deleteActivities
 } from "../services/AdminService"
 
-import banco from "../../../../db.json"
 
-
-function getInitialFormData(atividade){
-  return{
-    nome: atividade?.nome || "",
-    nivel: atividade?.nivel || "",
-    turno: atividade?.turno || "",
-    idade: atividade?.idade || "",
-    analista: atividade?.analista || "",
-    dias_semana: atividade?.dias_semana || "",
-    horario: atividade?.horario || "",
-    local: atividade?.local || "",
-  }
-}
-
-export function useAdmin(atividade) {
+export function useAdminTable(atividade) {
 
   // Estados 
   const [atividades, setAtividades] = useState([])
   const [selectedActivities, setSelectedActivities] = useState([])
-  const [formData, setFormData] = useState(() => getInitialFormData(atividade))
-  const [isUpdate, setIsUpdate] = useState(false)
+  const [isEdit, setIsEdit] = useState(false)
+
+  const navigate = useNavigate()
 
   const [filters, setFilters] = useState({
     atividade: "",
     analista: "",
     turno: "",
     idade: "",
-    search: ""
+    nivel: ""
   })
 
   // Torna a tabela dinâmica
@@ -43,33 +32,23 @@ export function useAdmin(atividade) {
     loadActivities()
   }, [])
 
-  // Mudar o estado de isUpdate
-  const handleIsUpdate = (mode) => (e) => {
-    e.preventDefault()
-
-    setIsUpdate(mode)
-  }
-
-  // Estruturar os dados da atividade
-  const handleChange = (e) => {
-    const {nome, value} = e.target
-
-    setFormData(prev => ({
-      ...prev, [name]: value
-    }))
+  // Edição da atividade
+  const handleIsEdit = (atividade) => {
+    navigate(`/admin/editar-atividade`, {
+      state: atividade
+    })
   }
 
   // Obter as atividades
   const loadActivities = async () => {
     try {
-      // const data = await activies()
-      const data = banco
+      const data = await getActivities()
 
       const formattedData = data.map((atividade) => ({
         ...atividade,
 
         nome: formatText(atividade.nome),
-        nivel: formatText(atividade.nivel),
+        nivel: (atividade.nivel),
         turno: formatText(atividade.turno),
         idade: formatText(atividade.idade),
         analista: formatText(atividade.analista),
@@ -80,58 +59,32 @@ export function useAdmin(atividade) {
 
     } catch (error) {
       console.log(error)
+      toast.error("Erro ao carregar as atividades!")
     }
   }
 
-  // Adicionar ou atualizar atividade
-  const handleAddActivity = async(e) => {
-    e.preventDefault()
-
-    try {
-
-      // Cria um objeto para a atividade
-      const data = new FormData()
-
-      // Dados da atividade(nome,nivel,idade,etc)
-      Object.keys(formData).forEach((key) => {
-        data.append(key, formData[key])
-      })
-
-
-      if(isUpdate){
-        await updateActivity(atividade?.id, data)
-      }else{
-        await createActivity(data)
-
-        // Limpa o formulário
-        setFormData(getInitialFormData())
-      }
-
-       // Atualiza a tabela
-      await loadActivities()
-
-    } catch (error) {
-        console.error("Erro ao adicionar a atividade!")
-    }
-  }
 
   // Deletar uma ou mais atividade
-  const handleDeleteActivity = async(e, ids) => {
+  const handleDeleteActivity = async(e) => {
     e.preventDefault()
 
     try {
 
-      if(ids?.length === 1){
-        await deleteActivity(ids[0])
+      if(selectedActivities.length === 1){
+        await deleteActivity(selectedActivities[0])
       }else{
-        await deleteActivities(ids)
+        await deleteActivities(selectedActivities)
       }
 
+      toast.success("Atividade excluida!")
+
     } catch (error) {
-      if(ids.length === 1){
+      if(selectedActivities.length === 1){
         console.error("Erro ao excluir atividade!")
+        toast.error("Erro ao excluir atividade!")
       }else{
         console.error("Erro ao excluir as atividades!")
+        toast.error("Erro ao excluir as atividades!")
       }
     }
   }
@@ -177,10 +130,9 @@ export function useAdmin(atividade) {
       (filters.idade === "" ||
         atividade.idade === filters.idade) &&
 
-      (filters.search === "" ||
-        atividade.nome
-        ?.toLowerCase()
-        .includes(filters.search.toLowerCase()))
+      (filters.nivel === "" ||
+        atividade.nivel === filters.nivel)
+      
     )
   })
 
@@ -213,22 +165,28 @@ export function useAdmin(atividade) {
     label: idade
   }))
 
+  const nivelOptions = [
+    ...new Set(atividades.map((item) => item.nivel))
+  ].map((nivel) => ({
+    value: nivel,
+    label: nivel
+  }))
+
   return {
-    formData,
-    isUpdate,
+    isEdit,
     selectedActivities,
     filteredActivities,
     filters,
     setFilters,
     loadActivities,
-    handleIsUpdate,
-    handleChange,
+    handleIsEdit,
     handleSelectActivity,
     handleSelectAll,
     handleDeleteActivity,
     activityOptions,
     analistaOptions,
     turnoOptions,
-    idadeOptions
+    idadeOptions,
+    nivelOptions
   }
 }

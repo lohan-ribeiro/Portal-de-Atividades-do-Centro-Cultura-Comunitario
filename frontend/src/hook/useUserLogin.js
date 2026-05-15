@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast"
 
 import { loginUser } from "../services/AuthService"
 import { validarEmail } from "../utils/ValidateEmail"
@@ -23,6 +24,8 @@ export function useUserLogin (username, password) {
             setLoginError("")
     
             const data = await loginUser(username, password)
+
+            toast.success("Acesso autorizado!")
     
             // Salva so dados do usuário.
             saveAuth(data)

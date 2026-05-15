@@ -3,5 +3,9 @@ export const formatText = (text) => {
 
   return text
     .toLowerCase()
-    .replace(/\b\w/g, (letter) => letter.toUpperCase())
+    .split(" ")
+    .map((word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1)
+    })
+    .join(" ")
 }

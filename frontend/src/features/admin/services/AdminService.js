@@ -1,7 +1,7 @@
 const URL_API = import.meta.env.VITE_API_URL
 
 // Obter as atividades
-export const activities = async() => {
+export const getActivities = async() => {
     const token = localStorage.getItem("token")
 
     const response = await fetch(`${URL_API}/atividades`, {

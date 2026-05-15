@@ -4,47 +4,82 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    margin-top: 5rem;
+
     min-height: 100vh;
     background-color: #F5F9FC;
-    margin-top: 5rem;
 }
 
-
-.content-admin{
+/* Conteúdo */
+.content-introduction{
+    width: 95%;
+    max-width: 1500px;
     display: flex;
     flex-direction: column;
-    background-color: #93c2c9;
-    padding: 0rem;
-    border-radius: 8px;
-    margin: 0rem 5rem;
+    align-items: flex-start;
+
+    padding: 1rem;
 }
 
-/* Titulo */
-.container-admin h1{
+.content-introduction h1{
+    text-align: center;
+    width: 100%;
+    padding: 1.5rem;
     font-size: 40px;
-    padding: 2rem;
+    color: #1A4C54;
+}
+
+.content-introduction p{
+    width: 100%;
+    max-width: 1500px;
+    font-size: 18px;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.content-management-admin{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    max-width: 1600px;
+
+    padding: 0rem;
+    margin: 0rem 2rem 5rem 2rem;
+
+    border-radius: 8px;
+    background-color: #93c2c9;
 }
 
 /* Filtros da tabela atividades */
 .box-filters{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+
+    gap: 1rem;
     padding: 1rem;
     margin: 0rem 2rem;
 }
 
-.box-filters input{
-    padding: .5rem;
-    border-radius: 4px;
-
+/* Selects do react */
+.filter-select {
+    min-width: 300px;
+    max-width: 100%;
 }
 
-.filter-select {
-    min-width: 240px;
-    max-width: 350px;
-    width: 100%
+.filter-select-atividade{
+    min-width: 550px;
+    max-width: 100%;
+}
+
+/* Botões do filtro */
+.box-btn-filters{
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-shrink: 0;
 }
 
 .box-filters button{
@@ -54,25 +89,33 @@
     padding: .5rem;
 }
 
-/* Estrutura da tabela atividades*/
-.box-table{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    padding: .5rem;
+/* Estrutura da tabela*/
+.table-wrapper{
+    padding: 1rem;
+    margin: 0rem 0rem 2rem 0rem;
 }
 
-/* Tabela atividades */
+.box-table{
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+
+    height: 500px;
+    border-radius: 8px;
+
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Tabela */
 .box-table table{
     width: 100%;
     border-collapse: collapse;
     font-size: 16px;
     letter-spacing: 1px;
-    margin: 0rem 2rem;
 }
 
-/* Bordas gerais */
+/* Bordas tabela */
 .box-table th {
   padding: .3rem;
 }
@@ -95,26 +138,49 @@
     color: white;
 }
 
+.box-table thead th{
+    position: sticky;
+    top: 0;
+    background-color: #1A4C54;
+    z-index: 10;
+}
+
 /* Conteúdo */
 .box-table tbody{
     text-align: left;
     background-color: #fff;
 }
 
-/* Ações da tabela */
+.box-table tbody tr td{
+    height: 50px;
+}
+
+.empty-table{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.box-table input[type="checkbox"]{
+    cursor: pointer;
+    transform: scale(2);
+    vertical-align: middle;
+    accent-color: #1A4C54;
+}
+
+.box-table input[type="checkbox"]:focus{
+    outline: 1px solid #FF7A00;
+    outline-offset: 1px;
+}
+
+/* Botão editar */
 .action-group{
     display: flex;
     justify-content: space-between;
-    
 }
 
 .action-group button{
     border-radius: 4px;
     padding: .3rem;
-}
-
-.action-group button:hover{
-    transition: 0.3s ease-in-out;
 }
 
 /* Icones */
@@ -124,14 +190,75 @@
     fill: #1A4C54;
 }
 
+.icon-remove:hover{
+    transition: 0.3s ease-in-out;
+    fill-opacity: .6;
+}
+
 .icon-editar{
     width: 22px;
     height: 22px;
     fill: #1A4C54;
 }
 
+.icon-editar:hover{
+    transition: 0.3s ease-in-out;
+    fill-opacity: .6;
+}
+
 .icon-add{
     width: 27px;
     height: 27px;
     fill: #1A4C54;
+}
+
+.icon-add:hover{
+    transition: 0.3s ease-in-out;
+    fill-opacity: .6;
+}
+
+/* Mobile */
+@media (max-width: 768px){
+
+    .container-admin h1{
+        font-size: 28px;
+        padding: 1rem;
+    }
+
+    .content-management-admin{
+        margin: 0rem 1rem 3rem 1rem;
+    }
+
+    .box-filters{
+        margin: 0;
+        padding: 1rem;
+        justify-content: center;
+    }
+
+    .filter-select{
+        width: 100%;
+    }
+
+    .filter-select-atividade{
+        min-width: 300px;
+        width: 100%;
+    }
+
+    .box-btn-filters{
+        width: 100%;
+        justify-content: center;
+    }
+
+    .box-table{
+        overflow-x: auto;
+    }
+
+    .box-table table{
+        min-width: 1000px;
+    }
+
+    .box-table input[type="checkbox"]{
+        transform: scale(1.2);
+    }
+
 }

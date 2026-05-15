@@ -1,3 +1,4 @@
+import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import Select from "react-select"
 
@@ -5,57 +6,93 @@ import Remover from "../../assets/icon/trash.svg?react"
 import Add from "../../assets/icon/plus.svg?react"
 import Editar from "../../assets/icon/edit.svg?react"
 
-import { useAdmin } from "../../features/admin/hooks/useAdmin"
+import { useAdminTable } from "../../features/admin/hooks/useAdminTable.js"
+
 import ModalDeleteActivie from "../../features/admin/components/ModalDeleteActivie.jsx"
 
 import "./Admin.css"
-import { useNavigate } from "react-router-dom"
 
-// TO DO:
-// Aumenta tamanho do checkbox, add funçao para os botoes, 
-// tamanho fixo para os select e input, rolagem horizontal para tabela, 
-// arrumar responsividade e acessibilidade, criar os serviços para admin,
-// organizar estrutura de arquivos e add Toast
 
 const Admin = () => {
   const [openModalDelete, setOpenModalDelete] = useState(false)
-  const [openForm, setOpenForm] = useState(false)
-
   const navigate = useNavigate()
+  const location = useLocation()
 
   const {
-    formData,
-    isUpdate,
+    isEdit,
     selectedActivities,
     filteredActivities,
     filters,
     setFilters,
-    loadActivities,
-    handleIsUpdate,
-    handleChange,
+    handleIsEdit,
     handleSelectActivity,
     handleSelectAll,
     handleDeleteActivity,
     activityOptions,
     analistaOptions,
     turnoOptions,
-    idadeOptions
-  } = useAdmin()
+    idadeOptions,
+    nivelOptions
+  } = useAdminTable(location.state)
 
+  const customFilterStyles = {
+  control: (base, state) => ({
+    ...base,
+
+    minHeight: "42px",
+    borderRadius: "8px",
+
+    border: state.isFocused
+      ? "2px solid #FF7A00"
+      : "2px solid #fff",
+
+    boxShadow: "none",
+    outline: "none",
+    cursor: "pointer",
+
+    "&:hover": {
+      border: "2px solid #FF7A00"
+    }
+  }),
+
+  valueContainer: (base) => ({
+    ...base,
+    padding: "0px 8px"
+  }),
+
+  placeholder: (base) => ({
+    ...base,
+    color: "#6b7280"
+  }),
+
+  menu: (base) => ({
+    ...base,
+    zIndex: 9999
+  })
+}
   
   return (
-    <div className="container-admin">
-      <h1>Bem-vindo Admin</h1>
+    <main className="container-admin">
+      <div className="content-introduction">
+        <h1>Bem-vindo Admin</h1>
+        <p>
+          Gerencie todas as atividades disponíveis no CEU Rosa da China.
+          Utilize esta área para adicionar novas atividades, editar informações
+          ou remover atividades existentes.
+          Todas as alterações feitas aqui aparecem automaticamente na página principal.
+        </p>
+      </div>
 
-      <div className="content-admin">
+      <div className="content-management-admin">
         <div
           className="box-filters"
           aria-label="Filtros da tabela de atividades"
         >
           {/* ATIVIDADE */}
           <Select
-            className="filter-select"
+            className="filter-select-atividade"
             options={activityOptions}
+            styles={customFilterStyles}
             placeholder="Atividade"
             isClearable
             isSearchable
@@ -82,6 +119,7 @@ const Admin = () => {
           <Select
             className="filter-select"
             options={analistaOptions}
+            styles={customFilterStyles}
             placeholder="Professor"
             isClearable
             isSearchable
@@ -108,6 +146,7 @@ const Admin = () => {
           <Select
             className="filter-select"
             options={turnoOptions}
+            styles={customFilterStyles}
             placeholder="Turno"
             isClearable
             isSearchable
@@ -134,6 +173,7 @@ const Admin = () => {
           <Select
             className="filter-select"
             options={idadeOptions}
+            styles={customFilterStyles}
             placeholder="Idade"
             isClearable
             isSearchable
@@ -155,120 +195,145 @@ const Admin = () => {
               }))
             }
           />
-
-          {/* BUSCA */}
-          <input
-            type="text"
-            name="search"
-            placeholder="Buscar atividade"
-            value={filters.search}
-            onChange={(e) =>
+          {/* NÍVEL */}
+          <Select
+            className="filter-select"
+            options={nivelOptions}
+            styles={customFilterStyles}
+            placeholder="Nível"
+            isClearable
+            isSearchable
+            maxMenuHeight={180}
+            value={
+              filters.nivel
+                ? {
+                    value: filters.nivel,
+                    label: filters.nivel
+                  }
+                : null
+            }
+            onChange={(selectedOption) =>
               setFilters((prev) => ({
                 ...prev,
-                search: e.target.value
+                nivel: selectedOption
+                  ? selectedOption.value
+                  : ""
               }))
             }
           />
 
-          {/* ADD */}
-          <button type="button">
-            <Add className="icon-add" />
-          </button>
+          <div className="box-btn-filters">
+            {/* ADD */}
+            <button 
+              type="button" 
+              onClick={() => navigate("criar-atividade")}
+              title="Adicionar atividade"
+            >
+              <Add className="icon-add" />
+            </button>
 
-          {/* REMOVE */}
-          <button type="button" onClick={() => setOpenModalDelete(true)}>
-            <Remover className="icon-remove" />
-          </button>
+            {/* REMOVE */}
+            <button 
+              type="button" 
+              onClick={() => {
+                if(selectedActivities.length > 0){
+                  setOpenModalDelete(true)
+                }}
+              }
+              title="Remover atividade selecionada"
+              >
+              <Remover className="icon-remove" />
+            </button>
+          </div>
         </div>
 
         <ModalDeleteActivie 
           isOpen={openModalDelete} 
           setModalOpen={() => setOpenModalDelete(false)} 
-          HandleDelete={handleDeleteActivity} 
+          handleDelete={handleDeleteActivity} 
         />
 
-        <div className="box-table">
-          <table aria-label="Tabela de atividades">
-            <thead>
-              <tr>
-                <th>
-                  <input
-                    type="checkbox"
-                    onChange={handleSelectAll}
-                    checked={
-                      filteredActivities.length > 0 &&
-                      selectedActivities.length ===
-                        filteredActivities.length
-                    }
-                  />
-                </th>
-
-                <th>ID</th>
-                <th>Atividade</th>
-                <th>Nível</th>
-                <th>Turno</th>
-                <th>Idade</th>
-                <th>Professor(a)</th>
-                <th>Dias da Semana</th>
-                <th>Horário</th>
-                <th>Local</th>
-                <th></th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {filteredActivities.map((atividade) => (
-                <tr key={atividade.id}>
-                  <td>
+        <div className="table-wrapper">
+          <div className="box-table">
+            <table aria-label="Tabela de atividades">
+              <thead>
+                <tr>
+                  <th>
                     <input
                       type="checkbox"
-                      checked={selectedActivities.includes(
-                        atividade.id
-                      )}
-                      onChange={() =>
-                        handleSelectActivity(atividade.id)
+                      onChange={handleSelectAll}
+                      checked={
+                        filteredActivities.length > 0 &&
+                        selectedActivities.length ===
+                          filteredActivities.length
                       }
+                      title="Selecionar todas as atividades"
                     />
-                  </td>
+                  </th>
 
-                  <td>{atividade.id}</td>
-                  <td>{atividade.nome}</td>
-                  <td>{atividade.nivel}</td>
-                  <td>{atividade.turno}</td>
-                  <td>{atividade.idade}</td>
-                  <td>{atividade.analista}</td>
-                  <td>{atividade.dias_semana}</td>
-                  <td>{atividade.horario}</td>
-                  <td>{atividade.local}</td>
-
-                  <td>
-                    <div className="action-group">
-                      <button type="button">
-                        <Editar className="icon-editar" />
-                      </button>
-                    </div>
-                  </td>
+                  <th>ID</th>
+                  <th>Atividade</th>
+                  <th>Nível</th>
+                  <th>Turno</th>
+                  <th>Idade</th>
+                  <th>Professor(a)</th>
+                  <th>Dias da Semana</th>
+                  <th>Horário</th>
+                  <th>Local</th>
+                  <th></th>
                 </tr>
-              ))}
+              </thead>
 
-              {filteredActivities.length === 0 && (
-                <tr>
-                  <td
-                    colSpan="11"
-                    style={{
-                      textAlign: "center",
-                      padding: "1rem"
-                    }}
-                  >
-                    Nenhuma atividade encontrada
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+              <tbody>
+                {filteredActivities.map((atividade) => (
+                  <tr key={atividade.id}>
+                    <td>
+                      <input
+                        type="checkbox"
+                        checked={selectedActivities.includes(
+                          atividade.id
+                        )}
+                        onChange={() =>
+                          handleSelectActivity(atividade.id)
+                        }
+                        title="seleciona atividade"
+                      />
+                    </td>
+
+                    <td>{atividade.id}</td>
+                    <td>{atividade.nome}</td>
+                    <td>{atividade.nivel}</td>
+                    <td>{atividade.turno}</td>
+                    <td>{atividade.idade}</td>
+                    <td>{atividade.analista}</td>
+                    <td>{atividade.dias_semana}</td>
+                    <td>{atividade.horario}</td>
+                    <td>{atividade.local}</td>
+
+                    <td>
+                      <div className="action-group">
+                        <button type="button" onClick={() => handleIsEdit(atividade)}>
+                          <Editar className="icon-editar" />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+
+                {filteredActivities.length === 0 && (
+                  <tr>
+                    <td colSpan="11" className="empty-table">
+                      Nenhuma atividade encontrada
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
+      <Outlet/>
+    </main>
   )
 }
 
