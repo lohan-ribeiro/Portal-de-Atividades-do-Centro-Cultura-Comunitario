@@ -62,17 +62,28 @@ main{
 }
 
 @media (max-width: 768px){
+    .list{
+        display: none;
+    }
+
     .navbar{
-       font-size: clamp(14px, 3vw, 24px);;
-       margin: 0;
+        justify-content: center;
     }
 
     .logo{
         max-width: 200px;
         width: 90%;
         height: auto;
-        margin-left: 3cap !important;
+
+        /* margin-left: 3cap !important; */
     }
+
+
+    /* .navbar{
+       font-size: clamp(14px, 3vw, 24px);;
+       margin: 0;
+    }
+
 
     .list{
         margin-right: 0;
@@ -81,5 +92,5 @@ main{
 
     .list li{
         margin-right: 1em;
-    }
+    } */
 }

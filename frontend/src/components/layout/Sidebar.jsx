@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import styles from './Sidebar.module.css';
-import BotaoCompartilhar from '../layout/BotaoCompartilhar';
+import { useState } from 'react';
 import { NavLink } from "react-router-dom";
+
+import BotaoCompartilhar from '../layout/BotaoCompartilhar';
+
+import styles from './Sidebar.module.css';
+
 
 function Sidebar() {
   const [active, setActive] = useState(false);
@@ -22,12 +25,13 @@ function Sidebar() {
       {/* Menu Lateral */}
       <nav className={`${styles.sidebar} ${active ? styles.sidebarActive : ''}`}>
         <ul className={styles.navList}>
-          <li className={styles.navItem}><NavLink to="/" onClick={toggleMenu}>Início</NavLink></li>          
-          <li className={styles.navItem}><NavLink to="/About" onClick={toggleMenu}>Sobre o CEU</NavLink></li>
-          <li className={styles.navItem}><NavLink to="/Contact" onClick={toggleMenu}>Contato</NavLink></li>
+          <li className={styles.navItem}><NavLink to="/" onClick={toggleMenu}>INÍCIO</NavLink></li>          
+          <li className={styles.navItem}><NavLink to="/About" onClick={toggleMenu}>SOBRE-NOS</NavLink></li>
+          <li className={styles.navItem}><NavLink to="/Contact" onClick={toggleMenu}>CONTATO</NavLink></li>
         </ul>
+        
         <div className={styles.share_wrapper}>
-         <br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BotaoCompartilhar />
+         <BotaoCompartilhar />
         </div>
       </nav>
 
