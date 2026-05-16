@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import toast from "react-hot-toast"
 
 import { formatText } from "../../../utils/FormatText"
@@ -18,6 +18,7 @@ export function useAdminTable(atividade) {
   const [isEdit, setIsEdit] = useState(false)
 
   const navigate = useNavigate()
+  const loaded = useRef(false)
 
   const [filters, setFilters] = useState({
     atividade: "",
@@ -29,6 +30,9 @@ export function useAdminTable(atividade) {
 
   // Torna a tabela dinâmica
   useEffect(() => {
+    if(loaded.current) return
+
+    loaded.current = true
     loadActivities()
   }, [])
 
@@ -58,8 +62,7 @@ export function useAdminTable(atividade) {
       setAtividades(formattedData)
 
     } catch (error) {
-      console.log(error)
-      toast.error("Erro ao carregar as atividades!")
+      console.error(error)
     }
   }
 

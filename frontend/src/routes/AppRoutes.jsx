@@ -15,7 +15,7 @@ import EditActivity from "../pages/admin/EditActivity"
 // PROTEÇÃO PARA ROTAS PRIVADAS
 import PrivateRoutes from "./PrivateRoutes"
 
-// Layouts personalizadas
+// LAYOUTS PERSONALIZADOS
 import LayoutEmpty from "../pages/layouts/LayoutEmpty"
 import LayoutOnlyFooter from "../pages/layouts/LayoutOnlyFooter"
 import LayouFull from "../pages/layouts/LayoutFull"

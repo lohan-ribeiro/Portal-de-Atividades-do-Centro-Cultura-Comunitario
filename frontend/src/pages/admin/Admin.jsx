@@ -36,40 +36,40 @@ const Admin = () => {
   } = useAdminTable(location.state)
 
   const customFilterStyles = {
-  control: (base, state) => ({
-    ...base,
+    control: (base, state) => ({
+      ...base,
 
-    minHeight: "42px",
-    borderRadius: "8px",
+      minHeight: "42px",
+      borderRadius: "8px",
 
-    border: state.isFocused
-      ? "2px solid #FF7A00"
-      : "2px solid #fff",
+      border: state.isFocused
+        ? "2px solid #FF7A00"
+        : "2px solid #fff",
 
-    boxShadow: "none",
-    outline: "none",
-    cursor: "pointer",
+      boxShadow: "none",
+      outline: "none",
+      cursor: "pointer",
 
-    "&:hover": {
-      border: "2px solid #FF7A00"
-    }
-  }),
+      "&:hover": {
+        border: "2px solid #FF7A00"
+      }
+    }),
 
-  valueContainer: (base) => ({
-    ...base,
-    padding: "0px 8px"
-  }),
+    valueContainer: (base) => ({
+      ...base,
+      padding: "0px 8px"
+    }),
 
-  placeholder: (base) => ({
-    ...base,
-    color: "#6b7280"
-  }),
+    placeholder: (base) => ({
+      ...base,
+      color: "#6b7280"
+    }),
 
-  menu: (base) => ({
-    ...base,
-    zIndex: 9999
-  })
-}
+    menu: (base) => ({
+      ...base,
+      zIndex: 9999
+    })
+  }
   
   return (
     <main className="container-admin">
