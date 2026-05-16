@@ -35,6 +35,8 @@ function About(){
                             <li>Wilson Ademar de Arruda</li>
                             <li>Lohan Ribeiro Cerqueira</li>
                             <li>Lucas Sousa Fraga</li>
+                            <li>Wellington dos Santos de Souza</li>
+                            <li>David Barbosa Ferreira</li>
                         </ul>
                     </section>
                 </div>
