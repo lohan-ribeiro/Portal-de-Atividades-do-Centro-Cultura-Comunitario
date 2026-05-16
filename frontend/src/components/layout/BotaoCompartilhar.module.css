@@ -1,14 +1,24 @@
-/* --- Dentro de BotaoCompartilhar.module.css --- */
+/* Botão compartilhar */
 .share_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-weight: 600; 
+
+  cursor: pointer;
+  padding: 10px 20px; 
 
   border: none;
   border-radius: 8px; 
-  color: white; 
-  font-weight: 600; 
-  cursor: pointer;
-  padding: 10px 20px; 
-  
-  /* --- MUDANÇA PRINCIPAL PARA A COR --- */
-   background-color: #1A4C54;
-
+  background-color: #1A4C54;
 } 
+
+/* icone compartilhar */
+.icon_share{
+  margin-right: .4rem;
+  fill: #fff;
+  height: 17px;
+  width: 17px;
+}

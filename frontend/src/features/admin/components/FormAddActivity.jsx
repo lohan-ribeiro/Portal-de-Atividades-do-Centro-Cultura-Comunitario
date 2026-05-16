@@ -54,7 +54,7 @@ const FormAddActivity = ({ariaLabel}) => {
         <div className="form-grid">
 
           <div className="input-group">
-            <label>Nome
+            <label>Nome<span>*</span>
             <input 
               type="text" 
               name="nome"
@@ -68,7 +68,7 @@ const FormAddActivity = ({ariaLabel}) => {
           </div>
 
           <div className="input-group">
-            <label>Nível
+            <label>Nível<span>*</span>
             <input 
               type="text" 
               name="nivel"
@@ -82,7 +82,7 @@ const FormAddActivity = ({ariaLabel}) => {
           </div>
 
           <div className="input-group">
-            <label>Turno
+            <label>Turno<span>*</span>
               <Select
                 options={options}
                 value={options.find(
@@ -97,7 +97,7 @@ const FormAddActivity = ({ariaLabel}) => {
           </div>
 
           <div className="input-group">
-            <label>Idade
+            <label>Idade<span>*</span>
             <input 
               type="text" 
               name="idade"

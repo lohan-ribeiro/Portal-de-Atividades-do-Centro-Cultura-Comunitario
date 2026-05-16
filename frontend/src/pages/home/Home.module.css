@@ -1,4 +1,4 @@
-
+/* ESTRUTURA DA GERAL */
 .home_container{
     display: flex;
     flex-direction: column;
@@ -6,8 +6,7 @@
     margin-top: 5rem;
 }
 
-/* Banner de introdução */
-
+/* BANNER DA INTRODUÇÃO */
 .background_introduction{
     background-image: url(../../assets/img/banner_home_desktop.png);
     background-position: center;
@@ -26,7 +25,7 @@
     padding-left: 3%;
 }
 
-/* Conteúdo de introdução */
+/* CONTEÚDO DA INTRODUÇÃO*/
 
 .introduction_container{
     padding: 1em;
@@ -50,14 +49,43 @@
 .introduction_content p{
     color: black;
     font-size: 20px;
-    padding-bottom: 1em;
     margin-right: 2em;
     padding-right: 5em;
     text-align: left;
 }
 
-/* SEÇÃO DE ATIVIDADES */
+/* ÁREA DE COMPARTILHAMENTO */
+.share_section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    padding: 10px;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    background-color: #EAF3F3;
+    
+    width: 100%;
+    max-width: 350px;
+    min-height: auto;
 
+    z-index: 10;
+}
+
+.share_section p{
+    padding: .5rem;
+    margin: 0px;
+}
+
+.share_text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1A4C54;
+    white-space: nowrap;
+    padding: 0px;
+}
+
+/* SEÇÃO DE ATIVIDADES */
 .activies_container{
     display: flex;
     flex-direction: column;
@@ -101,7 +129,6 @@
 }
 
 /* BARRA DE PESQUISA DAS ATIVIDADES */
-
 .search_container {
     display: flex;
     flex-direction: column;
@@ -111,7 +138,6 @@
 }
 
 /* FILTROS DAS  ATIVIDADES */
-
 .search_container input[type="text"] {
     width: 500px;
 
@@ -160,7 +186,6 @@
 }
 
 /* AREA DO BOTÃO LIMPAR FILTROS */
-
 .activies_container .button_area{
     display: flex;
     width: 80%;
@@ -171,7 +196,6 @@
 }
 
 /* CARDS DE ATIVIDADES */
-
 .cards_container{
     display: flex;
     flex-direction: column;
@@ -233,7 +257,6 @@
 }
 
 /* MAPA */
-
 .map_container{
     width: 100%;
     align-items: center;
@@ -311,8 +334,8 @@
 
     .introduction_content p{
         font-size: 18px;
-        padding-bottom: 5em;
         margin-right: 0;
+        padding: .5rem;
         
     }
 
@@ -356,6 +379,17 @@
         text-align: left;
     }
 
+    .share_section{
+        right: -50%;
+        transform: translateX(-50%);
+        margin-bottom: 2rem;
+    }
+
+    .share_text{
+        padding: 0px;
+        margin: 0px;
+    }
+
 }
 
 @media (max-width: 768px){
@@ -386,75 +420,9 @@
         width: 80%;
         margin-right: 0;
     }
-}
-
-
-/* --- Regras Principais Botão compartilhar (Desktop) --- */
-
-.share_section {
-  display: flex;
-  flex-direction: column;  
-  align-items: 0;  
-  
-  padding: 20px;               
-  background-color: #f0f0f0;  
-  border-radius: 12px;
-  gap: 1px; 
-  min-height: auto;
-  
-  margin: 0px ;          
-  
-  width: 62%;
-  max-width: 410px;
-  
-  position: relative;         
-  z-index: 10;
-}
-
-.share_text {
-  text-align: left;           
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: #2c3e50;
-  line-height: 1.3;
-  white-space: nowrap;
-  
-  
-  margin-bottom: 0px;         
-  margin-top: 0;
-}
-
-/* --- No HomePage.module.css (Bloco Mobile) --- */
-
-@media (max-width: 768px) {
-  
-  .share_section {
     
-    display: flex; 
-    flex-direction: column; 
-    align-items: 0;  
-    text-align: center; 
-    gap: 5px; 
-    min-height: auto;
-          
-    /* --- AJUSTE DE LARGURA E ESPAÇO INTERNO --- */
-    padding: 10px; 
-    width: 100%; 
-    max-width: 100%;    
-    background-color: #f0f0f0; 
-    border-radius: 12px;     
-      
-  }
-  
-  .share_text {
-    /* --- AJUSTE DO TEXTO PARA MOBILE --- */
-    font-size: 1.1rem; 
-    line-height: 1.4; 
-    white-space: normal;    
-    text-align: center; 
-    margin: 0 0; 
-    margin-bottom: -70px;        
-    
-  }
-  
+    .introduction_content p{
+        padding: 0px;
+        margin-bottom: .5rem;
+    }
 }

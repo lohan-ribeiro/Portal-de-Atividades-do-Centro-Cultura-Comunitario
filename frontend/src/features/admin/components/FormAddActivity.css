@@ -43,6 +43,10 @@
     padding: 0rem clamp(.5rem, 2vw, 2rem);
 }
 
+.input-group span{
+    color: red;
+}
+
 .input-group label{
     font-size: 16px;
     padding: .2rem;

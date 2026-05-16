@@ -1,5 +1,6 @@
-import React from 'react';
 import styles from './BotaoCompartilhar.module.css';
+import Share from "../../assets/icon/share.svg?react"
+
 
 function BotaoCompartilhar() {
   const handleShare = async () => {
@@ -14,9 +15,11 @@ function BotaoCompartilhar() {
     }
   };
 
+
   return (
     <button className={styles.share_button} onClick={handleShare}>
-      🔗Compartilhar
+      <Share className={styles.icon_share}/> 
+      Compartilhar
     </button>
   );
 }
