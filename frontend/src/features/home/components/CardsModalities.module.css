@@ -1,4 +1,3 @@
-/* Add a keyframes animation for a subtle fade-in and slide-up effect */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -17,32 +16,27 @@
   background-color: white;
   width: 100%;
 
-  border: 1px solid #59c5ea;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; /* Adjusted shadow */
+  border: 1px solid #1d82c1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   border-radius: 5px;
   
   gap: 0.2em;
   padding: 1em;
 
-  /* --- SMOOTHER ANIMATION --- */
-  /* 1. Add a transition for hover effects */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  /* 2. Apply the keyframe animation to each card as it appears */
   animation: fadeInUp 0.5s ease-out forwards;
 }
 
-/* 3. Add a hover effect to make the cards interactive */
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; /* Enhanced shadow on hover */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; 
 }
 
 .card h3 {
   font-size: 20px;
   text-transform: uppercase;
   color: #e46e00;
-  border-bottom: 1px solid #59c5ea;
+  border-bottom: 1px solid #1d82c1;
   margin-bottom: 0.5em;
   cursor: default;
 }

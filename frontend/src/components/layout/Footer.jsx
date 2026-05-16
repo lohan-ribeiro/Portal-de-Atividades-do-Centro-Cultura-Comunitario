@@ -46,7 +46,7 @@ function Footer() {
       </address>
       <div className={styles.copyright}>
           <p>
-            &copy; 2025 Todos os direitos reservados Projeto Integrador 2
+            &copy; 2025-2026 Todos os direitos reservados Projeto Integrador 3
           </p>
       </div>
     </footer>
