@@ -34,11 +34,12 @@ test-e2e:
   image: node:20
   variables:
     CYPRESS_BASE_URL: 'http://localhost:5173'
+    NODE_ENV: development
   before_script:
     - apt-get update && apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb
   script:
     - cd frontend
-    - npm ci
+    - npm ci --include=dev
     - npm run dev &
     - sleep 15
     - ./node_modules/.bin/cypress run --browser electron --headless
