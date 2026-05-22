@@ -1,17 +1,202 @@
-Para disponibilizar uma **API REST segura, robusta e escalável** para que terceiros consultem as atividades do seu banco de dados MariaDB, a melhor prática no Express é estruturar a solução com:
+# Índice
+[TOC]
+---
+- # Hospedagem
+	- ## Plataforma: Akamai (Linode)
+	- ## Criação e Configuração da Máquina Virtual [⚠️TODO⚠️]
+	*Inserir imagens do console da Linode para parte escrita do trabalho*
+	- ### Criação e Configuração de Rede e Sub-rede [⚠️TODO⚠️]
+	- ### Criação da Máquina Virtual [⚠️TODO⚠️]
+	- ## Informações da instância da Máquina Virtual
+		- IP Público: `104.64.43.58`
+		- Sistema Operacional: Debian 13
+		- Acesso SSH via key-file
+		- Usuário padrão: `root`
+		- Usuários criados:
+			- `lucas`
+		- Senha do usuário `root` do `mariadb`: `d5U2(=oHKsH}"c|9v})tip;IV'5RV\kR`
+	- ## Configuração de acesso HTTP
+		- ### Configurações na Plataforma Linode [⚠️TODO⚠️]
+			- 1. 
+	- ## Configuração de acesso HTTPS
+		Para conseguir configurar o acesso via HTTPS é necessário possuir um domínio registrado.
+		- ### Configurações na Plataforma Linode [⚠️TODO⚠️]
+			- 1. 
+  		- ### Máquina Virtual - Debian 13
+			 - #### Obtenha um Certificado SSL do Let's Encrypt
+				- **Let's Encrypt Certbot**: provê certificados grátis e auto renováveis.
+					```bash
+					sudo apt update
+					sudo apt install certbot python3-certbot-nginx
+					sudo certbot --nginx -d your_domain.com -d www.your_domain.com
+					```
+				- Siga os prompts interativos para completar a emissão do certificado e a configuração do Nginx. O Certbot irá modificar automaticamente a sua configuração do Nginx para incluir as diretivas SSL necessárias e configurar as renovações automáticas.
+			- #### Teste e Aplicação das Configurações
+				```bash
+				sudo nginx -t
+				sudo systemctl restart nginx
+				```
+	- ## Domínio
+		- Plataforma utilizada para gerenciamento: [ClouDNS](https://www.cloudns.net)
+		- Domínio: **ceu-rc.abrdns.com**
+		- Endereço do site do projeto: **atividades.ceu-rc.abrdns.com**
+		- A associação entre o IP público da máquina virtual e o domínio é realizado na plataforma da ClouDNS
+---
+# Deploy do Projeto
+---
+- ## 1. Preparação da Máquina Virtual (VM ou Virtual Machine)
+	- ### 1.1 Atualização do sistema
+	```bash
+		sudo apt update && sudo apt -y full-upgrade && sudo apt -y dist-upgrade && sudo apt -y autoremove && sudo apt -y autoclean
+	```
+	- ### 1.2 Configuração dos usuários:
+		- Criação de usuário(s):
+			`sudo adduser <username>`
+		- Adicionar usuário ao grupo `sudoers`:
+			`sudo usermod -aG sudo <username>`
+		- Outras operações relevantes:
+			- Listar todos os usuários, filtrando as contas de sistema e serviços:
+				`grep -E '/bin/(bash|sh)$' /etc/passwd`
+			- Redefinição da senha de usuário:
+				`sudo passwd <username>`
+			- Desabilitar login como `root`:
+				- Acesso local (não aplicável à máquinas virtuais remotas, como no nosso caso)
+					`sudo passwd -l root`
+				- Desabilitar acesso `root` via SSH
+					- Procure ou insira no arquivo de configuração do SSH (`/etc/ssh/sshd_config`) o seguinte parâmetro:
+						`PermitRootLogin no`
+					- Reinicie o serviço do SSH:
+						```bash
+						sudo systemctl restart ssh
+						```
+	- ### 1.3 Instalação dos pacotes necessários para o projeto
+		- `MariaDB`: SGBD para o banco de dados MySQL
+		- `Node.js`: para o backend
+		- `NPM`: gerenciador de pacotes do Node.js
+		- `Nginx`: para servir o frontend da aplicação
+		- `PM2`: para manter o processo do backend rodando
+		- Comandos:
+			```bash
+			sudo apt install mariadb-server nodejs npm nginx
+			sudo npm install -g pm2
+			```
+---
+- ## 2. Configuração do Banco de Dados
+	- ### 2.1. Configurações de segurança do MariaDB
+		Isso irá tornar a instalação do MariaDB mais segura ao adicionar uma senha à conta `root`, remover acesso a usuários anônimos, etc.
+		Use o comando:
+		```bash
+		sudo mariadb-secure-installation
+		```
+		Será feita uma série de perguntas. Geralmente é seguro responder sim ("Y") para todas elas.
+	- ### 2.2. Criação do Banco de Dados e Usuário(s)
+		- Autentique-se com o usuário `root` no  MariaDB, utilizando a senha configurada no passo anterior:
+			```bash
+			sudo mariadb -u root -p
+			```
+		- Crie o banco de dados:
+			```sql
+			CREATE DATABASE ceu;
+		- Crie o novo usuário e conceda os privilégios necessários:
+			```sql
+			CREATE USER 'projeto'@'localhost' IDENTIFIED BY '44Kd2Babiqq2azyH';
+			GRANT ALL PRIVILEGES ON ceu.* TO 'projeto'@'localhost';
+			FLUSH PRIVILEGES;
+			```
+		- Saia do MariaDB
+			```sql
+			EXIT;
+			```
+		- Rode o script do banco de dados:
+			```bash
+			sudo mariadb -u projeto -p ceu < projeto_db.sql
+			```
+		- Autentique-se novamente com o usuário `projeto` e visualize as tabelas
+			```bash
+			sudo mariadb -u projeto -p ceu
+			```
+			```sql
+			SHOW TABLES;
+			```
+		- Para verificar os registros execute:
+			```sql
+			SELECT * FROM nome_da_tabela;
+			```
+- ## 3. Configuração do Backend
+	- ### 3.1. Copie para o servidor a pasta `/server` do projeto
+		Local sugerido: `/var/www/my-app/server`
+	- ### 3.2. Instale as dependências
+		- Vá até a pasta `/server` no servidor, e execute:
+			``` bash
+			sudo npm install
+			```
+	- ### 3.3. Inicie o Backend com o `PM2`
+		- A partir do diretório `/server`, execute:
+			```bash
+			sudo pm2 start index.js --name my-app-backend
+			```
+		Isso fará com que o backend rode de funfo e reinicie automaticamente em caso de falhas.
+- ## 4. Configuração do Frontend
+	- ###  4.1. Crie uma build do Frontend pronta para produção
+		- Navegue até à pasta `/client` no projeto, e execute os comandos:
+			```bash
+			npm install
+			npm run build
+			```
+	- ### 4.2. Copie a pasta `/client/build` para o servidor
+		- Uma boa localização é a raiz web que o Nginx servirá, e.g., `/var/www/my-app/html`
+- ## 5. Configuração do Nginx
+	Nginx serve o frontend e roteia as requisições de API para o backend.
+	- ### 5.1. Crie um arquivo de configuração do Nginx
+		- Local: `/etc/nginx/sites-available/my-app`
+		- Conteúdo:
+			```
+			server {
+				listen 80;
+				# Substitua pelo seu domínio ou endereço de IP
+				server_name <your-domain.com>;
+
+				root /var/www/my-app/html;
+				index index.html;
+
+				location / {
+					try_files $uri /index.html;
+				}
+
+				location /api/ {
+					# Assumindo que o seu backend esteja acessível através da porta 8080
+					proxy_pass http://localhost:8080/;
+				}
+			}
+			```
+			* Obs.: Essa configuração é para acesso HTTP, para acesso via HTTPS é necessário seguir os passos descritos na seção ["Configuração de acesso HTTPS"](#configuração-de-acesso-https).
+	- ### 5.2. Habilite a Configuração
+		- Crie um link simbólico do arquivo de configuração criado para o diretório `/etc/nginx/sites-enabled`
+			```bash
+			sudo ln -s /etc/nginx/sites-available/my-app /etc/nginx/sites-enabled/my-app
+			```
+	- ### 5.3. Teste o Arquivo de Configuração
+		- Teste o arquivo de configuração para verificar erros de sintaxe com o comando:
+		```bash
+		sudo nginx -t
+		```
+	- ### 5.4. Reinicie o serviço do Nginx para aplicar as mudanças
+		```bash
+		sudo systemctl restart nginx
+		```
+
+---
+# API Rest
+Para disponibilizar uma **API REST segura, robusta e escalável** para que terceiros consultem as atividades do banco de dados MariaDB, a melhor prática no Express é estruturar a solução com:
 1. **Autenticação por API Key** (para controle de acesso e segurança).
 2. **Rotas dedicadas** (com versionamento, ex: `/api/v1/atividades`).
 3. **Filtros e Paginação** (essenciais para APIs consumidas por terceiros).
 4. **Tratamento de erros padronizado em JSON**.
 
-Aqui está um passo a passo prático de como implementar essa arquitetura no seu projeto existente:
+## 1. Criar o Middleware de Autenticação (`auth.js`)
+Para evitar que qualquer pessoa acesse os dados sem permissão, vamos usar o arquivo `backend/middlewares/auth.js` para validar uma chave de API (`X-API-Key`) enviada no cabeçalho da requisição.
 
----
-
-### 1. Criar o Middleware de Autenticação (`auth.js`)
-Para evitar que qualquer pessoa acesse seus dados sem permissão, vamos usar o arquivo `backend/middlewares/auth.js` (que atualmente está vazio) para validar uma chave de API (`X-API-Key`) enviada no cabeçalho da requisição.
-
-Escreva o seguinte código em `backend/middlewares/auth.js`:
+Adicionando o seguinte código em `backend/middlewares/auth.js`:
 
 ```javascript
 // backend/middlewares/auth.js
@@ -34,12 +219,10 @@ module.exports = function verifyApiKey(req, res, next) {
 };
 ```
 
----
+## 2. Criar o Controller com Paginação e Filtros
+Criar filtros dinâmicos e paginação protege o banco de dados contra sobrecargas (evitando que um terceiro puxe milhares de registros de uma vez).
 
-### 2. Criar o Controller com Paginação e Filtros
-Criar filtros dinâmicos e paginação protege o seu banco de dados contra sobrecargas (evitando que um terceiro puxe milhares de registros de uma vez).
-
-Crie o arquivo `backend/controllers/apiController.js` (ou use seu arquivo de controllers existente) com a lógica abaixo:
+Crie o arquivo `backend/controllers/apiController.js` (ou use o arquivo de controllers existente) com a lógica abaixo:
 
 ```javascript
 // backend/controllers/apiController.js
@@ -60,13 +243,13 @@ exports.getAtividadesExterna = async (req, res) => {
 
     // 3. Query base com Joins
     let sql = `
-      SELECT 
-        a.id, 
-        m.nome AS modalidade, 
-        n.nome AS nivel, 
+      SELECT
+        a.id,
+        m.nome AS modalidade,
+        n.nome AS nivel,
         a.local,
         a.analista,
-        a.horario, 
+        a.horario,
         a.turno,
         a.idade,
         a.dias_semana,
@@ -145,10 +328,8 @@ exports.getAtividadesExterna = async (req, res) => {
 };
 ```
 
----
-
-### 3. Configurar a Rota no Express
-Agora, criamos um arquivo de rotas específico para terceiros. 
+## 3. Configurar a Rota no Express
+Agora, criamos um arquivo de rotas específico para terceiros.
 
 Crie o arquivo `backend/routes/api.js`:
 
@@ -165,10 +346,8 @@ router.get('/atividades', verifyApiKey, apiController.getAtividadesExterna);
 module.exports = router;
 ```
 
----
-
-### 4. Registrar a Rota Principal em `backend/app.js`
-Abra o seu arquivo `backend/app.js` e adicione a nova rota versionada (boa prática para APIs REST):
+## 4. Registrar a Rota Principal em `backend/app.js`
+Abra o arquivo `backend/app.js` e adicione a nova rota versionada (boa prática para APIs REST):
 
 ```javascript
 // Adicione a importação da rota no topo do backend/app.js
@@ -180,19 +359,17 @@ var apiRouter = require('./routes/api');
 app.use('/api/v1', apiRouter);
 ```
 
----
-
-### Como Terceiros Consumirão a Sua API?
+## Como Terceiros Consumirão a API?
 
 Depois de subir o servidor, a outra empresa ou sistema poderá realizar requisições passando o cabeçalho `X-API-Key`.
 
-#### Exemplo usando `cURL` (Terminal):
+### Exemplo usando `cURL` (Terminal):
 ```bash
 curl -H "X-API-Key: chave-secreta-projeto-integrador" \
      "http://localhost:3000/api/v1/atividades?page=1&limit=5&turno=MATUTINO"
 ```
 
-#### Exemplo em JavaScript (`fetch`):
+### Exemplo em JavaScript (`fetch`):
 ```javascript
 fetch('http://localhost:3000/api/v1/atividades?turno=VESPERTINO&modalidade=Voleibol', {
   method: 'GET',
@@ -213,11 +390,8 @@ fetch('http://localhost:3000/api/v1/atividades?turno=VESPERTINO&modalidade=Volei
 .catch(err => console.error('Erro de rede:', err));
 ```
 
-### Resumo do que foi feito
-- Investigamos a estrutura do projeto Express com banco de dados MariaDB.
-- Analisamos a modelagem das tabelas `atividades`, `modalidades` e `niveis`.
+## Resumo do que foi feito
 - Projetamos uma arquitetura limpa de API REST, abordando autenticação via middleware (`X-API-Key`), controladores desacoplados, queries dinâmicas protegidas contra SQL injection, e suporte a paginação e filtros de busca.
 
----
 ## Chave da API:
 - `doHcKoFNSXBQSH5YuGKRll13Y4U9Ypm9lXbkXwYsuPPnT2tn9MBhi0TsWsAumIun`
