@@ -3,19 +3,12 @@ import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
 
 import { loginUser } from "../services/AuthService"
-import { validarEmail } from "../utils/ValidateEmail"
-
+import { useAuth } from "../context/AuthContext"
 
 export function useUserLogin (username, password) {
-
     const navigate = useNavigate()
-    const[loginError, setLoginError] = useState("")
-
-
-    const saveAuth = (data) => {
-        localStorage.setItem("token", data.token)
-    }
-
+    const { login } = useAuth()
+    const [loginError, setLoginError] = useState("")
 
     const handleSubmit = async(e) =>{
         e.preventDefault()
@@ -27,8 +20,8 @@ export function useUserLogin (username, password) {
 
             toast.success("Acesso autorizado!")
     
-            // Salva so dados do usuário.
-            saveAuth(data)
+            // Salva os dados do usuário e o token no contexto e no localStorage.
+            login(data)
 
             // Redirecionado para a página de admin.
             navigate("/admin")
@@ -37,12 +30,10 @@ export function useUserLogin (username, password) {
             setLoginError("Usuário ou senha inválidos!")
             console.log(error)
         }
-
     }  
 
     return {
         handleSubmit,
         loginError
     }
-    
 }

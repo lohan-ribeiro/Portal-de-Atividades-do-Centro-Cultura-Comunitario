@@ -1,9 +1,6 @@
-const URL_API = import.meta.env.VITE_API_URL
-
-
 // Validação de login
 export const loginUser = async(username, password) => {
-    const response = await fetch(`${URL_API}/login`, {
+    const response = await fetch('/login', {
         method: "POST",
         headers: {"Content-Type": "application/json",},
 

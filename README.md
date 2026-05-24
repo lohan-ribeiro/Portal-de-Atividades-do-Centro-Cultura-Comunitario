@@ -112,8 +112,46 @@ Para executar o projeto em sua máquina local, siga os passos abaixo.
 
 ### 1. Configurar o Banco de Dados
 
-- Crie um banco de dados com o nome `projeto_db`.
-- Execute o script `backend/src/projeto_db.sql` para criar a tabela `atividades` e inserir os dados iniciais.
+- Configurações de segurança do MariaDB
+    - Isso irá tornar a instalação do MariaDB mais segura ao adicionar uma senha à conta `root`, remover acesso a usuários anônimos, etc.
+       Use o comando:
+		```bash
+		sudo mariadb-secure-installation
+		```
+		Será feita uma série de perguntas. Geralmente é seguro responder sim ("Y") para todas elas.
+- Criação do Banco de Dados e Usuário(s)
+    - Autentique-se com o usuário `root` no  MariaDB, utilizando a senha configurada no passo anterior:
+        ```bash
+        sudo mariadb -u root -p
+        ```
+    - Crie o banco de dados:
+        ```sql
+        CREATE DATABASE ceu;
+    - Crie o novo usuário e conceda os privilégios necessários:
+        ```sql
+        CREATE USER 'projeto'@'localhost' IDENTIFIED BY 'senha';
+        GRANT ALL PRIVILEGES ON ceu.* TO 'projeto'@'localhost';
+        FLUSH PRIVILEGES;
+        ```
+    - Saia do MariaDB
+        ```sql
+        EXIT;
+        ```
+    - Rode o script do banco de dados:
+        ```bash
+        sudo mariadb -u projeto -p ceu < projeto_db.sql
+        ```
+    - Autentique-se novamente com o usuário `projeto` e visualize as tabelas
+        ```bash
+        sudo mariadb -u projeto -p ceu
+        ```
+        ```sql
+        SHOW TABLES;
+        ```
+    - Para verificar os registros execute:
+        ```sql
+        SELECT * FROM nome_da_tabela;
+        ```
 
 ### 2. Iniciar o Backend
 

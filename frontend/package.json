@@ -13,6 +13,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@vis.gl/react-google-maps": "^1.5.5",
+    "cors": "^2.8.6",
     "focus-visible": "^5.2.1",
     "fuse.js": "^7.0.0",
     "prop-types": "^15.8.1",
