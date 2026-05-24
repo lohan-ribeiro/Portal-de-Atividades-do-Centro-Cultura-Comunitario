@@ -59,21 +59,14 @@ export function useAdminForm(atividade) {
     }
 
     try {
-
-      // Cria um objeto para a atividade
-      const data = new FormData()
-
-      // Dados da atividade(nome,nivel,idade,etc)
-      Object.keys(formData).forEach((key) => {
-        data.append(key, formData[key])
-      })
-
-
       if(isUpdate){
-        await updateActivity(atividade?.id, data)
+        await updateActivity(atividade?.id, formData)
         toast.success("Atividade atualizada!")
+        
+        // Navega para admin
+        navigate("/admin")
       }else{
-        await createActivity(data)
+        await createActivity(formData)
         toast.success("Atividade criada!")
 
         // Limpa o formulário
@@ -93,6 +86,7 @@ export function useAdminForm(atividade) {
       }
     }
   }
+
 
 
   return {

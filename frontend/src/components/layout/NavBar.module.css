@@ -61,7 +61,23 @@ main{
     color: #1d82c1;
 }
 
+.logoutBtn {
+    background: none;
+    border: none;
+    color: #FFF;
+    font-size: 20px;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.logoutBtn:hover {
+    color: #1d82c1;
+}
+
 @media (max-width: 768px){
+
     .list{
         display: none;
     }

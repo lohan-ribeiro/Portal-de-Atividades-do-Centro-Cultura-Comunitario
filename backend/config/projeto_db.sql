@@ -102,6 +102,27 @@ INSERT INTO `niveis` VALUES (1,'Acima de 60 anos'),(2,'Adulto'),(3,'Avançado'),
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+--
+-- Table structure for table `administradores`
+--
+
+DROP TABLE IF EXISTS `administradores`;
+CREATE TABLE `administradores` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `login` varchar(255) NOT NULL UNIQUE,
+  `senha` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `administradores`
+--
+-- Senha padrao (admin123) hasheada com bcrypt: '$2a$10$vG/y8n1lQfBq17o3c62q.Oq0P5rT4qLw1kZex.3/k2W.F/7NuxkXe'
+--
+LOCK TABLES `administradores` WRITE;
+INSERT INTO `administradores` VALUES (1,'admin','$2a$10$vG/y8n1lQfBq17o3c62q.Oq0P5rT4qLw1kZex.3/k2W.F/7NuxkXe');
+UNLOCK TABLES;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
@@ -111,3 +132,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2025-10-16 17:24:10
+

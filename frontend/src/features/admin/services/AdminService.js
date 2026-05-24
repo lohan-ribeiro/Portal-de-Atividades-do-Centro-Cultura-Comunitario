@@ -1,10 +1,8 @@
-const URL_API = import.meta.env.VITE_API_URL
-
 // Obter as atividades
 export const getActivities = async() => {
     const token = localStorage.getItem("token")
 
-    const response = await fetch(`${URL_API}/atividades`, {
+    const response = await fetch('/atividades', {
         method:"GET",
         headers: { Authorization: `Bearer ${token}` }
     })
@@ -20,7 +18,7 @@ export const getActivities = async() => {
 export const createActivity = async(data) => {
     const token = localStorage.getItem("token")
 
-    const response = await fetch(`${URL_API}/atividades`, {
+    const response = await fetch('/atividades', {
         method:"POST",
         headers: { 
             "Content-Type": "application/json",
@@ -40,7 +38,7 @@ export const createActivity = async(data) => {
 export const updateActivity = async(id, data) => {
     const token = localStorage.getItem("token")
 
-    const response = await fetch(`${URL_API}/atividades/${id}`, {
+    const response = await fetch(`/atividades/${id}`, {
         method:"PUT",
         headers: { 
             "Content-Type": "application/json",
@@ -60,7 +58,7 @@ export const updateActivity = async(id, data) => {
 export const deleteActivity = async(id) => {
     const token = localStorage.getItem("token")
 
-    const response = await fetch(`${URL_API}/atividades/${id}`, {
+    const response = await fetch(`/atividades/${id}`, {
         method:"DELETE",
         headers: { 
             "Content-Type": "application/json",
@@ -79,7 +77,7 @@ export const deleteActivity = async(id) => {
 export const deleteActivities = async(data) => {
     const token = localStorage.getItem("token")
 
-    const response = await fetch(`${URL_API}/deletar-atividades`, {
+    const response = await fetch('/deletar-atividades', {
         method:"DELETE",
         headers: { 
             "Content-Type": "application/json",
