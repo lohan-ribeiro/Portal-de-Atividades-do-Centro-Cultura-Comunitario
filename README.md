@@ -10,11 +10,16 @@ Aplicação web para visualização das atividades gratuitas do Centro Cultura C
 ![Google Maps](https://img.shields.io/badge/Google%20Maps%20API-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white)
 <br><br/>
 
+> **Projeto Integrador III — Universidade Virtual do Estado de São Paulo (UNIVESP)**  
+> **Tema Oficial:** *"Desenvolver um software com framework web ou aplicativo que utilize banco de dados, inclua script web (Javascript), nuvem, acessibilidade, controle de versão, integração contínua e testes. Incluir um dos seguintes requisitos: uso e fornecimento de API, análises de dados e IoT."*
+
+<br/>
+
 >Nota: Este projeto foi desenvolvido como estudo de caso e proposta de interface para divulgação de atividades culturais e educacionais gratuitas. Todos os dados, nomes e contatos presentes nesta versão são puramente fictícios para fins de portfólio.
 
 ## Visão Geral
 
-Este é o portal do Centro Cultura Comunitário, um espaço digital criado para que a comunidade possa se informar e se inscrever nas diversas atividades gratuitas que oferecemos. O objetivo deste projeto é facilitar o acesso à informação, centralizando em um único lugar todas as atividades disponíveis, com filtros e buscas que tornam a navegação mais ágil e intuitiva.
+Este projeto foi desenvolvido como Projeto Integrador III da UNIVESP (Grupo 22) e propõe como solução o desenvolvimento de um portal para o Centro Cultura Comunitário, um espaço digital criado para que a comunidade possa se informar e se inscrever nas diversas atividades gratuitas que oferecemos. O objetivo deste projeto é facilitar o acesso à informação, centralizando em um único lugar todas as atividades disponíveis, com filtros e buscas que tornam a navegação mais ágil e intuitiva.
 
 A aplicação foi estruturada com frontend e backend separados, permitindo que a interface e a lógica do sistema evoluam de forma independente, facilitando a manutenção e a adição de novas funcionalidades.
 
@@ -212,6 +217,73 @@ VITE_EMAILJS_PUBLIC_KEY=CHAVE_API_AQUI
 VITE_GOOGLE_MAPS_API_KEY=CHAVE_API_AQUI
 ```
 ---
+
+## 👥 Integrantes do Grupo (UNIVESP — Grupo 22)
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/lohan-ribeiro">
+        <img src="https://github.com/lohan-ribeiro.png" width="100px" style="border-radius: 50%;">
+        <br>
+        <sub><b>Lohan Ribeiro Cerqueira</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/rafanatdaniel-stack">
+        <img src="https://github.com/rafanatdaniel-stack.png" width="100px" style="border-radius: 50%;">
+        <br>
+        <sub><b>Rafael Dias de Santi</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/FelipeSilva-Oliveira">
+        <img src="https://github.com/FelipeSilva-Oliveira.png" width="100px" style="border-radius: 50%;">
+        <br>
+        <sub><b>Felipe da Silva Faria de Oliveira</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/RodrigoBitener">
+        <img src="https://github.com/RodrigoBitener.png" width="100px" style="border-radius: 50%;">
+        <br>
+        <sub><b>Rodrigo Souza Machado Bitener</b></sub>
+      </a>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center">
+      <a href="">
+        <img src="https://github.com/identicons/lucas.png" width="100px" style="border-radius: 50%;">
+        <br>
+        <sub><b>Lucas Sousa Fraga</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="">
+        <img src="https://github.com/identicons/david.png" width="100px" style="border-radius: 50%;">
+        <br>
+        <sub><b>David Barbosa Ferreira</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Wellington-Souza1990">
+        <img src="https://github.com/Wellington-Souza1990.png" width="100px" style="border-radius: 50%;">
+        <br>
+        <sub><b>Wellington dos Santos de Souza</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/waarruda">
+        <img src="https://github.com/waarruda.png" width="100px" style="border-radius: 50%;">
+        <br>
+        <sub><b>Wilson Ademar de Arruda</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
 
 ## 📝 Licença
 
