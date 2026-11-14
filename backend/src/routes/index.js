@@ -2,9 +2,13 @@ var express = require('express');
 var router = express.Router();
 const pool = require('../config/db');
 
-/* GET home page. */
+/* GET API status. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.json({
+    status: 'online',
+    message: 'API do Centro Cultural Comunitário',
+    version: '1.0.0'
+  });
 });
 
 router.get('/atividades', async (req, res) => {

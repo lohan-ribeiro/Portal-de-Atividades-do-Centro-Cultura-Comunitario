@@ -2,7 +2,7 @@ const pool = require('../config/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'token-secreto-administracao-ceu';
+const JWT_SECRET = process.env.JWT_SECRET || 'chave-secreta-centro-cultural-comunitario';
 
 // POST /login - Realiza o login do usuário administrativo
 exports.loginAdmin = async (req, res) => {
@@ -123,7 +123,7 @@ exports.createActivity = async (req, res) => {
       dias_semana || '',
       analista || '',
       local || '',
-      'CEU - Rosa da China'
+      'Centro Cultural Comunitário'
     ];
 
     const insertResult = await connection.query(sql, params);

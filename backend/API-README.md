@@ -1,4 +1,4 @@
-# Índice
+﻿# Índice
 [TOC]
 ---
 - # Hospedagem
@@ -8,13 +8,13 @@
 	- ### Criação e Configuração de Rede e Sub-rede [⚠️TODO⚠️]
 	- ### Criação da Máquina Virtual [⚠️TODO⚠️]
 	- ## Informações da instância da Máquina Virtual
-		- IP Público: `104.64.43.58`
+		- IP Público: `203.0.113.1` (Exemplo)
 		- Sistema Operacional: Debian 13
 		- Acesso SSH via key-file
 		- Usuário padrão: `root`
 		- Usuários criados:
-			- `lucas`
-		- Senha do usuário `root` do `mariadb`: `d5U2(=oHKsH}"c|9v})tip;IV'5RV\kR`
+			- `deploy_user`
+		- Senha do usuário `root` do `mariadb`: `<SUA_SENHA_ROOT_SEGURA>`
 	- ## Configuração de acesso HTTP
 		- ### Configurações na Plataforma Linode [⚠️TODO⚠️]
 			- 1. 
@@ -38,8 +38,8 @@
 				```
 	- ## Domínio
 		- Plataforma utilizada para gerenciamento: [ClouDNS](https://www.cloudns.net)
-		- Domínio: **ceu-rc.abrdns.com**
-		- Endereço do site do projeto: **atividades.ceu-rc.abrdns.com**
+		- Domínio: **centrocultural.exemplo.com**
+		- Endereço do site do projeto: **atividades.centrocultural.exemplo.com**
 		- A associação entre o IP público da máquina virtual e o domínio é realizado na plataforma da ClouDNS
 ---
 # Deploy do Projeto
@@ -96,11 +96,12 @@
 			```
 		- Crie o banco de dados:
 			```sql
-			CREATE DATABASE ceu;
+			CREATE DATABASE centro_cultural_db;
+			```
 		- Crie o novo usuário e conceda os privilégios necessários:
 			```sql
-			CREATE USER 'projeto'@'localhost' IDENTIFIED BY '44Kd2Babiqq2azyH';
-			GRANT ALL PRIVILEGES ON ceu.* TO 'projeto'@'localhost';
+			CREATE USER 'projeto'@'localhost' IDENTIFIED BY '<SUA_SENHA_BANCO>';
+			GRANT ALL PRIVILEGES ON centro_cultural_db.* TO 'projeto'@'localhost';
 			FLUSH PRIVILEGES;
 			```
 		- Saia do MariaDB
@@ -109,11 +110,11 @@
 			```
 		- Rode o script do banco de dados:
 			```bash
-			sudo mariadb -u projeto -p ceu < projeto_db.sql
+			sudo mariadb -u projeto -p centro_cultural_db < projeto_db.sql
 			```
 		- Autentique-se novamente com o usuário `projeto` e visualize as tabelas
 			```bash
-			sudo mariadb -u projeto -p ceu
+			sudo mariadb -u projeto -p centro_cultural_db
 			```
 			```sql
 			SHOW TABLES;
@@ -194,12 +195,12 @@ Para disponibilizar uma **API REST segura, robusta e escalável** para que terce
 4. **Tratamento de erros padronizado em JSON**.
 
 ## 1. Criar o Middleware de Autenticação (`auth.js`)
-Para evitar que qualquer pessoa acesse os dados sem permissão, vamos usar o arquivo `backend/middlewares/auth.js` para validar uma chave de API (`X-API-Key`) enviada no cabeçalho da requisição.
+Para evitar que qualquer pessoa acesse os dados sem permissão, vamos usar o arquivo `backend/src/middlewares/auth.js` para validar uma chave de API (`X-API-Key`) enviada no cabeçalho da requisição.
 
-Adicionando o seguinte código em `backend/middlewares/auth.js`:
+Adicionando o seguinte código em `backend/src/middlewares/auth.js`:
 
 ```javascript
-// backend/middlewares/auth.js
+// backend/src/middlewares/auth.js
 
 module.exports = function verifyApiKey(req, res, next) {
   // Obtém a API Key do cabeçalho da requisição
@@ -222,10 +223,10 @@ module.exports = function verifyApiKey(req, res, next) {
 ## 2. Criar o Controller com Paginação e Filtros
 Criar filtros dinâmicos e paginação protege o banco de dados contra sobrecargas (evitando que um terceiro puxe milhares de registros de uma vez).
 
-Crie o arquivo `backend/controllers/apiController.js` (ou use o arquivo de controllers existente) com a lógica abaixo:
+Crie o arquivo `backend/src/controllers/apiController.js` (ou use o arquivo de controllers existente) com a lógica abaixo:
 
 ```javascript
-// backend/controllers/apiController.js
+// backend/src/controllers/apiController.js
 const pool = require('../config/db');
 
 exports.getAtividadesExterna = async (req, res) => {
@@ -331,10 +332,10 @@ exports.getAtividadesExterna = async (req, res) => {
 ## 3. Configurar a Rota no Express
 Agora, criamos um arquivo de rotas específico para terceiros.
 
-Crie o arquivo `backend/routes/api.js`:
+Crie o arquivo `backend/src/routes/api.js`:
 
 ```javascript
-// backend/routes/api.js
+// backend/src/routes/api.js
 const express = require('express');
 const router = express.Router();
 const apiController = require('../controllers/apiController');
@@ -346,11 +347,11 @@ router.get('/atividades', verifyApiKey, apiController.getAtividadesExterna);
 module.exports = router;
 ```
 
-## 4. Registrar a Rota Principal em `backend/app.js`
-Abra o arquivo `backend/app.js` e adicione a nova rota versionada (boa prática para APIs REST):
+## 4. Registrar a Rota Principal em `backend/src/app.js`
+Abra o arquivo `backend/src/app.js` e adicione a nova rota versionada (boa prática para APIs REST):
 
 ```javascript
-// Adicione a importação da rota no topo do backend/app.js
+// Adicione a importação da rota no topo do backend/src/app.js
 var apiRouter = require('./routes/api');
 
 // ... outros middlewares e rotas ...
@@ -393,5 +394,5 @@ fetch('http://localhost:3000/api/v1/atividades?turno=VESPERTINO&modalidade=Volei
 ## Resumo do que foi feito
 - Projetamos uma arquitetura limpa de API REST, abordando autenticação via middleware (`X-API-Key`), controladores desacoplados, queries dinâmicas protegidas contra SQL injection, e suporte a paginação e filtros de busca.
 
-## Chave da API:
-- `doHcKoFNSXBQSH5YuGKRll13Y4U9Ypm9lXbkXwYsuPPnT2tn9MBhi0TsWsAumIun`
+## Chave da API (Exemplo para desenvolvimento):
+- `chave-api-demonstrativa-12345`

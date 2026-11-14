@@ -38,7 +38,7 @@ function MapControlsAndMarker({ Position }) {
         if (map) map.setZoom(map.getZoom() - 1)
     }
 
-    // botão de voltar a localização do CEU
+    // botão de voltar a localização do Centro Cultural Comunitário
     const recenter = () => {
         if (map) map.panTo(Position)
     }
@@ -56,7 +56,7 @@ function MapControlsAndMarker({ Position }) {
             <AdvancedMarker
                 position={Position}
                 onClick={handleMarkerClick}
-                title="CEU Rosa da China"
+                title="Centro Cultural Comunitário"
             />
             {!mapReady && (
                 <div className={styles.loading}>Carregando mapa...</div>
@@ -101,7 +101,7 @@ function MapControlsAndMarker({ Position }) {
 }
 
 function MapCeu({ className }) {
-    const Position = { lat: -23.62195799066044, lng: -46.501034948373324 }
+    const Position = { lat: -23.550520, lng: -46.633308 }
 
     return (
         <div className={`${styles.container} ${className}`}>

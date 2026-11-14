@@ -123,12 +123,12 @@ function HomePage() {
         <div className={styles.background_introduction}>
           <section className={styles.introduction_content} aria-labelledby="introdução">
             <h1 id="introdução">
-              CEU Rosa da China — Um <span>Espaço</span> Para <span>Todos</span>!
+              Centro Cultural Comunitário — Um <span>Espaço</span> Para <span>Todos</span>!
             </h1>
             <p>
               Este é o nosso espaço para você ficar por dentro das atividades
-              gratuitas do CEU Rosa da China.Aqui você encontra todas as atividades
-              gratuitas que o CEU Rosa da China oferece. Confira o que está disponível
+              gratuitas do Centro Cultural Comunitário. Aqui você encontra todas as atividades
+              gratuitas que oferecemos para todas as idades. Confira o que está disponível
               e descubra maneiras de se divertir e aprender com a sua comunidade!
             </p>
 

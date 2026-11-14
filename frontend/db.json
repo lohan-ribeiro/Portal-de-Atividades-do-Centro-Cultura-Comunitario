@@ -1,1010 +1,1010 @@
-[
+﻿[
    {
       "id":1,
       "nome":"Circuito de ginástica",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"7h às 8h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Seg/Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":2,
       "nome":"Circuito de ginástica",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"8h às 9h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":3,
       "nome":"Pilates",
       "nivel":"Iniciante",
       "local":"Tatame",
-      "analista":"Elaine",
+      "analista":"Fulana",
       "horario":"8h às 9h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Seg/Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":4,
       "nome":"Clube da caminhada",
       "nivel":"Iniciante",
       "local":"Pátio do Teatro/Externo",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"8h às 9h",
       "turno":"MATUTINO",
       "idade":"Acima de 14 anos",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":5,
       "nome":"Clube da corrida",
       "nivel":"Iniciante",
       "local":"Pátio do Teatro/Externo",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"9h às 10h",
       "turno":"MATUTINO",
       "idade":"Acima de 14 anos",
       "dias_semana":"Terça/Quinta/Sáb.",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":6,
       "nome":"Funcional para corrida",
       "nivel":"Iniciante e avançado",
       "local":"Externo",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"8h às 9h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Terça/Quinta/Sáb.",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":7,
       "nome":"Alongamento",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"7h às 8h",
       "turno":"MATUTINO",
       "idade":"Livre",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":8,
       "nome":"Alongamento",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"8h às 9h",
       "turno":"MATUTINO",
       "idade":"Livre",
       "dias_semana":"Seg/Qua/Sex",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":9,
       "nome":"Alongamento",
       "nivel":"Iniciante",
       "local":"Tatame",
-      "analista":"Elaine",
+      "analista":"Fulana",
       "horario":"9h às 10h",
       "turno":"MATUTINO",
       "idade":"Livre",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":10,
       "nome":"Alongamento",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Elaine",
+      "analista":"Fulana",
       "horario":"9h às 10h",
       "turno":"MATUTINO",
       "idade":"Livre",
       "dias_semana":"Seg/Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":11,
       "nome":"Ginástica Cerebral",
       "nivel":"Iniciante",
       "local":"Sala de Jogos",
-      "analista":"Elaine",
+      "analista":"Fulana",
       "horario":"10h às 11h",
       "turno":"MATUTINO",
       "idade":"Livre",
       "dias_semana":"Terça",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":12,
       "nome":"Ginástica Senior 60 +",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Elaine",
+      "analista":"Fulana",
       "horario":"10h às 11h",
       "turno":"MATUTINO",
       "idade":"Acima de 60 Anos",
       "dias_semana":"Seg/Quarta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":13,
       "nome":"Step",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Elaine",
+      "analista":"Fulana",
       "horario":"11h às 12h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":14,
       "nome":"Jump",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Elaine",
+      "analista":"Fulana",
       "horario":"11h às 12h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Seg/Quarta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":15,
       "nome":"Aerolocal",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Elaine",
+      "analista":"Fulana",
       "horario":"9h às 10h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":16,
       "nome":"Volei Adaptado",
       "nivel":"Iniciante",
       "local":"Ginásio",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"9h às 10h30",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":17,
       "nome":"Ginástica Localizada",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"9h às 10h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":18,
       "nome":"Condicionamento Físico",
       "nivel":"Todos os Níveis",
       "local":"Tatame",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"09h às 10h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Segunda-Feira",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":19,
       "nome":"Hidroginástica/Condicionamento Físico",
       "nivel":"Adulto",
       "local":"Piscina",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"09h às 10h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":20,
       "nome":"Hidroginástica/Condicionamento Físico",
       "nivel":"Adulto",
       "local":"Piscina",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"11h às 12h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":21,
       "nome":"Natação/Condicionamento Físico",
       "nivel":"Iniciante",
       "local":"Piscina",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"10h às 11h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Seg/Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":22,
       "nome":"Natação/Condicionamento Físico",
       "nivel":"Infantil",
       "local":"Piscina",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"10h30 às 11h30",
       "turno":"MATUTINO",
       "idade":"De 6 a 10 anos",
       "dias_semana":"Terça / Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":23,
       "nome":"Postura e Mobilidade",
       "nivel":"Iniciante",
       "local":"Tatame",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"10h às 11h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Quarta/sexta/ Sáb.",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":24,
       "nome":"Postura e Mobilidade",
       "nivel":"Iniciante",
       "local":"Tatame",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"11h às 12h",
       "turno":"MATUTINO",
       "idade":"Adulto",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":25,
       "nome":"Psicomotricidade para Pessoa com Deficiência/Intelectual",
       "nivel":"Iniciante",
       "local":"Sala de Jogos",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"11h às 12h",
       "turno":"MATUTINO",
       "idade":"Avaliar",
       "dias_semana":"Seg/Qua/Sex",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":26,
       "nome":"Psicomotricidade para Pessoa com Deficiência/Intelectual",
       "nivel":"Iniciante",
       "local":"Sala de Jogos",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"13h30 às 14h30",
       "turno":"VESPERTINO",
       "idade":"Avaliar o aluno",
       "dias_semana":"Segunda Feira",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":27,
       "nome":"Psicomotricidade para Pessoa com Deficiência/Intelectual",
       "nivel":"Iniciante",
       "local":"Sala de Jogos",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"14h30 às 15h30",
       "turno":"VESPERTINO",
       "idade":"Avaliar o aluno",
       "dias_semana":"Segunda -feira",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":28,
       "nome":"Natação/Condicionamento Físico",
       "nivel":"Todos os Níveis",
       "local":"Piscina",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"12h30 às 13h30",
       "turno":"VESPERTINO",
       "idade":"De 11 a 17 anos",
       "dias_semana":"Seg/Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":29,
       "nome":"Alongamento",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"13h30 às 14h30",
       "turno":"VESPERTINO",
       "idade":"Livre",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":30,
       "nome":"Circuito de ginástica",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Erika",
+      "analista":"Fulano",
       "horario":"14h30 às 15h30",
       "turno":"VESPERTINO",
       "idade":"Adulto",
       "dias_semana":"terça /quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":31,
       "nome":"Mat - Pilates",
       "nivel":"Iniciante",
       "local":"Sala Zen",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"16h às 17h",
       "turno":"VESPERTINO",
       "idade":"Acima de 50 anos",
       "dias_semana":"Terça /Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":32,
       "nome":"Ginástica Artística",
       "nivel":"Nível II e III",
       "local":"Sala G.A",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"15h30 às 16h30",
       "turno":"VESPERTINO",
       "idade":"Juvenil",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":33,
       "nome":"Ginástica Acrobática",
       "nivel":"Nível II e III",
       "local":"Sala de GA",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"16h30 às 17h30",
       "turno":"VESPERTINO",
       "idade":"Adulto",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":34,
       "nome":"Basquetebol",
       "nivel":"Iniciante",
       "local":"Ginásio",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"12h às 13h",
       "turno":"VESPERTINO",
       "idade":"09 a 12 anos",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":35,
       "nome":"Basquetebol",
       "nivel":"Iniciante e intermediário",
       "local":"Ginásio",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"13h às 14h30",
       "turno":"VESPERTINO",
       "idade":"13 a 15 anos",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":36,
       "nome":"Basquetebol",
       "nivel":"Intermediário",
       "local":"Ginásio",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"14h30 às 16h",
       "turno":"VESPERTINO",
       "idade":"14 a 16 anos",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":37,
       "nome":"Voleibol",
       "nivel":"Iniciante",
       "local":"Ginásio",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"16h30 às 17h30",
       "turno":"VESPERTINO",
       "idade":"12 a 15 anos",
       "dias_semana":"Terça/Quinta/Sáb.",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":38,
       "nome":"Voleibol",
       "nivel":"Todos os Níveis",
       "local":"Ginásio",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"18h30 às 19h30",
       "turno":"NOTURNO",
       "idade":"Sub 17 Anos",
       "dias_semana":"Terça/Quinta/Sáb.",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":39,
       "nome":"Voleibol",
       "nivel":"Iniciante",
       "local":"Ginásio",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"17h30 às 18h30",
       "turno":"VESPERTINO",
       "idade":"12 a 15 anos",
       "dias_semana":"Terça/Quinta Sáb",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":40,
       "nome":"Futsal Masculino",
       "nivel":"Tático",
       "local":"Quadra Externa",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"14h30 às 15h:30",
       "turno":"VESPERTINO",
       "idade":"14 a 17 anos",
       "dias_semana":"Quarta / Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":41,
       "nome":"Futsal Masculino",
       "nivel":"Treinamento",
       "local":"Ginásio",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"15h30 às 17h",
       "turno":"VESPERTINO",
       "idade":"14 a 17 anos",
       "dias_semana":"Quarta / Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":42,
       "nome":"Futsal Masculino",
       "nivel":"Iniciante",
       "local":"Rotativo",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"13h30 às 14h30",
       "turno":"VESPERTINO",
       "idade":"04 e 05 anos",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":43,
       "nome":"Taekwondo Juvenil",
       "nivel":"Iniciante",
       "local":"Sala Zen",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"17h às 18h30",
       "turno":"VESPERTINO",
       "idade":"12 a 17 anos",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":44,
       "nome":"Taekwondo Juvenil",
       "nivel":"Iniciante",
       "local":"Sala Zen",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"17h às 18h30",
       "turno":"VESPERTINO",
       "idade":"13 a 17 anos",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":45,
       "nome":"Taekwondo Juvenil",
       "nivel":"Infantil",
       "local":"Sala Zen",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"15h às 16h",
       "turno":"VESPERTINO",
       "idade":"11 a 13 anos",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":46,
       "nome":"Ginástica Artística",
       "nivel":"Nível I e II",
       "local":"GA/Tatame",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"19 às 20h",
       "turno":"NOTURNO",
       "idade":"5 a 10 anos",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":47,
       "nome":"Ginástica Acrobática",
       "nivel":"Nível II e III",
       "local":"GA/Tatame",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"21h às 22h",
       "turno":"NOTURNO",
       "idade":"De 7 a 15 anos",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":48,
       "nome":"Ginástica Artística",
       "nivel":"Nível II e III",
       "local":"Sala GA",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"20h às 21h",
       "turno":"NOTURNO",
       "idade":"De 7 a 15 anos",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":49,
       "nome":"Taekwondo",
       "nivel":"Iniciante",
       "local":"Sala Zen",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"19h às 20h",
       "turno":"NOTURNO",
       "idade":"07 a 09 anos",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":50,
       "nome":"Taekwondo",
       "nivel":"Iniciante",
       "local":"Sala Zen",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"19h às 20h",
       "turno":"NOTURNO",
       "idade":"10 a 12 anos",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":51,
       "nome":"Taekwondo",
       "nivel":"Iniciante",
       "local":"Sala Zen",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"20h às 21h",
       "turno":"NOTURNO",
       "idade":"Adulto",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":52,
       "nome":"Taekwondo",
       "nivel":"Treinamento",
       "local":"Sala Zen",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"21h às 22h",
       "turno":"NOTURNO",
       "idade":"Adulto",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":53,
       "nome":"Alongamento",
       "nivel":"Todos os Níveis",
       "local":"S.de Dança/Tatame",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"18h às 19h",
       "turno":"NOTURNO",
       "idade":"Adulto",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":54,
       "nome":"CFC - Intense Training",
       "nivel":"Iniciante",
       "local":"Sala de Dança",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"20h às 21h",
       "turno":"NOTURNO",
       "idade":"Adulto",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":55,
       "nome":"Ginástica Artística",
       "nivel":"Nível II e III",
       "local":"Sala GA",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"19h às 20h",
       "turno":"NOTURNO",
       "idade":"De 05 a 10 anos",
       "dias_semana":"Quarta/Sexta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":56,
       "nome":"Karatê",
       "nivel":"Todos os Níveis",
       "local":"Tatame",
-      "analista":"Zé Raimundo",
+      "analista":"Beltrano",
       "horario":"20h às 21h",
       "turno":"NOTURNO",
       "idade":"Acima de 07 anos",
       "dias_semana":"Segunda e Quarta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":57,
       "nome":"Capoeira",
       "nivel":"Todos os Níveis",
       "local":"Tatame",
-      "analista":"Guerreiro",
+      "analista":"Fulano",
       "horario":"10h às 12h",
       "turno":"MATUTINO",
       "idade":"Acima de 07 anos",
       "dias_semana":"Domingo",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":58,
       "nome":"Muaythai",
       "nivel":"Todos os Níveis",
       "local":"Tatame",
-      "analista":"Luiz Telles",
+      "analista":"Ciclano",
       "horario":"20h às 21h30",
       "turno":"NOTURNO",
       "idade":"Acima de 10 anos",
       "dias_semana":"Terça e Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":59,
       "nome":"Ginástica Acrobática",
       "nivel":"Avançado",
       "local":"Sala de Dança/GA",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"08h30 às 10h",
       "turno":"MATUTINO",
       "idade":"06 a 10 anos",
       "dias_semana":"Sábado",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":60,
       "nome":"Taekwondo",
       "nivel":"Juvenil",
       "local":"Sala Zen",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"10h às 11h30",
       "turno":"MATUTINO",
       "idade":"7 a 15 anos",
       "dias_semana":"Domingo",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":61,
       "nome":"Taekwondo",
       "nivel":"Juvenil",
       "local":"Sala Zen",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"12h às 13h 30",
       "turno":"VESPERTINO",
       "idade":"15 a 17 anos",
       "dias_semana":"Domingo",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":62,
       "nome":"Taekwondo",
       "nivel":"Adulto",
       "local":"Sala Zen",
-      "analista":"Reginaldo",
+      "analista":"Ciclano",
       "horario":"14h às 15h",
       "turno":"VESPERTINO",
       "idade":"Adulto",
       "dias_semana":"Domingo",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":63,
       "nome":"Basquetebol",
       "nivel":"Iniciante",
       "local":"Ginásio",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"12h às 13h",
       "turno":"VESPERTINO",
       "idade":"Juvenil de 12 a 14 Anos",
       "dias_semana":"Sábado",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":64,
       "nome":"Basquetebol",
       "nivel":"Feminino",
       "local":"Ginásio",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"10 às 11h30",
       "turno":"MATUTINO",
       "idade":"Acima de 14 Anos",
       "dias_semana":"Sábado",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":65,
       "nome":"Basquetebol",
       "nivel":"Avançado",
       "local":"Ginásio",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"13h às 14h",
       "turno":"VESPERTINO",
       "idade":"De 16 a 18 Anos",
       "dias_semana":"Sábado",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":66,
       "nome":"Voleibol",
       "nivel":"Iniciante",
       "local":"Ginásio",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"14h às 15h",
       "turno":"VESPERTINO",
       "idade":"Adulto",
       "dias_semana":"Sábado",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":67,
       "nome":"Voleibol",
       "nivel":"Treinamento",
       "local":"Ginásio",
-      "analista":"Gleice",
+      "analista":"Beltrana",
       "horario":"15h às 16h30",
       "turno":"VESPERTINO",
       "idade":"Adulto",
       "dias_semana":"Sábado",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":68,
       "nome":"Samba Rock",
       "nivel":"Todos os Níveis",
       "local":"Sala de Dança",
-      "analista":"Renatinho",
+      "analista":"Beltrano",
       "horario":"20h às 20h40",
       "turno":"NOTURNO",
       "idade":"Livre",
       "dias_semana":"Segunda",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":69,
       "nome":"Jiu-Jitsu",
       "nivel":"Todos os Níveis",
       "local":"Tatame",
-      "analista":"Eder",
+      "analista":"Fulano",
       "horario":"19h às 20h",
       "turno":"NOTURNO",
       "idade":"Acima de 7 anos",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":70,
       "nome":"Jiu-Jitsu",
       "nivel":"Todos os Níveis",
       "local":"Tatame",
-      "analista":"Eder",
+      "analista":"Fulano",
       "horario":"19h às 20h",
       "turno":"NOTURNO",
       "idade":"Acima de 7 anos",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":71,
       "nome":"Jiu-Jitsu",
       "nivel":"Todos os Níveis",
       "local":"Tatame",
-      "analista":"Eder",
+      "analista":"Fulano",
       "horario":"20h às 21h",
       "turno":"NOTURNO",
       "idade":"Adoslescente e Adulto",
       "dias_semana":"Terça/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":72,
       "nome":"Artes Cênicas",
       "nivel":"Todos os Níveis",
       "local":"Teatro",
-      "analista":"Douglas",
+      "analista":"Ciclano",
       "horario":"18h30 às 20h",
       "turno":"NOTURNO",
       "idade":"04 a 14 anos",
       "dias_semana":"Quarta/Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":73,
       "nome":"Artes Cênicas",
       "nivel":"Todos os Níveis",
       "local":"Teatro",
-      "analista":"Douglas",
+      "analista":"Ciclano",
       "horario":"17h às 18h30",
       "turno":"VESPERTINO",
       "idade":"04 a 14 anos",
       "dias_semana":"Quarta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":74,
       "nome":"Artes Cênicas",
       "nivel":"Todos os Níveis",
       "local":"Teatro",
-      "analista":"Douglas",
+      "analista":"Ciclano",
       "horario":"08h às 9h30",
       "turno":"MATUTINO",
       "idade":"04 a 14 anos",
       "dias_semana":"Sábado",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":75,
       "nome":"Artes Cênicas",
       "nivel":"Todos os Níveis",
       "local":"Teatro",
-      "analista":"Douglas",
+      "analista":"Ciclano",
       "horario":"09h30 às 11h",
       "turno":"MATUTINO",
       "idade":"04 a 14 anos",
       "dias_semana":"Sábado",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":76,
       "nome":"Jazz",
       "nivel":"Todos os Níveis",
       "local":"Sala de Dança",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"09h30 às 11h",
       "turno":"MATUTINO",
       "idade":"09 a 14 anos",
       "dias_semana":"Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":77,
       "nome":"Jazz",
       "nivel":"Todos os Níveis",
       "local":"Sala de Dança",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"13h30 às 15h",
       "turno":"VESPERTINO",
       "idade":"09 a 14 anos",
       "dias_semana":"Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":78,
       "nome":"Ballet",
       "nivel":"Todos os Níveis",
       "local":"Sala de Dança",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"08h às 09h30",
       "turno":"MATUTINO",
       "idade":"04 a 14 anos",
       "dias_semana":"Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":79,
       "nome":"Ballet",
       "nivel":"Todos os Níveis",
       "local":"Sala de Dança",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"11h às 12h30",
       "turno":"MATUTINO",
       "idade":"04 a 14 anos",
       "dias_semana":"Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":80,
       "nome":"Ballet",
       "nivel":"Todos os Níveis",
       "local":"Sala de Dança",
-      "analista":"Juliana",
+      "analista":"Ciclana",
       "horario":"15h às 16h30",
       "turno":"VESPERTINO",
       "idade":"04 a 14 anos",
       "dias_semana":"Quinta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":81,
       "nome":"Dança",
       "nivel":"Todos os Níveis",
       "local":"Sala de Dança",
-      "analista":"Paloma",
+      "analista":"Ciclana",
       "horario":"14h às 17h",
       "turno":"VESPERTINO",
       "idade":"apartir de 14 anos",
       "dias_semana":"Segunda",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":82,
       "nome":"Atividade Paralímpica",
       "nivel":"Todos os Níveis",
       "local":"Ginásio",
-      "analista":"Comitê Paralímpico",
+      "analista":"Beltrana",
       "horario":"10h às 11h",
       "turno":"MATUTINO",
       "idade":"Livre",
       "dias_semana":"Segunda e Quarta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":83,
       "nome":"Atividade Paralímpica",
       "nivel":"Todos os Níveis",
       "local":"Ginásio",
-      "analista":"Comitê Paralímpico",
+      "analista":"Beltrana",
       "horario":"13h às 14h",
       "turno":"MATUTINO",
       "idade":"Livre",
       "dias_semana":"Quarta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    },
    {
       "id":84,
       "nome":"Atividade Paralímpica",
       "nivel":"Todos os Níveis",
       "local":"Ginásio",
-      "analista":"Comitê Paralímpico",
+      "analista":"Beltrana",
       "horario":"14h às 15h",
       "turno":"VESPERTINO",
       "idade":"Livre",
       "dias_semana":"Quarta",
-      "disponivel_em":"CEU - Rosa da China"
+      "disponivel_em":"Centro Cultural Comunitário"
    }
 ]

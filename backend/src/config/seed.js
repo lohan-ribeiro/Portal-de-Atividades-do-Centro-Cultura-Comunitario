@@ -18,17 +18,19 @@ async function seed() {
     `);
     console.log("Tabela 'administradores' verificada/criada com sucesso.");
 
-    // Verifica se o usuário 'admin' já existe
-    const rows = await conn.query("SELECT * FROM administradores WHERE login = 'admin'");
+    const defaultLogin = process.env.ADMIN_DEFAULT_LOGIN || 'admin';
+    const defaultPassword = process.env.ADMIN_DEFAULT_PASSWORD || 'admin123';
+
+    // Verifica se o usuário administrador já existe
+    const rows = await conn.query("SELECT * FROM administradores WHERE login = ?", [defaultLogin]);
     if (rows.length === 0) {
-      // Hashing da senha padrão 'admin123'
-      const hashedPassword = await bcrypt.hash('admin123', 10);
-      await conn.query("INSERT INTO administradores (login, senha) VALUES (?, ?)", ['admin', hashedPassword]);
+      const hashedPassword = await bcrypt.hash(defaultPassword, 10);
+      await conn.query("INSERT INTO administradores (login, senha) VALUES (?, ?)", [defaultLogin, hashedPassword]);
       console.log("Usuário administrador padrão criado com sucesso!");
-      console.log("Login: admin");
-      console.log("Senha: admin123");
+      console.log(`Login: ${defaultLogin}`);
+      console.log(`Senha: ${defaultPassword}`);
     } else {
-      console.log("Usuário administrador 'admin' já existe.");
+      console.log(`Usuário administrador '${defaultLogin}' já existe.`);
     }
   } catch (err) {
     console.error("Erro ao rodar o seeding do banco de dados:", err);

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="1000" height="300" fill="none">
+  <!-- Symbol -->
+  <g transform="translate(150, 150)">
+    <!-- Outer Arcs -->
+    <path d="M -80,-30 A 85 85 0 0 1 30,-80" stroke="#FF7A00" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 80,30 A 85 85 0 0 1 -30,80" stroke="#38B2AC" stroke-width="14" stroke-linecap="round"/>
+    <!-- Inner Arcs -->
+    <path d="M 40,-40 A 55 55 0 0 1 55,20" stroke="#FFB703" stroke-width="14" stroke-linecap="round"/>
+    <path d="M -40,40 A 55 55 0 0 1 -55,-20" stroke="#FF7A00" stroke-width="14" stroke-linecap="round"/>
+    <!-- Center Core -->
+    <circle cx="0" cy="0" r="24" fill="#FF7A00"/>
+    <circle cx="0" cy="0" r="12" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="280" y="125" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="44" letter-spacing="1">CENTRO CULTURAL</text>
+  <text x="285" y="180" fill="#FF7A00" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="26" letter-spacing="8">COMUNITÁRIO</text>
+</svg>

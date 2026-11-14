@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 // Chave secreta para assinatura do JWT.
 // Em produção, isso deve ser carregado de uma variável de ambiente (process.env.JWT_SECRET)
-const JWT_SECRET = process.env.JWT_SECRET || 'token-secreto-administracao-ceu';
+const JWT_SECRET = process.env.JWT_SECRET || 'chave-secreta-centro-cultural-comunitario';
 
 module.exports = function verifyAdminToken(req, res, next) {
   const authHeader = req.headers['authorization'];

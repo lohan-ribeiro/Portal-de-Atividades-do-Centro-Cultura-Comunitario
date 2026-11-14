@@ -76,7 +76,7 @@ const Admin = () => {
       <div className="content-introduction">
         <h1>Bem-vindo Admin</h1>
         <p>
-          Gerencie todas as atividades disponíveis no CEU Rosa da China.
+          Gerencie todas as atividades disponíveis no Centro Cultural Comunitário.
           Utilize esta área para adicionar novas atividades, editar informações
           ou remover atividades existentes.
           Todas as alterações feitas aqui aparecem automaticamente na página principal.

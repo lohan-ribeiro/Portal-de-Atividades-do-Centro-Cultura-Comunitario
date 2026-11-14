@@ -27,24 +27,24 @@ function Contact() {
           </li>
           <li>
             <Telefone className={styles.item_icons} aria-hidden="true" focusable="false"/>{" "}
-              (11) 2701-2358
+              (11) 3000-0000
           </li>
           <li>
             <Envelope className= {styles.item_icons} aria-hidden="true" focusable="false" />{" "}
-            <a href="mailto:atendimentoceurosadachina@gmail.com" className={styles.email}>
-              atendimentoceurosadachina@gmail.com
+            <a href="mailto:contato@centroculturalcomunitario.org" className={styles.email}>
+              contato@centroculturalcomunitario.org
             </a>
           </li>
           <li>
             <Pinmap className= {styles.item_icons} aria-hidden="true" focusable="false" />{" "}
             <a
-              href="https://maps.app.goo.gl/Rp8foy6VvnwMxZxr5"
+              href="https://maps.google.com"
               target="_blank"
               rel="noreferrer"
               className={styles.location}
               aria-label="Abrir endereço no Google Maps em uma nova aba"
             >
-              Rua Clara Petrela, 113, São Paulo, SP, Brazil, 03978-500
+              Av. da Comunidade, 1000, São Paulo, SP, Brasil, 01000-000
             </a>
           </li>
           <li>
@@ -56,18 +56,18 @@ function Contact() {
         <div className={styles.social}>
           <InstagramIcon
             as="a"
-            href="https://instagram.com/ceu.rosadachina"
+            href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Acessar Instagram CEU Rosa da China"
+            aria-label="Acessar Instagram do Centro Cultural Comunitário"
           />
 
           <FacebookIcon
             as="a"
-            href="https://www.facebook.com/ceurosachina"
+            href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Acessar página do Facebook CEU Rosa da China"
+            aria-label="Acessar página do Facebook do Centro Cultural Comunitário"
           />
         </div>
       </section>

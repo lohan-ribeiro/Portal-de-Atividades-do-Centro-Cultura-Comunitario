@@ -1,4 +1,4 @@
-import logo from "../../assets/img/CEU_navbar.png"
+import logo from "../../assets/img/logo_navbar.png"
 import { NavLink } from "react-router-dom"
 import { useAuth } from "../../context/AuthContext"
 
@@ -12,7 +12,7 @@ function NavBar(){
             <nav aria-label="Navegação principal" className= {styles.navbar}>
                 
                 <NavLink to="/" aria-label="Voltar para página inicial">
-                    <img src={logo} alt="CEU Rosa da China" className={styles.logo} />
+                    <img src={logo} alt="Centro Cultural Comunitário" className={styles.logo} />
                 </NavLink>
                 
                 <ul className={styles.list}>

@@ -5,7 +5,7 @@ const Card = () => {
     <StyledWrapper>
       <div className="card">
         <a
-          href="https://instagram.com/ceu.rosadachina"
+          href="https://instagram.com"
           target="_blank"
           rel="noreferrer"
           aria-label="Instagram"
@@ -17,7 +17,7 @@ const Card = () => {
         </a>
 
         <a
-          href="https://www.facebook.com/ceurosachina"
+          href="https://facebook.com"
           target="_blank"
           rel="noreferrer"
           aria-label="Facebook"

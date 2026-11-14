@@ -14,7 +14,7 @@ const FormContact = () => {
     const [emailError, setEmailErro] = useState("");
     
 
-    /* Função para enviar um e-mail ao CEU após a validação do endereço de e-mail */
+    /* Função para enviar um e-mail ao Centro Cultural após a validação do endereço de e-mail */
     const sendEmail = (e) => {
         e.preventDefault();
 

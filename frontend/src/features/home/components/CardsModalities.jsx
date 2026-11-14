@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 import styles from "./CardsModalities.module.css"
 
-//cards com as atividades do CEU rosa da china
+//cards com as atividades do Centro Cultural Comunitário
 function CardsActivities ({activity}){
     if(!activity) return null;
 

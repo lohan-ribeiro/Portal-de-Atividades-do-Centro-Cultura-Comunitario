@@ -16,7 +16,7 @@ const NotFound = () => {
           <h1 className={styles.glitchTitle}>404</h1>
           <h2 className={styles.subtitle}>A página foi para o espaço 🚀 </h2>
           <p className={styles.description}>
-            Parece que você se aventurou além dos limites do CEU, mas
+            Parece que você se aventurou além dos limites do Centro Cultural, mas
             não se preocupe, ainda estamos aqui!
           </p>
           <div className={styles.actionArea}>

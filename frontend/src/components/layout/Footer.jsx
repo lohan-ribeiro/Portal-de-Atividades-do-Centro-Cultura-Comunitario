@@ -1,4 +1,4 @@
-import logo from "../../assets/img/CEU_footer.png"
+import logo from "../../assets/img/logo_footer.png"
 import Social from "../../components/IconsAnimated/SocialFooter"
 
 import { NavLink } from "react-router-dom"
@@ -14,27 +14,27 @@ function Footer() {
             <NavLink to="/" aria-label="Voltar para página inicial">
               <img
                 src={logo}
-                alt="CEU Rosa da China"
+                alt="Centro Cultural Comunitário"
                 className={styles.logo_ceu}
               />
             </NavLink>
-            <section aria-label="Informações de contato do CEU Rosa da China">
+            <section aria-label="Informações de contato do Centro Cultural Comunitário">
               <ul className={styles.contact} >
-                <li><span>Telefone:</span>{" "} (11) 2701-2358</li>
+                <li><span>Telefone:</span>{" "} (11) 3000-0000</li>
                 <li><span>Endereço:</span>{" "}
-                  <a href="https://maps.app.goo.gl/Rp8foy6VvnwMxZxr5" target="_blank" rel="noreferrer">
-                    Rua Clara Petrela, 113, São Paulo, SP, Brazil, 03978-500
+                  <a href="https://maps.google.com" target="_blank" rel="noreferrer">
+                    Av. da Comunidade, 1000, São Paulo, SP, Brasil, 01000-000
                   </a>
                 </li>
                 <li><span>E-mail:</span>{" "} 
-                  <a href="mailto:atendimentoceurosadachina@gmail.com" className={styles.email}>
-                    atendimentoceurosadachina@gmail.com
+                  <a href="mailto:contato@centroculturalcomunitario.org" className={styles.email}>
+                    contato@centroculturalcomunitario.org
                   </a>
                 </li>
               </ul>
             </section>
           </div>
-          <section aria-label="Redes socias do CEU Rosa da China">
+          <section aria-label="Redes sociais do Centro Cultural Comunitário">
             <div className={styles.social}>
               <p>Siga-nos:</p>
               <div className={styles.social_icons}>

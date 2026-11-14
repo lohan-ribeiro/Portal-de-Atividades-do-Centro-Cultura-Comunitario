@@ -5,7 +5,7 @@ module.exports = function verifyApiKey(req, res, next) {
   const apiKey = req.header('X-API-Key');
   
   // Em produção, você pode definir isso em um arquivo .env
-  const validApiKey = process.env.API_KEY_TERCEIROS || 'doHcKoFNSXBQSH5YuGKRll13Y4U9Ypm9lXbkXwYsuPPnT2tn9MBhi0TsWsAumIun';
+  const validApiKey = process.env.API_KEY_TERCEIROS || 'chave-api-demonstrativa-12345';
   
   if (!apiKey || apiKey !== validApiKey) {
     return res.status(401).json({
