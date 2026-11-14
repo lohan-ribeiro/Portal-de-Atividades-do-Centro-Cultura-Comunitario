@@ -1,23 +1,41 @@
 
-# Portal de Atividades do CEU Rosa da China
+# Portal de Atividades do Centro Cultura Comunitário
 
-Sistema web para visualização das atividades gratuitas do CEU Rosa da China.
+Aplicação web para visualização das atividades gratuitas do Centro Cultura Comunitário.
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
 ![EmailJS](https://img.shields.io/badge/EmailJS-FFB000?style=for-the-badge)
 ![Google Maps](https://img.shields.io/badge/Google%20Maps%20API-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white)
+<br><br/>
 
----
+>Nota: Este projeto foi desenvolvido como estudo de caso e proposta de interface para divulgação de atividades culturais e educacionais gratuitas. Todos os dados, nomes e contatos presentes nesta versão são puramente fictícios para fins de portfólio.
 
 ## Visão Geral
 
-Este é o portal do CEU Rosa da China, um espaço digital criado para que a comunidade possa se informar e se inscrever nas diversas atividades gratuitas que oferecemos. O objetivo deste projeto é facilitar o acesso à informação, centralizando em um único lugar todas as atividades disponíveis, com filtros e buscas que tornam a navegação mais ágil e intuitiva.
+Este é o portal do Centro Cultura Comunitário, um espaço digital criado para que a comunidade possa se informar e se inscrever nas diversas atividades gratuitas que oferecemos. O objetivo deste projeto é facilitar o acesso à informação, centralizando em um único lugar todas as atividades disponíveis, com filtros e buscas que tornam a navegação mais ágil e intuitiva.
 
 A aplicação foi estruturada com frontend e backend separados, permitindo que a interface e a lógica do sistema evoluam de forma independente, facilitando a manutenção e a adição de novas funcionalidades.
 
----
+subir o readme pro gitlab sem a parte de arquitetura.
+subir pro github a versao com dados ficticios.
+
+## Arquitetura Cliente-Servidor Monolítica
+
+![Arquitetura do Projeto](docs/web-app-architecture_theme_black.drawio.png)
+
+<p align="center">
+    <em>Arquitetura desenvolvida utilizando Draw.io</em>
+</p>
+
+A aplicação web segue uma arquitetura **Cliente-Servidor Monolítica**, organizada em três camadas bem definidas: **Frontend**, **Backend** e **Banco de Dados**, com integração a serviços externos.
+
+O **frontend** é uma SPA (*Single Page Application*) desenvolvida com **React**, utilizando **JavaScript (ES6+)**, **HTML5**, **CSS3** e **Styled Components** para estilização dinâmica. A busca inteligente é provida pelo **Fuse.js** (busca fuzzy), e validações de entrada são realizadas com **Regex**. A comunicação com serviços externos inclui o **Google Maps API** (para exibição e interação com mapas) e o **EmailJS** (para envio de e-mails diretamente pelo cliente).
+
+O **backend** é construído sobre **Node.js** com o framework **Express.js**, expondo uma API REST para o frontend. O middleware **CORS** controla o acesso entre origens distintas, e o **Bcrypt** garante o armazenamento seguro de senhas via hashing. Validações adicionais no servidor também utilizam **Regex**.
+
+Os dados são persistidos em um banco de dados relacional **MariaDB**, acessado pelo backend via queries SQL.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -47,12 +65,17 @@ A aplicação foi estruturada com frontend e backend separados, permitindo que a
 
 ## ⚙️ Funcionalidades
 
--  Busca inteligente de atividades com base em palavras-chave
--  Filtro de atividades por diferentes critérios
--  Visualização em mapa interativo
--  Envio de formulário para contato
--  Validação de e-mail no frontend
--  Interface dinâmica com renderização condicional de componentes
+-  Busca inteligente de atividades com base em palavras-chave com FuseJS;
+-  Filtro de atividades por diferentes critérios;
+-  Integração com Google Maps API para visualização de mapa interativo;
+-  Integração com EmailJS para envio de formulário de contato;
+-  Validação de endereço de e-mail com Regex no frontend;
+-  Interface dinâmica com renderização condicional de componentes;
+- Operações CRUD de atividades por meio de API;
+- Sistema de autenticação para administradores;
+- Verificação de permissões e autenticação de usuários; 
+- Proteção de rotas privadas e controle de acesso administrativo;
+- Testes automatizados e integração contínua (CI/CD).
 
 
 ## 📚 Estrutura do Projeto
@@ -65,10 +88,13 @@ Responsável pela interface do usuário, desenvolvido com React.
 
 Principais diretórios:
 - `assets/` → Imagens e arquivos estáticos
-- `components/` → Componentes reutilizáveis da interface
+- `components/` → Componentes genéricos
+- `context/` → Gerenciamento de autenticação
+- `features/` → Funcionalidades do sistema
 - `pages/` → Páginas da aplicação
 - `routes/` → Rotas para as páginas
-
+- `services/` → Comunicação com a API interna
+- `utils/` → Funções genéricas
 ---
 
 ### ⚙️ Backend
@@ -84,21 +110,7 @@ Principais diretórios:
     - `test-db.js` → Script para testar a conexão com o banco  
 
 - `app/` → Contém a lógica principal da aplicação  
-
-
-## 🔐 Variáveis de Ambiente
-
-Este projeto utiliza APIs externas e requer chaves de acesso (API Keys).
-
-Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
-
-```env
-VITE_EMAILJS_SERVICE_ID=ID_SERVICE_AQUI
-VITE_EMAILJS_TEMPLATE_ID=ID_TEMPLATE_AQUI
-VITE_EMAILJS_PUBLIC_KEY=CHAVE_API_AQUI
-
-VITE_GOOGLE_MAPS_API_KEY=CHAVE_API_AQUI
-```
+---
 
 ## 🔧 Como Executar
 
@@ -106,54 +118,60 @@ Para executar o projeto em sua máquina local, siga os passos abaixo.
 
 ### Pré-requisitos
 
-- **IDE:** Recomendado o uso do VS Code  
-- **Node.js:** Versão LTS recomendada (>= 18)  
-- **Banco de Dados:** MariaDB ou MySQL
+- **IDE:** Recomendado o uso do VS Code;
+- **Node.js:** Versão LTS recomendada (>= 18);
+- **Banco de Dados:** MariaDB ou MySQL.
 
-### 1. Configurar o Banco de Dados
+### 1. Clonar o repositório
 
-- Configurações de segurança do MariaDB
-    - Isso irá tornar a instalação do MariaDB mais segura ao adicionar uma senha à conta `root`, remover acesso a usuários anônimos, etc.
-       Use o comando:
-		```bash
-		sudo mariadb-secure-installation
-		```
-		Será feita uma série de perguntas. Geralmente é seguro responder sim ("Y") para todas elas.
-- Criação do Banco de Dados e Usuário(s)
-    - Autentique-se com o usuário `root` no  MariaDB, utilizando a senha configurada no passo anterior:
-        ```bash
-        sudo mariadb -u root -p
-        ```
-    - Crie o banco de dados:
-        ```sql
-        CREATE DATABASE ceu;
-    - Crie o novo usuário e conceda os privilégios necessários:
-        ```sql
-        CREATE USER 'projeto'@'localhost' IDENTIFIED BY 'senha';
-        GRANT ALL PRIVILEGES ON ceu.* TO 'projeto'@'localhost';
-        FLUSH PRIVILEGES;
-        ```
-    - Saia do MariaDB
-        ```sql
-        EXIT;
-        ```
-    - Rode o script do banco de dados:
-        ```bash
-        sudo mariadb -u projeto -p ceu < projeto_db.sql
-        ```
-    - Autentique-se novamente com o usuário `projeto` e visualize as tabelas
-        ```bash
-        sudo mariadb -u projeto -p ceu
-        ```
-        ```sql
-        SHOW TABLES;
-        ```
-    - Para verificar os registros execute:
-        ```sql
-        SELECT * FROM nome_da_tabela;
-        ```
+```bash
+git clone https://github.com/lohan-ribeiro/nome do repositorio
+```
 
-### 2. Iniciar o Backend
+### 2. Configurar o Banco de Dados
+
+#### Configurações de segurança do MariaDB
+- Isso irá tornar a instalação do MariaDB mais segura ao adicionar uma senha à conta `root`, remover acesso a usuários anônimos, etc.
+    Use o comando:
+    ```bash
+    sudo mariadb-secure-installation
+    ```
+    Será feita uma série de perguntas. Geralmente é seguro responder sim ("Y") para todas elas.
+#### Criação do Banco de Dados e Usuário(s)
+- Autentique-se com o usuário `root` no  MariaDB, utilizando a senha configurada no passo anterior:
+    ```bash
+    sudo mariadb -u root -p
+    ```
+- Crie o banco de dados:
+    ```sql
+    CREATE DATABASE ceu;
+- Crie o novo usuário e conceda os privilégios necessários:
+    ```sql
+    CREATE USER 'projeto'@'localhost' IDENTIFIED BY 'senha';
+    GRANT ALL PRIVILEGES ON ceu.* TO 'projeto'@'localhost';
+    FLUSH PRIVILEGES;
+    ```
+- Saia do MariaDB
+    ```sql
+    EXIT;
+    ```
+- Rode o script do banco de dados:
+    ```bash
+    sudo mariadb -u projeto -p ceu < projeto_db.sql
+    ```
+- Autentique-se novamente com o usuário `projeto` e visualize as tabelas
+    ```bash
+    sudo mariadb -u projeto -p ceu
+    ```
+    ```sql
+    SHOW TABLES;
+    ```
+- Para verificar os registros execute:
+    ```sql
+    SELECT * FROM nome_da_tabela;
+    ```
+
+### 3. Iniciar o Backend
 
 Abra um terminal e navegue até a pasta do `backend`:
 
@@ -172,11 +190,27 @@ Abra um segundo terminal e navegue até a pasta do `frontend`:
 ```bash
 cd frontend
 npm install
-npm run dev
+npm start
 ```
 
 O site estará acessível em `http://localhost:5173`.
 
+> Nota: Caso a porta configurada já esteja sendo utilizada por outra aplicação local, verifique no terminal a porta e o endereço (URL) disponibilizados para acessar a aplicação.
+<br><br/>
+
+## 🔐 Variáveis de Ambiente
+
+Este projeto utiliza APIs externas e requer chaves de acesso (API Keys).
+
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+
+```env
+VITE_EMAILJS_SERVICE_ID=ID_SERVICE_AQUI
+VITE_EMAILJS_TEMPLATE_ID=ID_TEMPLATE_AQUI
+VITE_EMAILJS_PUBLIC_KEY=CHAVE_API_AQUI
+
+VITE_GOOGLE_MAPS_API_KEY=CHAVE_API_AQUI
+```
 ---
 
 ## 📝 Licença
@@ -184,10 +218,11 @@ O site estará acessível em `http://localhost:5173`.
 Esse projeto está sob licença apache. Veja o arquivo [LICENÇA](https://gitlab.com/grupo-pi-ii/projeto-integrador-ii/-/blob/main/LICENSE?ref_type=heads) para mais detalhes.
 
 
-## 📚 Saiba mais
+## 📚 Saiba Mais
 
 Quer entender melhor como o projeto foi desenvolvido? Confira a documentação abaixo:
 
+- [Relatório do projeto](docs/Relatorio%20final%20-%20PI3%20%20-%20formatado%20-%20V4.pdf) 
 - [Repositório do Backend](https://gitlab.com/grupo-pi-ii/projeto-integrador-ii/-/tree/main/backend?ref_type=heads)
 - [Repositório do Frontend](https://gitlab.com/grupo-pi-ii/projeto-integrador-ii/-/tree/main/frontend?ref_type=heads)
 - [Documentação da API React Google Maps](https://visgl.github.io/react-google-maps/docs)
