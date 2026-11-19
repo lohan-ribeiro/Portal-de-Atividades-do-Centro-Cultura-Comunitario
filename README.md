@@ -254,8 +254,8 @@ VITE_GOOGLE_MAPS_API_KEY=CHAVE_API_AQUI
 
   <tr>
     <td align="center">
-      <a href="">
-        <img src="https://github.com/identicons/lucas.png" width="100px" style="border-radius: 50%;">
+      <a href="https://github.com/Lucas-Fraga">
+        <img src="https://github.com/Lucas-Fraga.png" width="100px" style="border-radius: 50%;">
         <br>
         <sub><b>Lucas Sousa Fraga</b></sub>
       </a>
